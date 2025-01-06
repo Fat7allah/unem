@@ -1,114 +1,162 @@
-{% extends "templates/web.html" %}
+{% extends "templates/base.html" %}
 
-{% block title %}UNEM{% endblock %}
+{% block title %}UNEM - Home{% endblock %}
 
-{% block page_content %}
-<div class="container py-4">
-    <h1 class="mb-4" style="font-size: 48px; font-weight: 300;">UNEM</h1>
+{% block header %}
+<div class="page-header">
+    <div class="container">
+        <h1>Welcome to UNEM Portal</h1>
+        <p class="lead">Manage members, structures, and finances efficiently</p>
+    </div>
+</div>
+{% endblock %}
 
-    <p class="lead mb-5">This is UNEM Portal auto-generated from ERPNext</p>
-
-    <div class="publications">
-        <h2 class="mb-4">Publications</h2>
-
-        <div class="welcome-card mb-4">
-            <a href="/portal/members" class="no-decoration">Members</a>
-            <p class="text-muted small">By administrator</p>
+{% block content %}
+<div class="row g-4">
+    <!-- Members Management -->
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <i class="fas fa-users text-primary me-2"></i>
+                    Members Management
+                </h5>
+                <p class="card-text">Manage member information, registrations, and membership cards.</p>
+                <div class="mt-3">
+                    <a href="/members" class="btn btn-custom">View Members</a>
+                    <a href="/members/new" class="btn btn-outline-primary ms-2">Add Member</a>
+                </div>
+            </div>
         </div>
+    </div>
 
-        <div class="welcome-card mb-4">
-            <a href="/portal/membership-cards" class="no-decoration">Membership Cards</a>
-            <p class="text-muted small">By administrator</p>
+    <!-- UNEM Structure -->
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <i class="fas fa-sitemap text-success me-2"></i>
+                    UNEM Structure
+                </h5>
+                <p class="card-text">View and manage UNEM organizational structure and hierarchy.</p>
+                <div class="mt-3">
+                    <a href="/unem-structure" class="btn btn-custom">View Structure</a>
+                </div>
+            </div>
         </div>
+    </div>
 
-        <div class="welcome-card mb-4">
-            <a href="/portal/unem-structure" class="no-decoration">UNEM Structure</a>
-            <p class="text-muted small">By administrator</p>
+    <!-- Mutual Structure -->
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <i class="fas fa-handshake text-info me-2"></i>
+                    Mutual Structure
+                </h5>
+                <p class="card-text">Manage mutual support structure and relationships.</p>
+                <div class="mt-3">
+                    <a href="/mutual-structure" class="btn btn-custom">View Structure</a>
+                </div>
+            </div>
         </div>
+    </div>
 
-        <div class="welcome-card mb-4">
-            <a href="/portal/mutual-structure" class="no-decoration">Mutual Structure</a>
-            <p class="text-muted small">By administrator</p>
+    <!-- Financial Management -->
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <i class="fas fa-money-bill-wave text-warning me-2"></i>
+                    Financial Management
+                </h5>
+                <p class="card-text">Track income, expenses, and manage financial records.</p>
+                <div class="mt-3">
+                    <a href="/income" class="btn btn-custom">Income</a>
+                    <a href="/expense" class="btn btn-outline-primary ms-2">Expense</a>
+                </div>
+            </div>
         </div>
+    </div>
 
-        <div class="welcome-card mb-4">
-            <a href="/portal/income" class="no-decoration">Income Entries</a>
-            <p class="text-muted small">By administrator</p>
+    <!-- Membership Cards -->
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <i class="fas fa-id-card text-danger me-2"></i>
+                    Membership Cards
+                </h5>
+                <p class="card-text">Generate and manage membership cards for UNEM members.</p>
+                <div class="mt-3">
+                    <a href="/membership-cards" class="btn btn-custom">View Cards</a>
+                </div>
+            </div>
         </div>
+    </div>
 
-        <div class="welcome-card mb-4">
-            <a href="/portal/expense" class="no-decoration">Expense Entries</a>
-            <p class="text-muted small">By administrator</p>
+    <!-- Reports -->
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <i class="fas fa-chart-bar text-primary me-2"></i>
+                    Reports & Analytics
+                </h5>
+                <p class="card-text">View detailed reports and analytics about members and finances.</p>
+                <div class="mt-3">
+                    <a href="/reports" class="btn btn-custom">View Reports</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<style>
-body {
-    line-height: 1.5;
-    color: #1f272e;
-}
+<!-- Quick Stats Section -->
+<div class="row mt-5">
+    <div class="col-12">
+        <h3 class="mb-4">Quick Statistics</h3>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-primary text-white">
+            <div class="card-body">
+                <h6 class="card-title">Total Members</h6>
+                <h3 class="card-text">{{ stats.total_members }}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-success text-white">
+            <div class="card-body">
+                <h6 class="card-title">Active Cards</h6>
+                <h3 class="card-text">{{ stats.active_cards }}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-info text-white">
+            <div class="card-body">
+                <h6 class="card-title">Total Income</h6>
+                <h3 class="card-text">{{ stats.total_income }}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-warning text-white">
+            <div class="card-body">
+                <h6 class="card-title">Total Expense</h6>
+                <h3 class="card-text">{{ stats.total_expense }}</h3>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-h1 {
-    color: #1f272e;
-    margin-bottom: 1rem;
-}
-
-.lead {
-    font-size: 1.2rem;
-    color: #505a62;
-}
-
-.publications h2 {
-    font-size: 1.5rem;
-    font-weight: 500;
-    color: #1f272e;
-}
-
-.welcome-card {
-    padding: 0.5rem 0;
-}
-
-.welcome-card a {
-    color: #2490ef;
-    font-size: 1.1rem;
-    font-weight: 500;
-    text-decoration: none;
-}
-
-.welcome-card a:hover {
-    text-decoration: underline;
-}
-
-.text-muted {
-    color: #687178;
-}
-
-.small {
-    font-size: 0.875rem;
-}
-
-.mb-4 {
-    margin-bottom: 1.5rem;
-}
-
-.mb-5 {
-    margin-bottom: 3rem;
-}
-
-.py-4 {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-}
-
-.no-decoration {
-    text-decoration: none;
-}
-</style>
+{% block custom_script %}
+<script>
+    // Add any custom JavaScript for the home page here
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize any components or fetch data if needed
+    });
+</script>
 {% endblock %}
