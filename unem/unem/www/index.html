@@ -1,158 +1,151 @@
-{% extends "templates/portal_base.html" %}
+{% extends "templates/web.html" %}
 
-{% block portal_title %}Dashboard{% endblock %}
-
-{% block portal_content %}
-<div class="row">
-    <!-- Member Management Section -->
-    <div class="col-md-4">
-        <div class="dashboard-section">
-            <h3><i class="fa fa-users"></i> Member Management</h3>
-            <div class="dashboard-stats">
-                <div class="stat-item">
-                    <span class="stat-label">Total Members</span>
-                    <span class="stat-value">{{ member_count }}</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-label">Active Cards</span>
-                    <span class="stat-value">{{ active_cards }}</span>
-                </div>
-            </div>
-            <div class="dashboard-actions">
-                <a href="/portal/members/new" class="btn btn-primary btn-sm">New Member</a>
-                <a href="/portal/membership-cards/new" class="btn btn-default btn-sm">New Card</a>
-            </div>
-        </div>
+{% block page_content %}
+<div class="container">
+    <div class="hero-content">
+        <h1 class="hero-title">UNEM</h1>
+        <p class="lead">Manage your organization efficiently with UNEM Portal</p>
+        <a href="#explore" class="btn btn-primary">Explore</a>
     </div>
 
-    <!-- Organization Section -->
-    <div class="col-md-4">
-        <div class="dashboard-section">
-            <h3><i class="fa fa-sitemap"></i> Organization</h3>
-            <div class="dashboard-stats">
-                <div class="stat-item">
-                    <span class="stat-label">UNEM Units</span>
-                    <span class="stat-value">{{ unem_units }}</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-label">Mutual Units</span>
-                    <span class="stat-value">{{ mutual_units }}</span>
-                </div>
-            </div>
-            <div class="dashboard-actions">
-                <a href="/portal/unem-structure/new" class="btn btn-primary btn-sm">New UNEM Unit</a>
-                <a href="/portal/mutual-structure/new" class="btn btn-default btn-sm">New Mutual Unit</a>
-            </div>
+    <section id="explore" class="publications-section">
+        <h2>Publications</h2>
+        
+        <!-- Member Management -->
+        <div class="publication-item">
+            <h3>Member Management</h3>
+            <ul class="publication-list">
+                <li>
+                    <a href="/portal/members">Members</a>
+                    <p class="text-muted">By {{ frappe.session.user }}</p>
+                </li>
+                <li>
+                    <a href="/portal/membership-cards">Membership Cards</a>
+                    <p class="text-muted">By {{ frappe.session.user }}</p>
+                </li>
+            </ul>
         </div>
-    </div>
 
-    <!-- Financial Section -->
-    <div class="col-md-4">
-        <div class="dashboard-section">
-            <h3><i class="fa fa-money"></i> Finance</h3>
-            <div class="dashboard-stats">
-                <div class="stat-item">
-                    <span class="stat-label">Total Income</span>
-                    <span class="stat-value">{{ frappe.format_currency(total_income, currency) }}</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-label">Total Expense</span>
-                    <span class="stat-value">{{ frappe.format_currency(total_expense, currency) }}</span>
-                </div>
-            </div>
-            <div class="dashboard-actions">
-                <a href="/portal/income/new" class="btn btn-success btn-sm">New Income</a>
-                <a href="/portal/expense/new" class="btn btn-danger btn-sm">New Expense</a>
-            </div>
+        <!-- Organization Structure -->
+        <div class="publication-item">
+            <h3>Organization Structure</h3>
+            <ul class="publication-list">
+                <li>
+                    <a href="/portal/unem-structure">UNEM Structure</a>
+                    <p class="text-muted">By {{ frappe.session.user }}</p>
+                </li>
+                <li>
+                    <a href="/portal/mutual-structure">Mutual Structure</a>
+                    <p class="text-muted">By {{ frappe.session.user }}</p>
+                </li>
+            </ul>
         </div>
-    </div>
-</div>
 
-<!-- Recent Activities -->
-<div class="row" style="margin-top: 20px;">
-    <div class="col-md-12">
-        <div class="dashboard-section">
-            <h3><i class="fa fa-clock-o"></i> Recent Activities</h3>
-            <div class="list-view-table">
-                {% if activities %}
-                <div class="list-row list-header">
-                    <div class="list-col" style="width: 20%">Date</div>
-                    <div class="list-col" style="width: 20%">Type</div>
-                    <div class="list-col" style="width: 40%">Description</div>
-                    <div class="list-col" style="width: 20%">User</div>
-                </div>
-                {% for activity in activities %}
-                <div class="list-row">
-                    <div class="list-col" style="width: 20%">{{ frappe.format_date(activity.creation) }}</div>
-                    <div class="list-col" style="width: 20%">
-                        <span class="indicator {{ activity.indicator_color }}"></span>
-                        {{ activity.reference_doctype }}
-                    </div>
-                    <div class="list-col" style="width: 40%">{{ activity.description }}</div>
-                    <div class="list-col" style="width: 20%">{{ activity.owner }}</div>
-                </div>
-                {% endfor %}
-                {% else %}
-                <p class="text-muted">No recent activities</p>
-                {% endif %}
-            </div>
+        <!-- Financial Management -->
+        <div class="publication-item">
+            <h3>Financial Management</h3>
+            <ul class="publication-list">
+                <li>
+                    <a href="/portal/income">Income Entries</a>
+                    <p class="text-muted">By {{ frappe.session.user }}</p>
+                </li>
+                <li>
+                    <a href="/portal/expense">Expense Entries</a>
+                    <p class="text-muted">By {{ frappe.session.user }}</p>
+                </li>
+            </ul>
         </div>
-    </div>
+    </section>
 </div>
 
 <style>
-.dashboard-section {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    height: 100%;
-}
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+    }
 
-.dashboard-section h3 {
-    margin-top: 0;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #e2e8f0;
-    font-size: 1.2em;
-}
+    .hero-content {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
 
-.dashboard-section h3 i {
-    margin-right: 8px;
-}
+    .hero-title {
+        font-size: 3rem;
+        font-weight: 300;
+        margin-bottom: 1rem;
+        color: #1f272e;
+    }
 
-.dashboard-stats {
-    margin-bottom: 20px;
-}
+    .lead {
+        font-size: 1.25rem;
+        color: #4a5568;
+        margin-bottom: 2rem;
+    }
 
-.stat-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid #f0f0f0;
-}
+    .publications-section {
+        margin-top: 2rem;
+    }
 
-.stat-item:last-child {
-    border-bottom: none;
-}
+    .publications-section h2 {
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-bottom: 2rem;
+        color: #2d3748;
+    }
 
-.stat-label {
-    color: #4a5568;
-}
+    .publication-item {
+        margin-bottom: 2rem;
+    }
 
-.stat-value {
-    font-weight: bold;
-    font-size: 1.1em;
-}
+    .publication-item h3 {
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: #2d3748;
+        margin-bottom: 1rem;
+    }
 
-.dashboard-actions {
-    display: flex;
-    gap: 10px;
-}
+    .publication-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
 
-.dashboard-actions .btn {
-    flex: 1;
-}
+    .publication-list li {
+        margin-bottom: 1rem;
+    }
+
+    .publication-list a {
+        color: #2490ef;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .publication-list a:hover {
+        text-decoration: underline;
+    }
+
+    .text-muted {
+        color: #718096;
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+    }
+
+    .btn-primary {
+        background-color: #2490ef;
+        border: none;
+        padding: 0.5rem 1.5rem;
+        border-radius: 0.375rem;
+        color: white;
+        text-decoration: none;
+        display: inline-block;
+        transition: background-color 0.2s;
+    }
+
+    .btn-primary:hover {
+        background-color: #1b7fd9;
+        color: white;
+        text-decoration: none;
+    }
 </style>
 {% endblock %}
