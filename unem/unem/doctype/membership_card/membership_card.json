@@ -1,0 +1,78 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:CARD-{####}",
+ "creation": "2025-01-06 17:31:57.000000",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "member",
+  "membership_date",
+  "expiry_date",
+  "card_number",
+  "card_status"
+ ],
+ "fields": [
+  {
+   "fieldname": "member",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "العضو",
+   "options": "Member",
+   "reqd": 1
+  },
+  {
+   "fieldname": "membership_date",
+   "fieldtype": "Date",
+   "label": "تاريخ الإنخراط",
+   "reqd": 1
+  },
+  {
+   "fieldname": "expiry_date",
+   "fieldtype": "Date",
+   "label": "تاريخ الانتهاء",
+   "reqd": 1
+  },
+  {
+   "fieldname": "card_number",
+   "fieldtype": "Data",
+   "label": "رقم بطاقة الإنخراط",
+   "unique": 1
+  },
+  {
+   "fieldname": "card_status",
+   "fieldtype": "Select",
+   "label": "حالة البطاقة",
+   "options": "المؤداة\nغير المؤداة"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-06 17:31:57.000000",
+ "modified_by": "Administrator",
+ "module": "UNEM",
+ "name": "Membership_Card",
+ "name_case": "Title Case",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

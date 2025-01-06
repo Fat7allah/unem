@@ -1,0 +1,67 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:MSTR-{####}",
+ "creation": "2025-01-06 17:34:35.000000",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "member",
+  "position_type",
+  "role"
+ ],
+ "fields": [
+  {
+   "fieldname": "member",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "العضو",
+   "options": "Member",
+   "reqd": 1
+  },
+  {
+   "fieldname": "position_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "الصفة",
+   "options": "المكتب التنفيذي\nالمجلس الإداري\nالجمع العام\nلجنة المراقبة\nالثلث الخارج"
+  },
+  {
+   "depends_on": "eval:doc.position_type=='المكتب التنفيذي'",
+   "fieldname": "role",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "المنصب",
+   "options": "الرئيس\nنائب الرئيس\nالكاتب العام\nنائب الكاتب العام\nأمين المال\nنائب أمين المال\nمستشار"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-06 17:34:35.000000",
+ "modified_by": "Administrator",
+ "module": "UNEM",
+ "name": "Mutual_Structure",
+ "name_case": "Title Case",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

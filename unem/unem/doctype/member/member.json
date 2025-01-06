@@ -1,0 +1,118 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:MEM-{####}",
+ "creation": "2025-01-06 17:31:57.000000",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "name",
+  "profession",
+  "teaching_specialty",
+  "institution",
+  "education_level",
+  "birth_date",
+  "gender",
+  "role",
+  "phone",
+  "email",
+  "province"
+ ],
+ "fields": [
+  {
+   "fieldname": "name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "الإسم",
+   "reqd": 1
+  },
+  {
+   "fieldname": "profession",
+   "fieldtype": "Select",
+   "label": "المهنة",
+   "options": "التدريس الابتدائي\nالإعدادي\nالتأهيلي\nالمتصرف التربوي\nمتصرف وزارة التربية الوطنية\nمتصرف الأطر المشتركة\nمختص الإدارة و الاقتصاد\nمختص تربوي\nمختص اجتماعي\nمستشار في التوجيه\nمستشار في التخطيط\nمفتش في التوجيه\nمفتش في التخطيط\nممون\nمساعد تربوي\nتقني\nمفتش ابتدائي\nمفتش ثانوي\nطبيب\nمبرز\nاستاذ التعليم العالي\nمحرر\nمفتش المصالح المالية و المادية"
+  },
+  {
+   "depends_on": "eval:doc.profession in ['التدريس الابتدائي', 'الإعدادي', 'التأهيلي']",
+   "fieldname": "teaching_specialty",
+   "fieldtype": "Select",
+   "label": "التخصص",
+   "options": "عربي\nفرنسي\nرياضيات\nأنشطة علمية\nالتربية الاسلامية\nالتربية الفنية\nالفيزياء الكيمياء\nعلوم الارض\nالاعلاميات\nالإنجليزية\nالاجتماعيات والجغرافيا\nالفلسفة"
+  },
+  {
+   "fieldname": "institution",
+   "fieldtype": "Data",
+   "label": "المؤسسة أو الفرع",
+   "reqd": 1
+  },
+  {
+   "fieldname": "education_level",
+   "fieldtype": "Select",
+   "label": "المستوى الدراسي",
+   "options": "بكالوريا\nإجازة\nماستر\nدكتوراة"
+  },
+  {
+   "fieldname": "birth_date",
+   "fieldtype": "Date",
+   "label": "تاريخ الازدياد"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "الجنس",
+   "options": "ذكر\nأنثى"
+  },
+  {
+   "fieldname": "role",
+   "fieldtype": "Select",
+   "label": "المهمة",
+   "options": "الادارة التربوية\nاستاذ\nمعلم\nمتفرغ\nمتصرف\nإطار تربوي\nإطار إجتماعي\nإطار الإدارة والاقتصاد\nمساعد تربوي\nمهندس\nمفتش\nإطار التعليم العالي"
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "الهاتف"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "البريد الإلكتروني",
+   "options": "Email"
+  },
+  {
+   "fieldname": "province",
+   "fieldtype": "Select",
+   "label": "الاقليم",
+   "options": "عمالة طنجة\nعمالة تطوان\nإقليم الفحص أنجرة"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-06 17:31:57.000000",
+ "modified_by": "Administrator",
+ "module": "UNEM",
+ "name": "Member",
+ "name_case": "Title Case",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
