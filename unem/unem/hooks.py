@@ -45,10 +45,20 @@ home_page = "index"
 #   "Role": "home_page"
 # }
 
-# Website Settings
+# Routing
 website_route_rules = [
     {"from_route": "/", "to_route": "index"},
+    {"from_route": "/portal", "to_route": "index"},
 ]
+
+# Website user home page (by function)
+get_website_user_home_page = "unem.utils.get_home_page"
+
+# Default is "frappe.www.index"
+website_context = {
+    "favicon": "/assets/unem/images/favicon.png",
+    "home_page": "index"
+}
 
 # Generators
 # ----------
