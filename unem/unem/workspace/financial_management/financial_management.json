@@ -2,8 +2,66 @@
  "cards": [],
  "category": "Modules",
  "charts": [],
- "content": "{\"type\":\"tab\",\"label\":\"Financial Management\",\"items\":[{\"type\":\"card\",\"label\":\"Income Management\",\"items\":[{\"type\":\"doctype\",\"name\":\"Income_Entry\",\"label\":\"Record Income\"},{\"type\":\"report\",\"name\":\"Income Report\",\"label\":\"Income Report\",\"is_query_report\":true}]},{\"type\":\"card\",\"label\":\"Expense Management\",\"items\":[{\"type\":\"doctype\",\"name\":\"Expense_Entry\",\"label\":\"Record Expense\"},{\"type\":\"report\",\"name\":\"Expense Report\",\"label\":\"Expense Report\",\"is_query_report\":true}]},{\"type\":\"card\",\"label\":\"Reports & Analytics\",\"items\":[{\"type\":\"dashboard\",\"name\":\"Financial Dashboard\",\"label\":\"Financial Dashboard\"},{\"type\":\"report\",\"name\":\"Annual Budget\",\"label\":\"Annual Budget\",\"is_query_report\":true},{\"type\":\"report\",\"name\":\"Cash Flow\",\"label\":\"Cash Flow\",\"is_query_report\":true}]}]}",
- "creation": "2025-01-06 18:24:38.000000",
+ "content": [
+   {
+     "type": "card",
+     "label": "Income Management",
+     "items": [
+       {
+         "type": "doctype",
+         "name": "Income_Entry",
+         "label": "Record Income"
+       },
+       {
+         "type": "report",
+         "name": "Income Report",
+         "label": "Income Report",
+         "is_query_report": true
+       }
+     ]
+   },
+   {
+     "type": "card",
+     "label": "Expense Management",
+     "items": [
+       {
+         "type": "doctype",
+         "name": "Expense_Entry",
+         "label": "Record Expense"
+       },
+       {
+         "type": "report",
+         "name": "Expense Report",
+         "label": "Expense Report",
+         "is_query_report": true
+       }
+     ]
+   },
+   {
+     "type": "card",
+     "label": "Reports & Analytics",
+     "items": [
+       {
+         "type": "dashboard",
+         "name": "Financial Dashboard",
+         "label": "Financial Dashboard"
+       },
+       {
+         "type": "report",
+         "name": "Annual Budget",
+         "label": "Annual Budget",
+         "is_query_report": true
+       },
+       {
+         "type": "report",
+         "name": "Cash Flow",
+         "label": "Cash Flow",
+         "is_query_report": true
+       }
+     ]
+   }
+ ],
+ "creation": "2025-01-06 18:28:28.000000",
  "developer_mode_only": 0,
  "disable_user_customization": 0,
  "docstatus": 0,
@@ -17,7 +75,7 @@
  "is_standard": 1,
  "label": "Financial Management",
  "links": [],
- "modified": "2025-01-06 18:24:38.000000",
+ "modified": "2025-01-06 18:28:28.000000",
  "modified_by": "Administrator",
  "module": "UNEM",
  "name": "Financial Management",
