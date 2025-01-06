@@ -90,13 +90,22 @@
  "is_standard": 1,
  "label": "الإدارة المالية",
  "links": [],
- "modified": "2025-01-06 17:45:15.000000",
+ "modified": "2025-01-06 17:59:32.000000",
  "modified_by": "Administrator",
  "module": "UNEM",
  "name": "Financial Management",
  "owner": "Administrator",
  "pin_to_bottom": 0,
  "pin_to_top": 0,
+ "restrict_to_domain": "",
+ "roles": [
+   {
+     "role": "UNEM Admin"
+   },
+   {
+     "role": "UNEM Finance Manager"
+   }
+ ],
  "shortcuts": [
   {
    "color": "Green",

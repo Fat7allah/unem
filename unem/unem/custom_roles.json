@@ -1,0 +1,74 @@
+{
+    "roles": [
+        {
+            "role_name": "UNEM Admin",
+            "desk_access": 1,
+            "two_factor_auth": 0,
+            "restrict_to_domain": "",
+            "desk_shortcut": 1,
+            "search_bar": 1,
+            "notifications": 1,
+            "list_sidebar": 1,
+            "bulk_actions": 1,
+            "view_switcher": 1,
+            "form_sidebar": 1,
+            "timeline": 1,
+            "dashboard": 1
+        },
+        {
+            "role_name": "UNEM Member Manager",
+            "desk_access": 1,
+            "two_factor_auth": 0,
+            "desk_shortcut": 1,
+            "search_bar": 1,
+            "notifications": 1,
+            "list_sidebar": 1,
+            "bulk_actions": 1,
+            "view_switcher": 1,
+            "form_sidebar": 1,
+            "timeline": 1,
+            "dashboard": 1
+        },
+        {
+            "role_name": "UNEM Finance Manager",
+            "desk_access": 1,
+            "two_factor_auth": 1,
+            "desk_shortcut": 1,
+            "search_bar": 1,
+            "notifications": 1,
+            "list_sidebar": 1,
+            "bulk_actions": 1,
+            "view_switcher": 1,
+            "form_sidebar": 1,
+            "timeline": 1,
+            "dashboard": 1
+        },
+        {
+            "role_name": "UNEM Structure Manager",
+            "desk_access": 1,
+            "two_factor_auth": 0,
+            "desk_shortcut": 1,
+            "search_bar": 1,
+            "notifications": 1,
+            "list_sidebar": 1,
+            "bulk_actions": 1,
+            "view_switcher": 1,
+            "form_sidebar": 1,
+            "timeline": 1,
+            "dashboard": 1
+        },
+        {
+            "role_name": "UNEM User",
+            "desk_access": 1,
+            "two_factor_auth": 0,
+            "desk_shortcut": 1,
+            "search_bar": 1,
+            "notifications": 1,
+            "list_sidebar": 1,
+            "view_switcher": 1,
+            "form_sidebar": 1,
+            "timeline": 1,
+            "dashboard": 1
+        }
+    ]
+}
