@@ -1,9 +1,43 @@
 {
- "cards": [],
+ "cards": [
+  {
+   "hidden": 0,
+   "label": "Income Management",
+   "links": [
+    {
+     "dependencies": "",
+     "doctype": "Income_Entry",
+     "label": "Record Income",
+     "name": "Income_Entry",
+     "onboard": 1,
+     "type": "doctype"
+    }
+   ]
+  },
+  {
+   "hidden": 0,
+   "label": "Expense Management",
+   "links": [
+    {
+     "dependencies": "",
+     "doctype": "Expense_Entry",
+     "label": "Record Expense",
+     "name": "Expense_Entry",
+     "onboard": 1,
+     "type": "doctype"
+    }
+   ]
+  }
+ ],
  "category": "Modules",
- "charts": [],
- "content": "[{\"type\":\"header\",\"data\":{\"label\":\"Financial Management\"}},{\"type\":\"card\",\"data\":{\"label\":\"Income Management\",\"items\":[{\"type\":\"doctype\",\"doctype\":\"Income_Entry\",\"label\":\"Record Income\",\"name\":\"Income_Entry\",\"description\":\"\"},{\"type\":\"report\",\"name\":\"Income Report\",\"label\":\"Income Report\",\"is_query_report\":true,\"doctype\":\"Income_Entry\"}]}},{\"type\":\"card\",\"data\":{\"label\":\"Expense Management\",\"items\":[{\"type\":\"doctype\",\"doctype\":\"Expense_Entry\",\"label\":\"Record Expense\",\"name\":\"Expense_Entry\",\"description\":\"\"},{\"type\":\"report\",\"name\":\"Expense Report\",\"label\":\"Expense Report\",\"is_query_report\":true,\"doctype\":\"Expense_Entry\"}]}},{\"type\":\"card\",\"data\":{\"label\":\"Reports & Analytics\",\"items\":[{\"type\":\"dashboard\",\"name\":\"Financial Dashboard\",\"label\":\"Financial Dashboard\",\"doctype\":\"Dashboard\"},{\"type\":\"report\",\"name\":\"Annual Budget\",\"label\":\"Annual Budget\",\"is_query_report\":true,\"doctype\":\"Income_Entry\"},{\"type\":\"report\",\"name\":\"Cash Flow\",\"label\":\"Cash Flow\",\"is_query_report\":true,\"doctype\":\"Income_Entry\"}]}}]",
- "creation": "2025-01-06 18:30:41.000000",
+ "charts": [
+  {
+   "chart_name": "Income vs Expense",
+   "label": "Income vs Expense"
+  }
+ ],
+ "content": "[{\"id\":\"header_finance\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Finance Management</b></span>\",\"col\":12}},{\"id\":\"income_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Income Entry\",\"col\":3}},{\"id\":\"expense_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Expense Entry\",\"col\":3}},{\"id\":\"spacer_1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"header_reports\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports & Analytics</b></span>\",\"col\":12}},{\"id\":\"card_income\",\"type\":\"card\",\"data\":{\"card_name\":\"Income Management\",\"col\":4}},{\"id\":\"card_expense\",\"type\":\"card\",\"data\":{\"card_name\":\"Expense Management\",\"col\":4}},{\"id\":\"card_reports\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
+ "creation": "2025-01-06 18:46:28.000000",
  "developer_mode_only": 0,
  "disable_user_customization": 0,
  "docstatus": 0,
@@ -16,8 +50,63 @@
  "is_hidden": 0,
  "is_standard": 1,
  "label": "Financial Management",
- "links": [],
- "modified": "2025-01-06 18:30:41.000000",
+ "links": [
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Income Management",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Income Entry",
+   "link_to": "Income_Entry",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Expense Management",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Expense Entry",
+   "link_to": "Expense_Entry",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Reports",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Income vs Expense",
+   "link_to": "Income vs Expense",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2025-01-06 18:46:28.000000",
  "modified_by": "Administrator",
  "module": "UNEM",
  "name": "Financial Management",
