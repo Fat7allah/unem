@@ -7,7 +7,7 @@ def after_install():
         ws = frappe.get_doc('Website Settings')
         
         # Update settings
-        ws.db_set('home_page', 'index')
+        ws.db_set('home_page', 'unem')
         ws.db_set('website_theme', 'Standard')
         
         # Clear cache

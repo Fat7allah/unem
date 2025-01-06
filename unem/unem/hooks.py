@@ -38,19 +38,24 @@ app_license = "MIT"
 # ----------
 
 # application home page (will override Website Settings)
-home_page = "index"
+home_page = "unem"
 
 # website user home page (by Role)
 role_home_page = {
-    "Guest": "index",
-    "System Manager": "index",
-    "All": "index"
+    "Guest": "unem",
+    "System Manager": "unem",
+    "All": "unem"
 }
 
 # Routing
 website_route_rules = [
-    {"from_route": "/", "to_route": "index"},
+    {"from_route": "/", "to_route": "unem"},
 ]
+
+# Website Settings
+website_context = {
+    "home_page": "unem"
+}
 
 # Installation
 after_install = "unem.setup.landing_page.after_install"
