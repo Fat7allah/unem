@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    {{ include_style('website.bundle.css') }}
+    {{ include_style('frappe-web.bundle.css') }}
+    <style>
+        {% block style %}{% endblock %}
+    </style>
+</head>
+<body>
+    <div class="page-wrap">
+        <div class="page-content">
+            {% block page_content %}{% endblock %}
+        </div>
+    </div>
+    {{ include_script('frappe-web.bundle.js') }}
+    {{ include_script('website.bundle.js') }}
+    {% block script %}{% endblock %}
+</body>
+</html>
