@@ -1,0 +1,154 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<div class="member-portal-container">
+    <div class="row">
+        <div class="col-sm-3 sidebar">
+            <div class="sidebar-item">
+                <a href="/member-portal" class="active">
+                    <i class="fa fa-home"></i> Dashboard
+                </a>
+            </div>
+            <div class="sidebar-item">
+                <a href="/member-portal/profile">
+                    <i class="fa fa-user"></i> My Profile
+                </a>
+            </div>
+            <div class="sidebar-item">
+                <a href="/member-portal/membership">
+                    <i class="fa fa-id-card"></i> Membership Card
+                </a>
+            </div>
+            <div class="sidebar-item">
+                <a href="/member-portal/structure">
+                    <i class="fa fa-sitemap"></i> Structure
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-9 main-content">
+            <h2>Member Dashboard</h2>
+            
+            <!-- Member Information Card -->
+            <div class="info-card">
+                <div class="info-card-header">
+                    <h4>Member Information</h4>
+                </div>
+                <div class="info-card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p><strong>Member ID:</strong> {{ doc.name }}</p>
+                            <p><strong>Full Name:</strong> {{ doc.full_name }}</p>
+                            <p><strong>Email:</strong> {{ doc.email }}</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p><strong>Join Date:</strong> {{ frappe.format_date(doc.creation) }}</p>
+                            <p><strong>Membership Status:</strong> 
+                                <span class="indicator {{ 'green' if doc.enabled else 'red' }}">
+                                    {{ "Active" if doc.enabled else "Inactive" }}
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activities -->
+            <div class="info-card">
+                <div class="info-card-header">
+                    <h4>Recent Activities</h4>
+                </div>
+                <div class="info-card-body">
+                    {% if activities %}
+                    <ul class="list-unstyled">
+                        {% for activity in activities %}
+                        <li class="activity-item">
+                            <i class="fa fa-circle"></i>
+                            <span class="activity-text">{{ activity.description }}</span>
+                            <span class="activity-date">{{ frappe.format_date(activity.creation) }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <p>No recent activities</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.member-portal-container {
+    margin-top: 20px;
+}
+
+.sidebar {
+    background-color: #f8f9fa;
+    min-height: calc(100vh - 60px);
+    padding: 20px 0;
+}
+
+.sidebar-item {
+    padding: 10px 20px;
+}
+
+.sidebar-item a {
+    color: #4a5568;
+    text-decoration: none;
+    display: block;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.sidebar-item a:hover,
+.sidebar-item a.active {
+    background-color: #e2e8f0;
+    color: #2d3748;
+}
+
+.sidebar-item i {
+    margin-right: 8px;
+}
+
+.main-content {
+    padding: 20px;
+}
+
+.info-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.info-card-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.info-card-body {
+    padding: 20px;
+}
+
+.activity-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-item i {
+    font-size: 8px;
+    margin-right: 10px;
+    color: #4299e1;
+}
+
+.activity-date {
+    float: right;
+    color: #718096;
+    font-size: 0.9em;
+}
+</style>
+{% endblock %}

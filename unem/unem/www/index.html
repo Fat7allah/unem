@@ -1,0 +1,59 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<div class="row">
+    <div class="col-sm-12">
+        <h1 class="text-center">Welcome to UNEM Portal</h1>
+        <div class="page-card-container">
+            <div class="row">
+                <!-- Member Portal Card -->
+                <div class="col-sm-6">
+                    <div class="page-card">
+                        <div class="page-card-head">
+                            <span class="indicator blue">Member Portal</span>
+                        </div>
+                        <div class="page-card-body">
+                            <p>Access your member information, update profile, and view membership status.</p>
+                            <a href="/member-portal" class="btn btn-primary btn-block">Go to Member Portal</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Financial Portal Card -->
+                <div class="col-sm-6">
+                    <div class="page-card">
+                        <div class="page-card-head">
+                            <span class="indicator green">Financial Portal</span>
+                        </div>
+                        <div class="page-card-body">
+                            <p>View financial transactions, income, and expense records.</p>
+                            <a href="/financial-portal" class="btn btn-primary btn-block">Go to Financial Portal</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.page-card {
+    max-width: 360px;
+    padding: 15px;
+    margin: 70px auto;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.page-card .page-card-head {
+    padding: 10px 15px;
+    margin: -15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #d1d8dd;
+}
+
+.page-card .btn {
+    margin-top: 30px;
+}
+</style>
+{% endblock %}

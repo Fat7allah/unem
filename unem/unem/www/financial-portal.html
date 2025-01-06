@@ -1,0 +1,223 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<div class="financial-portal-container">
+    <div class="row">
+        <div class="col-sm-3 sidebar">
+            <div class="sidebar-item">
+                <a href="/financial-portal" class="active">
+                    <i class="fa fa-dashboard"></i> Dashboard
+                </a>
+            </div>
+            <div class="sidebar-item">
+                <a href="/financial-portal/income">
+                    <i class="fa fa-arrow-up"></i> Income
+                </a>
+            </div>
+            <div class="sidebar-item">
+                <a href="/financial-portal/expense">
+                    <i class="fa fa-arrow-down"></i> Expense
+                </a>
+            </div>
+            <div class="sidebar-item">
+                <a href="/financial-portal/reports">
+                    <i class="fa fa-file-text"></i> Reports
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-9 main-content">
+            <h2>Financial Dashboard</h2>
+            
+            <!-- Summary Cards -->
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="summary-card income">
+                        <div class="summary-icon">
+                            <i class="fa fa-arrow-up"></i>
+                        </div>
+                        <div class="summary-info">
+                            <h3>Total Income</h3>
+                            <p class="amount">{{ frappe.format_currency(total_income, currency) }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="summary-card expense">
+                        <div class="summary-icon">
+                            <i class="fa fa-arrow-down"></i>
+                        </div>
+                        <div class="summary-info">
+                            <h3>Total Expense</h3>
+                            <p class="amount">{{ frappe.format_currency(total_expense, currency) }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="summary-card balance">
+                        <div class="summary-icon">
+                            <i class="fa fa-balance-scale"></i>
+                        </div>
+                        <div class="summary-info">
+                            <h3>Balance</h3>
+                            <p class="amount">{{ frappe.format_currency(total_income - total_expense, currency) }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Transactions -->
+            <div class="info-card">
+                <div class="info-card-header">
+                    <h4>Recent Transactions</h4>
+                </div>
+                <div class="info-card-body">
+                    {% if transactions %}
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for transaction in transactions %}
+                                <tr>
+                                    <td>{{ frappe.format_date(transaction.date) }}</td>
+                                    <td>
+                                        <span class="indicator {{ 'green' if transaction.type == 'Income' else 'red' }}">
+                                            {{ transaction.type }}
+                                        </span>
+                                    </td>
+                                    <td>{{ transaction.description }}</td>
+                                    <td>{{ frappe.format_currency(transaction.amount, currency) }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% else %}
+                    <p>No recent transactions</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.financial-portal-container {
+    margin-top: 20px;
+}
+
+.sidebar {
+    background-color: #f8f9fa;
+    min-height: calc(100vh - 60px);
+    padding: 20px 0;
+}
+
+.sidebar-item {
+    padding: 10px 20px;
+}
+
+.sidebar-item a {
+    color: #4a5568;
+    text-decoration: none;
+    display: block;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.sidebar-item a:hover,
+.sidebar-item a.active {
+    background-color: #e2e8f0;
+    color: #2d3748;
+}
+
+.sidebar-item i {
+    margin-right: 8px;
+}
+
+.main-content {
+    padding: 20px;
+}
+
+.summary-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.summary-card.income {
+    border-left: 4px solid #48bb78;
+}
+
+.summary-card.expense {
+    border-left: 4px solid #f56565;
+}
+
+.summary-card.balance {
+    border-left: 4px solid #4299e1;
+}
+
+.summary-icon {
+    font-size: 24px;
+    margin-right: 15px;
+}
+
+.summary-card.income .summary-icon {
+    color: #48bb78;
+}
+
+.summary-card.expense .summary-icon {
+    color: #f56565;
+}
+
+.summary-card.balance .summary-icon {
+    color: #4299e1;
+}
+
+.summary-info h3 {
+    margin: 0;
+    font-size: 14px;
+    color: #4a5568;
+}
+
+.summary-info .amount {
+    margin: 5px 0 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.info-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.info-card-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.info-card-body {
+    padding: 20px;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    border-top: none;
+    font-weight: 600;
+}
+</style>
+{% endblock %}
