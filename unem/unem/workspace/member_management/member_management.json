@@ -72,6 +72,48 @@
    "label": "New Members"
   }
  ],
+ "content": [
+  {
+   "label": "Members",
+   "items": [
+    {
+     "label": "Member",
+     "name": "Member",
+     "type": "doctype"
+    },
+    {
+     "label": "Membership Card",
+     "name": "Membership_Card",
+     "type": "doctype"
+    }
+   ]
+  },
+  {
+   "label": "Organization",
+   "items": [
+    {
+     "label": "UNEM Structure",
+     "name": "UNEM_Structure",
+     "type": "doctype"
+    },
+    {
+     "label": "Mutual Structure",
+     "name": "Mutual_Structure",
+     "type": "doctype"
+    }
+   ]
+  },
+  {
+   "label": "Reports",
+   "items": [
+    {
+     "label": "Member Analytics",
+     "name": "Member Analytics",
+     "type": "report"
+    }
+   ]
+  }
+ ],
  "creation": "2025-01-06 18:10:48.000000",
  "developer_mode_only": 0,
  "disable_user_customization": 0,
