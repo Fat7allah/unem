@@ -6,19 +6,23 @@
    "links": [
     {
      "dependencies": "",
-     "doctype": "Member",
+     "hidden": 0,
+     "is_query_report": 0,
      "label": "Member",
-     "name": "Member",
+     "link_to": "Member",
+     "link_type": "DocType",
      "onboard": 1,
-     "type": "doctype"
+     "type": "Link"
     },
     {
      "dependencies": "",
-     "doctype": "Membership_Card",
+     "hidden": 0,
+     "is_query_report": 0,
      "label": "Membership Card",
-     "name": "Membership_Card",
+     "link_to": "Membership_Card",
+     "link_type": "DocType",
      "onboard": 1,
-     "type": "doctype"
+     "type": "Link"
     }
    ]
   },
@@ -28,19 +32,23 @@
    "links": [
     {
      "dependencies": "",
-     "doctype": "UNEM_Structure",
+     "hidden": 0,
+     "is_query_report": 0,
      "label": "UNEM Structure",
-     "name": "UNEM_Structure",
+     "link_to": "UNEM_Structure",
+     "link_type": "DocType",
      "onboard": 0,
-     "type": "doctype"
+     "type": "Link"
     },
     {
      "dependencies": "",
-     "doctype": "Mutual_Structure",
+     "hidden": 0,
+     "is_query_report": 0,
      "label": "Mutual Structure",
-     "name": "Mutual_Structure",
+     "link_to": "Mutual_Structure",
+     "link_type": "DocType",
      "onboard": 0,
-     "type": "doctype"
+     "type": "Link"
     }
    ]
   }
@@ -52,26 +60,21 @@
    "label": "Member Growth"
   }
  ],
- "content": "[{\"id\":\"header_members\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Members</b></span>\",\"col\":12}},{\"id\":\"member_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Member\",\"col\":3}},{\"id\":\"membership_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Membership Card\",\"col\":3}},{\"id\":\"unem_structure_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"UNEM Structure\",\"col\":3}},{\"id\":\"mutual_structure_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Mutual Structure\",\"col\":3}},{\"id\":\"spacer_1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"header_org\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Organization</b></span>\",\"col\":12}},{\"id\":\"card_members\",\"type\":\"card\",\"data\":{\"card_name\":\"Member Management\",\"col\":4}},{\"id\":\"card_org\",\"type\":\"card\",\"data\":{\"card_name\":\"Organization Structure\",\"col\":4}},{\"id\":\"card_reports\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
- "creation": "2025-01-06 18:57:16.000000",
- "developer_mode_only": 0,
- "disable_user_customization": 0,
+ "content": "[{\"id\":\"header_members\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Members</b></span>\",\"col\":12}},{\"id\":\"member_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Member\",\"col\":3}},{\"id\":\"membership_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Membership Card\",\"col\":3}},{\"id\":\"unem_structure_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"UNEM Structure\",\"col\":3}},{\"id\":\"mutual_structure_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Mutual Structure\",\"col\":3}},{\"id\":\"spacer_1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"header_org\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Organization</b></span>\",\"col\":12}},{\"id\":\"card_members\",\"type\":\"card\",\"data\":{\"card_name\":\"Member Management\",\"col\":4}},{\"id\":\"card_org\",\"type\":\"card\",\"data\":{\"card_name\":\"Organization Structure\",\"col\":4}}]",
+ "creation": "2025-01-06 19:15:40.000000",
  "docstatus": 0,
  "doctype": "Workspace",
- "extends_another_page": 0,
  "hide_custom": 0,
  "icon": "users",
  "idx": 0,
- "is_default": 0,
  "is_hidden": 0,
- "is_standard": 1,
  "label": "Member Management",
  "links": [
   {
-   "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Members",
+   "label": "Member Management",
+   "link_count": 0,
    "onboard": 0,
    "type": "Card Break"
   },
@@ -96,10 +99,10 @@
    "type": "Link"
   },
   {
-   "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Organization",
+   "label": "Organization Structure",
+   "link_count": 0,
    "onboard": 0,
    "type": "Card Break"
   },
@@ -122,36 +125,15 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
-  },
-  {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Reports",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 1,
-   "label": "Member Analytics",
-   "link_to": "Member Analytics",
-   "link_type": "Report",
-   "onboard": 0,
-   "type": "Link"
   }
  ],
- "modified": "2025-01-06 18:57:16.000000",
+ "modified": "2025-01-06 19:15:40.000000",
  "modified_by": "Administrator",
  "module": "UNEM",
  "name": "Member Management",
  "owner": "Administrator",
  "parent_page": "",
- "pin_to_bottom": 0,
- "pin_to_top": 0,
  "public": 1,
- "restrict_to_domain": "",
  "roles": [
    {
      "role": "UNEM Admin"
@@ -167,34 +149,26 @@
  "shortcuts": [
   {
    "color": "Grey",
-   "format": "{} new",
-   "label": "New Member",
+   "label": "Member",
    "link_to": "Member",
-   "stats_filter": "[]",
    "type": "DocType"
   },
   {
    "color": "Grey",
-   "format": "{} new",
-   "label": "New Membership Card",
+   "label": "Membership Card",
    "link_to": "Membership_Card",
-   "stats_filter": "[]",
    "type": "DocType"
   },
   {
    "color": "Blue",
-   "format": "{} new",
-   "label": "New UNEM Structure",
+   "label": "UNEM Structure",
    "link_to": "UNEM_Structure",
-   "stats_filter": "[]",
    "type": "DocType"
   },
   {
    "color": "Blue",
-   "format": "{} new",
-   "label": "New Mutual Structure",
+   "label": "Mutual Structure",
    "link_to": "Mutual_Structure",
-   "stats_filter": "[]",
    "type": "DocType"
   }
  ],

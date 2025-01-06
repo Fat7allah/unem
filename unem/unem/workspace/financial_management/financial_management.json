@@ -6,11 +6,13 @@
    "links": [
     {
      "dependencies": "",
-     "doctype": "Income_Entry",
-     "label": "Record Income",
-     "name": "Income_Entry",
+     "hidden": 0,
+     "is_query_report": 0,
+     "label": "Income Entry",
+     "link_to": "Income_Entry",
+     "link_type": "DocType",
      "onboard": 1,
-     "type": "doctype"
+     "type": "Link"
     }
    ]
   },
@@ -20,11 +22,13 @@
    "links": [
     {
      "dependencies": "",
-     "doctype": "Expense_Entry",
-     "label": "Record Expense",
-     "name": "Expense_Entry",
+     "hidden": 0,
+     "is_query_report": 0,
+     "label": "Expense Entry",
+     "link_to": "Expense_Entry",
+     "link_type": "DocType",
      "onboard": 1,
-     "type": "doctype"
+     "type": "Link"
     }
    ]
   }
@@ -36,26 +40,21 @@
    "label": "Income vs Expense"
   }
  ],
- "content": "[{\"id\":\"header_finance\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Finance Management</b></span>\",\"col\":12}},{\"id\":\"income_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Income Entry\",\"col\":3}},{\"id\":\"expense_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Expense Entry\",\"col\":3}},{\"id\":\"spacer_1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"header_reports\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports & Analytics</b></span>\",\"col\":12}},{\"id\":\"card_income\",\"type\":\"card\",\"data\":{\"card_name\":\"Income Management\",\"col\":4}},{\"id\":\"card_expense\",\"type\":\"card\",\"data\":{\"card_name\":\"Expense Management\",\"col\":4}},{\"id\":\"card_reports\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
- "creation": "2025-01-06 18:46:28.000000",
- "developer_mode_only": 0,
- "disable_user_customization": 0,
+ "content": "[{\"id\":\"header_finance\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Finance Management</b></span>\",\"col\":12}},{\"id\":\"income_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Income Entry\",\"col\":3}},{\"id\":\"expense_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Expense Entry\",\"col\":3}},{\"id\":\"spacer_1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"header_reports\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports & Analytics</b></span>\",\"col\":12}},{\"id\":\"card_income\",\"type\":\"card\",\"data\":{\"card_name\":\"Income Management\",\"col\":4}},{\"id\":\"card_expense\",\"type\":\"card\",\"data\":{\"card_name\":\"Expense Management\",\"col\":4}}]",
+ "creation": "2025-01-06 19:15:40.000000",
  "docstatus": 0,
  "doctype": "Workspace",
- "extends_another_page": 0,
  "hide_custom": 0,
  "icon": "accounting",
  "idx": 0,
- "is_default": 0,
  "is_hidden": 0,
- "is_standard": 1,
  "label": "Financial Management",
  "links": [
   {
-   "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
    "label": "Income Management",
+   "link_count": 0,
    "onboard": 0,
    "type": "Card Break"
   },
@@ -70,10 +69,10 @@
    "type": "Link"
   },
   {
-   "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
    "label": "Expense Management",
+   "link_count": 0,
    "onboard": 0,
    "type": "Card Break"
   },
@@ -86,36 +85,15 @@
    "link_type": "DocType",
    "onboard": 1,
    "type": "Link"
-  },
-  {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Reports",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 1,
-   "label": "Income vs Expense",
-   "link_to": "Income vs Expense",
-   "link_type": "Report",
-   "onboard": 0,
-   "type": "Link"
   }
  ],
- "modified": "2025-01-06 18:46:28.000000",
+ "modified": "2025-01-06 19:15:40.000000",
  "modified_by": "Administrator",
  "module": "UNEM",
  "name": "Financial Management",
  "owner": "Administrator",
  "parent_page": "",
- "pin_to_bottom": 0,
- "pin_to_top": 0,
  "public": 1,
- "restrict_to_domain": "",
  "roles": [
    {
      "role": "UNEM Admin"
@@ -128,18 +106,14 @@
  "shortcuts": [
   {
    "color": "Green",
-   "format": "{} new",
-   "label": "New Income Entry",
+   "label": "Income Entry",
    "link_to": "Income_Entry",
-   "stats_filter": "[]",
    "type": "DocType"
   },
   {
    "color": "Red",
-   "format": "{} new",
-   "label": "New Expense Entry",
+   "label": "Expense Entry",
    "link_to": "Expense_Entry",
-   "stats_filter": "[]",
    "type": "DocType"
   }
  ],
