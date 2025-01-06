@@ -2,12 +2,12 @@
  "cards": [
   {
    "hidden": 0,
-   "label": "إدارة الأعضاء",
+   "label": "Member Management",
    "links": [
     {
      "dependencies": "",
      "doctype": "Member",
-     "label": "عضو",
+     "label": "Member",
      "name": "Member",
      "onboard": 1,
      "type": "doctype"
@@ -15,7 +15,7 @@
     {
      "dependencies": "",
      "doctype": "Membership_Card",
-     "label": "بطاقة الإنخراط",
+     "label": "Membership Card",
      "name": "Membership_Card",
      "onboard": 1,
      "type": "doctype"
@@ -24,12 +24,12 @@
   },
   {
    "hidden": 0,
-   "label": "هيكلة المنظمة",
+   "label": "Organization Structure",
    "links": [
     {
      "dependencies": "",
      "doctype": "UNEM_Structure",
-     "label": "هيكلة الجامعة الوطنية للتعليم",
+     "label": "UNEM Structure",
      "name": "UNEM_Structure",
      "onboard": 0,
      "type": "doctype"
@@ -37,7 +37,7 @@
     {
      "dependencies": "",
      "doctype": "Mutual_Structure",
-     "label": "هيكلة التعاضدية",
+     "label": "Mutual Structure",
      "name": "Mutual_Structure",
      "onboard": 0,
      "type": "doctype"
@@ -46,18 +46,18 @@
   },
   {
    "hidden": 0,
-   "label": "التقارير",
+   "label": "Reports",
    "links": [
     {
      "dependencies": "",
-     "label": "تقرير العضوية",
+     "label": "Membership Report",
      "name": "Membership Report",
      "onboard": 0,
      "type": "report"
     },
     {
      "dependencies": "",
-     "label": "تقرير الهيكلة",
+     "label": "Structure Report",
      "name": "Structure Report",
      "onboard": 0,
      "type": "report"
@@ -69,10 +69,10 @@
  "charts": [
   {
    "chart_name": "New Members",
-   "label": "الأعضاء الجدد"
+   "label": "New Members"
   }
  ],
- "creation": "2025-01-06 18:07:19.000000",
+ "creation": "2025-01-06 18:10:48.000000",
  "developer_mode_only": 0,
  "disable_user_customization": 0,
  "docstatus": 0,
@@ -84,12 +84,12 @@
  "is_default": 0,
  "is_hidden": 0,
  "is_standard": 1,
- "label": "إدارة الأعضاء",
+ "label": "Member Management",
  "links": [],
- "modified": "2025-01-06 18:07:19.000000",
+ "modified": "2025-01-06 18:10:48.000000",
  "modified_by": "Administrator",
  "module": "UNEM",
- "name": "Member_Management",
+ "name": "Member Management",
  "owner": "Administrator",
  "parent_page": "",
  "pin_to_bottom": 0,
@@ -112,16 +112,16 @@
  "shortcuts": [
   {
    "color": "Grey",
-   "format": "{} جديد",
-   "label": "عضو جديد",
+   "format": "{} new",
+   "label": "New Member",
    "link_to": "Member",
    "stats_filter": "[]",
    "type": "DocType"
   },
   {
    "color": "Grey",
-   "format": "{} جديدة",
-   "label": "بطاقة إنخراط جديدة",
+   "format": "{} new",
+   "label": "New Membership Card",
    "link_to": "Membership_Card",
    "stats_filter": "[]",
    "type": "DocType"
