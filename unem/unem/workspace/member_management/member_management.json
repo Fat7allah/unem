@@ -43,26 +43,6 @@
      "type": "doctype"
     }
    ]
-  },
-  {
-   "hidden": 0,
-   "label": "Reports",
-   "links": [
-    {
-     "dependencies": "",
-     "label": "Membership Report",
-     "name": "Membership Report",
-     "onboard": 0,
-     "type": "report"
-    },
-    {
-     "dependencies": "",
-     "label": "Structure Report",
-     "name": "Structure Report",
-     "onboard": 0,
-     "type": "report"
-    }
-   ]
   }
  ],
  "category": "Modules",
@@ -72,49 +52,7 @@
    "label": "New Members"
   }
  ],
- "content": [
-  {
-   "label": "Members",
-   "items": [
-    {
-     "label": "Member",
-     "name": "Member",
-     "type": "doctype"
-    },
-    {
-     "label": "Membership Card",
-     "name": "Membership_Card",
-     "type": "doctype"
-    }
-   ]
-  },
-  {
-   "label": "Organization",
-   "items": [
-    {
-     "label": "UNEM Structure",
-     "name": "UNEM_Structure",
-     "type": "doctype"
-    },
-    {
-     "label": "Mutual Structure",
-     "name": "Mutual_Structure",
-     "type": "doctype"
-    }
-   ]
-  },
-  {
-   "label": "Reports",
-   "items": [
-    {
-     "label": "Member Analytics",
-     "name": "Member Analytics",
-     "type": "report"
-    }
-   ]
-  }
- ],
- "creation": "2025-01-06 18:10:48.000000",
+ "creation": "2025-01-06 18:17:09.000000",
  "developer_mode_only": 0,
  "disable_user_customization": 0,
  "docstatus": 0,
@@ -127,8 +65,83 @@
  "is_hidden": 0,
  "is_standard": 1,
  "label": "Member Management",
- "links": [],
- "modified": "2025-01-06 18:10:48.000000",
+ "links": [
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Members",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Member",
+   "link_to": "Member",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Membership Card",
+   "link_to": "Membership_Card",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Organization",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "UNEM Structure",
+   "link_to": "UNEM_Structure",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Mutual Structure",
+   "link_to": "Mutual_Structure",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Reports",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Member Analytics",
+   "link_to": "Member Analytics",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2025-01-06 18:17:09.000000",
  "modified_by": "Administrator",
  "module": "UNEM",
  "name": "Member Management",
@@ -137,7 +150,6 @@
  "pin_to_bottom": 0,
  "pin_to_top": 0,
  "public": 1,
- "quick_lists": [],
  "restrict_to_domain": "",
  "roles": [
    {
