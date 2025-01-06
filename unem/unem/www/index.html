@@ -1,59 +1,158 @@
-{% extends "templates/web.html" %}
+{% extends "templates/portal_base.html" %}
 
-{% block page_content %}
+{% block portal_title %}Dashboard{% endblock %}
+
+{% block portal_content %}
 <div class="row">
-    <div class="col-sm-12">
-        <h1 class="text-center">Welcome to UNEM Portal</h1>
-        <div class="page-card-container">
-            <div class="row">
-                <!-- Member Portal Card -->
-                <div class="col-sm-6">
-                    <div class="page-card">
-                        <div class="page-card-head">
-                            <span class="indicator blue">Member Portal</span>
-                        </div>
-                        <div class="page-card-body">
-                            <p>Access your member information, update profile, and view membership status.</p>
-                            <a href="/member-portal" class="btn btn-primary btn-block">Go to Member Portal</a>
-                        </div>
-                    </div>
+    <!-- Member Management Section -->
+    <div class="col-md-4">
+        <div class="dashboard-section">
+            <h3><i class="fa fa-users"></i> Member Management</h3>
+            <div class="dashboard-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Total Members</span>
+                    <span class="stat-value">{{ member_count }}</span>
                 </div>
-                <!-- Financial Portal Card -->
-                <div class="col-sm-6">
-                    <div class="page-card">
-                        <div class="page-card-head">
-                            <span class="indicator green">Financial Portal</span>
-                        </div>
-                        <div class="page-card-body">
-                            <p>View financial transactions, income, and expense records.</p>
-                            <a href="/financial-portal" class="btn btn-primary btn-block">Go to Financial Portal</a>
-                        </div>
-                    </div>
+                <div class="stat-item">
+                    <span class="stat-label">Active Cards</span>
+                    <span class="stat-value">{{ active_cards }}</span>
                 </div>
+            </div>
+            <div class="dashboard-actions">
+                <a href="/portal/members/new" class="btn btn-primary btn-sm">New Member</a>
+                <a href="/portal/membership-cards/new" class="btn btn-default btn-sm">New Card</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Organization Section -->
+    <div class="col-md-4">
+        <div class="dashboard-section">
+            <h3><i class="fa fa-sitemap"></i> Organization</h3>
+            <div class="dashboard-stats">
+                <div class="stat-item">
+                    <span class="stat-label">UNEM Units</span>
+                    <span class="stat-value">{{ unem_units }}</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Mutual Units</span>
+                    <span class="stat-value">{{ mutual_units }}</span>
+                </div>
+            </div>
+            <div class="dashboard-actions">
+                <a href="/portal/unem-structure/new" class="btn btn-primary btn-sm">New UNEM Unit</a>
+                <a href="/portal/mutual-structure/new" class="btn btn-default btn-sm">New Mutual Unit</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Financial Section -->
+    <div class="col-md-4">
+        <div class="dashboard-section">
+            <h3><i class="fa fa-money"></i> Finance</h3>
+            <div class="dashboard-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Total Income</span>
+                    <span class="stat-value">{{ frappe.format_currency(total_income, currency) }}</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Total Expense</span>
+                    <span class="stat-value">{{ frappe.format_currency(total_expense, currency) }}</span>
+                </div>
+            </div>
+            <div class="dashboard-actions">
+                <a href="/portal/income/new" class="btn btn-success btn-sm">New Income</a>
+                <a href="/portal/expense/new" class="btn btn-danger btn-sm">New Expense</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Activities -->
+<div class="row" style="margin-top: 20px;">
+    <div class="col-md-12">
+        <div class="dashboard-section">
+            <h3><i class="fa fa-clock-o"></i> Recent Activities</h3>
+            <div class="list-view-table">
+                {% if activities %}
+                <div class="list-row list-header">
+                    <div class="list-col" style="width: 20%">Date</div>
+                    <div class="list-col" style="width: 20%">Type</div>
+                    <div class="list-col" style="width: 40%">Description</div>
+                    <div class="list-col" style="width: 20%">User</div>
+                </div>
+                {% for activity in activities %}
+                <div class="list-row">
+                    <div class="list-col" style="width: 20%">{{ frappe.format_date(activity.creation) }}</div>
+                    <div class="list-col" style="width: 20%">
+                        <span class="indicator {{ activity.indicator_color }}"></span>
+                        {{ activity.reference_doctype }}
+                    </div>
+                    <div class="list-col" style="width: 40%">{{ activity.description }}</div>
+                    <div class="list-col" style="width: 20%">{{ activity.owner }}</div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <p class="text-muted">No recent activities</p>
+                {% endif %}
             </div>
         </div>
     </div>
 </div>
 
 <style>
-.page-card {
-    max-width: 360px;
-    padding: 15px;
-    margin: 70px auto;
-    border-radius: 4px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.dashboard-section {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    height: 100%;
 }
 
-.page-card .page-card-head {
-    padding: 10px 15px;
-    margin: -15px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #d1d8dd;
+.dashboard-section h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 1.2em;
 }
 
-.page-card .btn {
-    margin-top: 30px;
+.dashboard-section h3 i {
+    margin-right: 8px;
+}
+
+.dashboard-stats {
+    margin-bottom: 20px;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.stat-item:last-child {
+    border-bottom: none;
+}
+
+.stat-label {
+    color: #4a5568;
+}
+
+.stat-value {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.dashboard-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.dashboard-actions .btn {
+    flex: 1;
 }
 </style>
 {% endblock %}
