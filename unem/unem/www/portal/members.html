@@ -1,0 +1,47 @@
+{% extends "templates/portal_base.html" %}
+
+{% block portal_title %}Members{% endblock %}
+
+{% block portal_content %}
+<div class="action-buttons">
+    <a href="/portal/members/new" class="btn btn-primary">
+        <i class="fa fa-plus"></i> New Member
+    </a>
+</div>
+
+<div class="list-view-table">
+    <div class="list-row list-header">
+        <div class="list-col" style="width: 15%">Member ID</div>
+        <div class="list-col" style="width: 25%">Name</div>
+        <div class="list-col" style="width: 20%">Email</div>
+        <div class="list-col" style="width: 15%">Phone</div>
+        <div class="list-col" style="width: 15%">Status</div>
+        <div class="list-col" style="width: 10%">Actions</div>
+    </div>
+    
+    {% for member in members %}
+    <div class="list-row">
+        <div class="list-col" style="width: 15%">{{ member.name }}</div>
+        <div class="list-col" style="width: 25%">{{ member.full_name }}</div>
+        <div class="list-col" style="width: 20%">{{ member.email }}</div>
+        <div class="list-col" style="width: 15%">{{ member.phone }}</div>
+        <div class="list-col" style="width: 15%">
+            <span class="indicator {{ 'green' if member.enabled else 'red' }}"></span>
+            {{ "Active" if member.enabled else "Inactive" }}
+        </div>
+        <div class="list-col" style="width: 10%">
+            <a href="/portal/members/{{ member.name }}" class="btn btn-sm btn-default">
+                <i class="fa fa-pencil"></i>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% if not members %}
+<div class="no-result text-muted">
+    <p>No members found</p>
+</div>
+{% endif %}
+
+{% endblock %}
