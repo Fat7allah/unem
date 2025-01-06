@@ -1,0 +1,3 @@
+"""
+Income Entry DocType Module
+"""

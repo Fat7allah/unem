@@ -1,0 +1,3 @@
+"""
+Mutual Structure DocType Module
+"""

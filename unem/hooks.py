@@ -32,6 +32,24 @@ app_license = "MIT"
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 
+# DocTypes to be included
+doctype_js = {
+    "Member": "public/js/member.js",
+    "Membership_Card": "public/js/membership_card.js",
+    "UNEM_Structure": "public/js/unem_structure.js",
+    "Mutual_Structure": "public/js/mutual_structure.js",
+    "Income_Entry": "public/js/income_entry.js",
+    "Expense_Entry": "public/js/expense_entry.js"
+}
+
+# Custom Scripts
+doctype_list_js = {
+    "Member": "public/js/member_list.js",
+    "Membership_Card": "public/js/membership_card_list.js",
+    "Income_Entry": "public/js/income_entry_list.js",
+    "Expense_Entry": "public/js/expense_entry_list.js"
+}
+
 # Home Pages
 # ----------
 

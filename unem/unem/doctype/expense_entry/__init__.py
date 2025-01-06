@@ -1,0 +1,3 @@
+"""
+Expense Entry DocType Module
+"""
