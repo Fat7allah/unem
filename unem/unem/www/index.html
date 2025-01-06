@@ -1,151 +1,114 @@
 {% extends "templates/web.html" %}
 
+{% block title %}UNEM{% endblock %}
+
 {% block page_content %}
-<div class="container">
-    <div class="hero-content">
-        <h1 class="hero-title">UNEM</h1>
-        <p class="lead">Manage your organization efficiently with UNEM Portal</p>
-        <a href="#explore" class="btn btn-primary">Explore</a>
+<div class="container py-4">
+    <h1 class="mb-4" style="font-size: 48px; font-weight: 300;">UNEM</h1>
+
+    <p class="lead mb-5">This is UNEM Portal auto-generated from ERPNext</p>
+
+    <div class="publications">
+        <h2 class="mb-4">Publications</h2>
+
+        <div class="welcome-card mb-4">
+            <a href="/members" class="no-decoration">Members</a>
+            <p class="text-muted small">By administrator</p>
+        </div>
+
+        <div class="welcome-card mb-4">
+            <a href="/membership-cards" class="no-decoration">Membership Cards</a>
+            <p class="text-muted small">By administrator</p>
+        </div>
+
+        <div class="welcome-card mb-4">
+            <a href="/unem-structure" class="no-decoration">UNEM Structure</a>
+            <p class="text-muted small">By administrator</p>
+        </div>
+
+        <div class="welcome-card mb-4">
+            <a href="/mutual-structure" class="no-decoration">Mutual Structure</a>
+            <p class="text-muted small">By administrator</p>
+        </div>
+
+        <div class="welcome-card mb-4">
+            <a href="/income" class="no-decoration">Income Entries</a>
+            <p class="text-muted small">By administrator</p>
+        </div>
+
+        <div class="welcome-card mb-4">
+            <a href="/expense" class="no-decoration">Expense Entries</a>
+            <p class="text-muted small">By administrator</p>
+        </div>
     </div>
-
-    <section id="explore" class="publications-section">
-        <h2>Publications</h2>
-        
-        <!-- Member Management -->
-        <div class="publication-item">
-            <h3>Member Management</h3>
-            <ul class="publication-list">
-                <li>
-                    <a href="/portal/members">Members</a>
-                    <p class="text-muted">By {{ frappe.session.user }}</p>
-                </li>
-                <li>
-                    <a href="/portal/membership-cards">Membership Cards</a>
-                    <p class="text-muted">By {{ frappe.session.user }}</p>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Organization Structure -->
-        <div class="publication-item">
-            <h3>Organization Structure</h3>
-            <ul class="publication-list">
-                <li>
-                    <a href="/portal/unem-structure">UNEM Structure</a>
-                    <p class="text-muted">By {{ frappe.session.user }}</p>
-                </li>
-                <li>
-                    <a href="/portal/mutual-structure">Mutual Structure</a>
-                    <p class="text-muted">By {{ frappe.session.user }}</p>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Financial Management -->
-        <div class="publication-item">
-            <h3>Financial Management</h3>
-            <ul class="publication-list">
-                <li>
-                    <a href="/portal/income">Income Entries</a>
-                    <p class="text-muted">By {{ frappe.session.user }}</p>
-                </li>
-                <li>
-                    <a href="/portal/expense">Expense Entries</a>
-                    <p class="text-muted">By {{ frappe.session.user }}</p>
-                </li>
-            </ul>
-        </div>
-    </section>
 </div>
 
 <style>
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 2rem 1rem;
-    }
+body {
+    line-height: 1.5;
+    color: #1f272e;
+}
 
-    .hero-content {
-        text-align: center;
-        margin-bottom: 4rem;
-    }
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
 
-    .hero-title {
-        font-size: 3rem;
-        font-weight: 300;
-        margin-bottom: 1rem;
-        color: #1f272e;
-    }
+h1 {
+    color: #1f272e;
+    margin-bottom: 1rem;
+}
 
-    .lead {
-        font-size: 1.25rem;
-        color: #4a5568;
-        margin-bottom: 2rem;
-    }
+.lead {
+    font-size: 1.2rem;
+    color: #505a62;
+}
 
-    .publications-section {
-        margin-top: 2rem;
-    }
+.publications h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #1f272e;
+}
 
-    .publications-section h2 {
-        font-size: 1.5rem;
-        font-weight: 500;
-        margin-bottom: 2rem;
-        color: #2d3748;
-    }
+.welcome-card {
+    padding: 0.5rem 0;
+}
 
-    .publication-item {
-        margin-bottom: 2rem;
-    }
+.welcome-card a {
+    color: #2490ef;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-decoration: none;
+}
 
-    .publication-item h3 {
-        font-size: 1.25rem;
-        font-weight: 500;
-        color: #2d3748;
-        margin-bottom: 1rem;
-    }
+.welcome-card a:hover {
+    text-decoration: underline;
+}
 
-    .publication-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
+.text-muted {
+    color: #687178;
+}
 
-    .publication-list li {
-        margin-bottom: 1rem;
-    }
+.small {
+    font-size: 0.875rem;
+}
 
-    .publication-list a {
-        color: #2490ef;
-        text-decoration: none;
-        font-weight: 500;
-    }
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
 
-    .publication-list a:hover {
-        text-decoration: underline;
-    }
+.mb-5 {
+    margin-bottom: 3rem;
+}
 
-    .text-muted {
-        color: #718096;
-        font-size: 0.875rem;
-        margin-top: 0.25rem;
-    }
+.py-4 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
 
-    .btn-primary {
-        background-color: #2490ef;
-        border: none;
-        padding: 0.5rem 1.5rem;
-        border-radius: 0.375rem;
-        color: white;
-        text-decoration: none;
-        display: inline-block;
-        transition: background-color 0.2s;
-    }
-
-    .btn-primary:hover {
-        background-color: #1b7fd9;
-        color: white;
-        text-decoration: none;
-    }
+.no-decoration {
+    text-decoration: none;
+}
 </style>
 {% endblock %}
