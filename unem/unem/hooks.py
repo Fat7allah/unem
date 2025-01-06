@@ -50,25 +50,33 @@ role_home_page = {
 # Routing
 website_route_rules = [
     {"from_route": "/", "to_route": "index"},
-    {"from_route": "/portal", "to_route": "index"},
 ]
+
+# Installation
+after_install = "unem.setup.landing_page.after_install"
+
+# Boot Info
+boot_session = "unem.startup.boot.boot_session"
+
+# Override Website Settings
+on_session_creation = "unem.startup.boot.on_session_creation"
 
 # Website user home page (by function)
-get_website_user_home_page = "unem.utils.get_home_page"
+# get_website_user_home_page = "unem.utils.get_home_page"
 
 # Default is "frappe.www.index"
-website_context = {
-    "favicon": "/assets/unem/images/favicon.png",
-    "home_page": "index"
-}
+# website_context = {
+#     "favicon": "/assets/unem/images/favicon.png",
+#     "home_page": "index"
+# }
 
 # Website Redirects
-website_redirects = [
-    {"source": "/", "target": "/index"}
-]
+# website_redirects = [
+#     {"source": "/", "target": "/index"}
+# ]
 
 # Override Frappe's default index
-update_website_context = "unem.utils.update_website_context"
+# update_website_context = "unem.utils.update_website_context"
 
 # Generators
 # ----------
@@ -84,12 +92,6 @@ update_website_context = "unem.utils.update_website_context"
 #   "methods": "unem.utils.jinja_methods",
 #   "filters": "unem.utils.jinja_filters"
 # }
-
-# Installation
-# ------------
-
-# before_install = "unem.install.before_install"
-# after_install = "unem.install.after_install"
 
 # Uninstallation
 # ------------
