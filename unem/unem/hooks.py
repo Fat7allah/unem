@@ -41,9 +41,11 @@ app_license = "MIT"
 home_page = "index"
 
 # website user home page (by Role)
-# role_home_page = {
-#   "Role": "home_page"
-# }
+role_home_page = {
+    "Guest": "index",
+    "System Manager": "index",
+    "All": "index"
+}
 
 # Routing
 website_route_rules = [
@@ -59,6 +61,14 @@ website_context = {
     "favicon": "/assets/unem/images/favicon.png",
     "home_page": "index"
 }
+
+# Website Redirects
+website_redirects = [
+    {"source": "/", "target": "/index"}
+]
+
+# Override Frappe's default index
+update_website_context = "unem.utils.update_website_context"
 
 # Generators
 # ----------
