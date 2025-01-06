@@ -9,78 +9,207 @@ app_license = "MIT"
 # ------------------
 
 # include js, css files in header of desk.html
-app_include_css = "/assets/unem/css/unem.css"
-app_include_js = "/assets/unem/js/unem.js"
+# app_include_css = "/assets/unem/css/unem.css"
+# app_include_js = "/assets/unem/js/unem.js"
 
 # include js, css files in header of web template
-web_include_css = "/assets/unem/css/unem_web.css"
-web_include_js = "/assets/unem/js/unem_web.js"
+# web_include_css = "/assets/unem/css/unem.css"
+# web_include_js = "/assets/unem/js/unem.js"
 
-# Website
-# -------
-website_route_rules = [
-    {"from_route": "/members", "to_route": "Member"},
-    {"from_route": "/members/<path:name>", "to_route": "members",
-        "defaults": {
-            "doctype": "Member",
-            "parents": [{"label": "Members", "route": "members"}]
-        }
-    }
-]
+# include custom scss in every website theme (without file extension ".scss")
+# website_theme_scss = "unem/public/scss/website"
 
-# Portal Menu Items
-portal_menu_items = [
-    {"title": "My Membership", "route": "/my-membership", "reference_doctype": "Member"}
-]
+# include js, css files in header of web form
+# webform_include_js = {"doctype": "public/js/doctype.js"}
+# webform_include_css = {"doctype": "public/css/doctype.css"}
+
+# include js in page
+# page_js = {"page" : "public/js/file.js"}
+
+# include js in doctype views
+# doctype_js = {"doctype" : "public/js/doctype.js"}
+# doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
+# doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
+# doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
+
+# Home Pages
+# ----------
+
+# application home page (will override Website Settings)
+# home_page = "login"
+
+# website user home page (by Role)
+# role_home_page = {
+#	"Role": "home_page"
+# }
+
+# Generators
+# ----------
+
+# automatically create page for each record of this doctype
+# website_generators = ["Web Page"]
+
+# Jinja
+# ----------
+
+# add methods and filters to jinja environment
+# jinja = {
+#	"methods": "unem.utils.jinja_methods",
+#	"filters": "unem.utils.jinja_filters"
+# }
+
+# Installation
+# ------------
+
+# before_install = "unem.install.before_install"
+# after_install = "unem.install.after_install"
+
+# Uninstallation
+# ------------
+
+# before_uninstall = "unem.uninstall.before_uninstall"
+# after_uninstall = "unem.uninstall.after_uninstall"
+
+# Integration Setup
+# ------------------
+# To set up dependencies/integrations with other apps
+# Name of the app being installed is passed as an argument
+
+# before_app_install = "unem.utils.before_app_install"
+# after_app_install = "unem.utils.after_app_install"
+
+# Integration Cleanup
+# -------------------
+# To clean up dependencies/integrations with other apps
+# Name of the app being uninstalled is passed as an argument
+
+# before_app_uninstall = "unem.utils.before_app_uninstall"
+# after_app_uninstall = "unem.utils.after_app_uninstall"
+
+# Desk Notifications
+# ------------------
+# See frappe.core.notifications.get_notification_config
+
+# notification_config = "unem.notifications.get_notification_config"
+
+# Permissions
+# -----------
+# Permissions evaluated in scripted ways
+
+# permission_query_conditions = {
+#	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
+# }
+#
+# has_permission = {
+#	"Event": "frappe.desk.doctype.event.event.has_permission",
+# }
+
+# DocType Class
+# ---------------
+# Override standard doctype classes
+
+# override_doctype_class = {
+#	"ToDo": "custom_app.overrides.CustomToDo"
+# }
 
 # Document Events
-doc_events = {
-    "Member": {
-        "after_insert": "unem.unem.doctype.member.member.after_member_insert",
-        "on_update": "unem.unem.doctype.member.member.on_member_update"
-    }
-}
+# ---------------
+# Hook on document methods and events
+
+# doc_events = {
+#	"*": {
+#		"on_update": "method",
+#		"on_cancel": "method",
+#		"on_trash": "method"
+#	}
+# }
 
 # Scheduled Tasks
-scheduler_events = {
-    "daily": [
-        "unem.tasks.daily",
-    ],
-    "monthly": [
-        "unem.tasks.monthly"
-    ]
-}
+# ---------------
 
-# Translation
-translation_domains = ['unem']
-supported_languages = ["ar", "fr"]
+# scheduler_events = {
+#	"all": [
+#		"unem.tasks.all"
+#	],
+#	"daily": [
+#		"unem.tasks.daily"
+#	],
+#	"hourly": [
+#		"unem.tasks.hourly"
+#	],
+#	"weekly": [
+#		"unem.tasks.weekly"
+#	],
+#	"monthly": [
+#		"unem.tasks.monthly"
+#	],
+# }
 
-# Fixtures
-fixtures = [
-    {
-        "doctype": "Custom Field",
-        "filters": [
-            ["dt", "in", (
-                "Member",
-                "Membership_Card",
-                "UNEM_Structure",
-                "Mutual_Structure",
-                "Income_Entry",
-                "Expense_Entry"
-            )]
-        ]
-    },
-    {
-        "doctype": "Property Setter",
-        "filters": [
-            ["doc_type", "in", (
-                "Member",
-                "Membership_Card",
-                "UNEM_Structure",
-                "Mutual_Structure",
-                "Income_Entry",
-                "Expense_Entry"
-            )]
-        ]
-    }
-]
+# Testing
+# -------
+
+# before_tests = "unem.install.before_tests"
+
+# Overriding Methods
+# ------------------------------
+#
+# override_whitelisted_methods = {
+#	"frappe.desk.doctype.event.event.get_events": "unem.event.get_events"
+# }
+#
+# each overriding function accepts a `data` argument;
+# generated from the base implementation of the doctype dashboard,
+# along with any modifications made in other Frappe apps
+# override_doctype_dashboards = {
+#	"Task": "unem.task.get_dashboard_data"
+# }
+
+# exempt linked doctypes from being automatically cancelled
+#
+# auto_cancel_exempted_doctypes = ["Auto Repeat"]
+
+# Ignore links to specified DocTypes when deleting documents
+# -----------------------------------------------------------
+
+# ignore_links_on_delete = ["Communication", "ToDo"]
+
+# Request Events
+# ----------------
+# before_request = ["unem.utils.before_request"]
+# after_request = ["unem.utils.after_request"]
+
+# Job Events
+# ----------
+# before_job = ["unem.utils.before_job"]
+# after_job = ["unem.utils.after_job"]
+
+# User Data Protection
+# --------------------
+
+# user_data_fields = [
+#	{
+#		"doctype": "{doctype_1}",
+#		"filter_by": "{filter_by}",
+#		"redact_fields": ["{field_1}", "{field_2}"],
+#		"partial": 1,
+#	},
+#	{
+#		"doctype": "{doctype_2}",
+#		"filter_by": "{filter_by}",
+#		"partial": 1,
+#	},
+#	{
+#		"doctype": "{doctype_3}",
+#		"strict": False,
+#	},
+#	{
+#		"doctype": "{doctype_4}"
+#	}
+# ]
+
+# Authentication and authorization
+# --------------------------------
+
+# auth_hooks = [
+#	"unem.auth.validate"
+# ]

@@ -1,9 +1,1 @@
-frappe>=14.0.0
-# Required for RTL and Arabic support
-arabic-reshaper>=3.0.0
-python-bidi>=0.4.2
-# Required for PDF generation
-WeasyPrint>=53.0
-# Required for data processing
-pandas>=1.3.0
-numpy>=1.21.0
+# frappe -- https://github.com/frappe/frappe is installed via 'bench init'
