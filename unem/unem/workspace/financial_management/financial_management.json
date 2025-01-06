@@ -1,42 +1,9 @@
 {
- "cards": [
-  {
-   "hidden": 0,
-   "label": "Incomes",
-   "links": [
-    {
-     "dependencies": "",
-     "doctype": "Income_Entry",
-     "label": "Record Income",
-     "name": "Income_Entry",
-     "onboard": 1,
-     "type": "doctype"
-    }
-   ]
-  },
-  {
-   "hidden": 0,
-   "label": "Expenses",
-   "links": [
-    {
-     "dependencies": "",
-     "doctype": "Expense_Entry",
-     "label": "Record Expense",
-     "name": "Expense_Entry",
-     "onboard": 1,
-     "type": "doctype"
-    }
-   ]
-  }
- ],
+ "cards": [],
  "category": "Modules",
- "charts": [
-  {
-   "chart_name": "Income vs Expense",
-   "label": "Income vs Expense"
-  }
- ],
- "creation": "2025-01-06 18:17:09.000000",
+ "charts": [],
+ "content": "{\"type\":\"tab\",\"label\":\"Financial Management\",\"items\":[{\"type\":\"card\",\"label\":\"Income Management\",\"items\":[{\"type\":\"doctype\",\"name\":\"Income_Entry\",\"label\":\"Record Income\"},{\"type\":\"report\",\"name\":\"Income Report\",\"label\":\"Income Report\",\"is_query_report\":true}]},{\"type\":\"card\",\"label\":\"Expense Management\",\"items\":[{\"type\":\"doctype\",\"name\":\"Expense_Entry\",\"label\":\"Record Expense\"},{\"type\":\"report\",\"name\":\"Expense Report\",\"label\":\"Expense Report\",\"is_query_report\":true}]},{\"type\":\"card\",\"label\":\"Reports & Analytics\",\"items\":[{\"type\":\"dashboard\",\"name\":\"Financial Dashboard\",\"label\":\"Financial Dashboard\"},{\"type\":\"report\",\"name\":\"Annual Budget\",\"label\":\"Annual Budget\",\"is_query_report\":true},{\"type\":\"report\",\"name\":\"Cash Flow\",\"label\":\"Cash Flow\",\"is_query_report\":true}]}]}",
+ "creation": "2025-01-06 18:24:38.000000",
  "developer_mode_only": 0,
  "disable_user_customization": 0,
  "docstatus": 0,
@@ -49,103 +16,8 @@
  "is_hidden": 0,
  "is_standard": 1,
  "label": "Financial Management",
- "links": [
-  {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Income Management",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Record Income",
-   "link_to": "Income_Entry",
-   "link_type": "DocType",
-   "onboard": 1,
-   "type": "Link"
-  },
-  {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 1,
-   "label": "Income Report",
-   "link_to": "Income Report",
-   "link_type": "Report",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Expense Management",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Record Expense",
-   "link_to": "Expense_Entry",
-   "link_type": "DocType",
-   "onboard": 1,
-   "type": "Link"
-  },
-  {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 1,
-   "label": "Expense Report",
-   "link_to": "Expense Report",
-   "link_type": "Report",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Reports & Analytics",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Financial Dashboard",
-   "link_to": "Financial Dashboard",
-   "link_type": "Dashboard",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 1,
-   "label": "Annual Budget",
-   "link_to": "Annual Budget",
-   "link_type": "Report",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 1,
-   "label": "Cash Flow",
-   "link_to": "Cash Flow",
-   "link_type": "Report",
-   "onboard": 0,
-   "type": "Link"
-  }
- ],
- "modified": "2025-01-06 18:17:09.000000",
+ "links": [],
+ "modified": "2025-01-06 18:24:38.000000",
  "modified_by": "Administrator",
  "module": "UNEM",
  "name": "Financial Management",
