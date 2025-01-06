@@ -6,11 +6,11 @@
    "links": [
     {
      "dependencies": "",
+     "doctype": "Income_Entry",
      "label": "تسجيل مدخول",
      "name": "Income_Entry",
      "onboard": 1,
-     "type": "doctype",
-     "doctype": "Income_Entry"
+     "type": "doctype"
     },
     {
      "dependencies": "",
@@ -27,11 +27,11 @@
    "links": [
     {
      "dependencies": "",
+     "doctype": "Expense_Entry",
      "label": "تسجيل مصروف",
      "name": "Expense_Entry",
      "onboard": 1,
-     "type": "doctype",
-     "doctype": "Expense_Entry"
+     "type": "doctype"
     },
     {
      "dependencies": "",
@@ -77,7 +77,7 @@
    "label": "المداخيل مقابل المصاريف"
   }
  ],
- "creation": "2025-01-06 18:03:47.000000",
+ "creation": "2025-01-06 18:07:19.000000",
  "developer_mode_only": 0,
  "disable_user_customization": 0,
  "docstatus": 0,
@@ -91,10 +91,10 @@
  "is_standard": 1,
  "label": "الإدارة المالية",
  "links": [],
- "modified": "2025-01-06 18:03:47.000000",
+ "modified": "2025-01-06 18:07:19.000000",
  "modified_by": "Administrator",
  "module": "UNEM",
- "name": "Financial Management",
+ "name": "Financial_Management",
  "owner": "Administrator",
  "parent_page": "",
  "pin_to_bottom": 0,
@@ -135,5 +135,5 @@
    "type": "Dashboard"
   }
  ],
- "title": "الإدارة المالية"
+ "title": "Financial Management"
 }
