@@ -1,0 +1,34 @@
+{% set navbar_items = [
+    {'label': 'Members', 'url': '/members'},
+    {'label': 'Membership Cards', 'url': '/membership-cards'},
+    {'label': 'UNEM Structure', 'url': '/unem-structure'},
+    {'label': 'Mutual Structure', 'url': '/mutual-structure'},
+    {'label': 'Income', 'url': '/income'},
+    {'label': 'Expense', 'url': '/expense'}
+] %}
+
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <span>UNEM</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                {% for item in navbar_items %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ item.url }}">{{ item.label }}</a>
+                </li>
+                {% endfor %}
+                {% if frappe.session.user != 'Guest' %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/app">Dashboard</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
