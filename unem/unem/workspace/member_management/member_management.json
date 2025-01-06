@@ -1,0 +1,109 @@
+{
+ "cards": [
+  {
+   "hidden": 0,
+   "label": "إدارة الأعضاء",
+   "links": [
+    {
+     "dependencies": "",
+     "label": "عضو",
+     "name": "Member",
+     "onboard": 1,
+     "type": "doctype"
+    },
+    {
+     "dependencies": "",
+     "label": "بطاقة الإنخراط",
+     "name": "Membership_Card",
+     "onboard": 1,
+     "type": "doctype"
+    }
+   ]
+  },
+  {
+   "hidden": 0,
+   "label": "هيكلة المنظمة",
+   "links": [
+    {
+     "dependencies": "",
+     "label": "هيكلة الجامعة الوطنية للتعليم",
+     "name": "UNEM_Structure",
+     "onboard": 0,
+     "type": "doctype"
+    },
+    {
+     "dependencies": "",
+     "label": "هيكلة التعاضدية",
+     "name": "Mutual_Structure",
+     "onboard": 0,
+     "type": "doctype"
+    }
+   ]
+  },
+  {
+   "hidden": 0,
+   "label": "التقارير",
+   "links": [
+    {
+     "dependencies": "",
+     "label": "تقرير العضوية",
+     "name": "Membership Report",
+     "onboard": 0,
+     "type": "report"
+    },
+    {
+     "dependencies": "",
+     "label": "تقرير الهيكلة",
+     "name": "Structure Report",
+     "onboard": 0,
+     "type": "report"
+    }
+   ]
+  }
+ ],
+ "category": "Modules",
+ "charts": [
+  {
+   "chart_name": "New Members",
+   "label": "الأعضاء الجدد"
+  }
+ ],
+ "creation": "2025-01-06 17:45:15.000000",
+ "developer_mode_only": 0,
+ "disable_user_customization": 0,
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "extends_another_page": 0,
+ "hide_custom": 0,
+ "icon": "users",
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "label": "إدارة الأعضاء",
+ "links": [],
+ "modified": "2025-01-06 17:45:15.000000",
+ "modified_by": "Administrator",
+ "module": "UNEM",
+ "name": "Member Management",
+ "owner": "Administrator",
+ "pin_to_bottom": 0,
+ "pin_to_top": 0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "format": "{} جديد",
+   "label": "عضو جديد",
+   "link_to": "Member",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "format": "{} جديدة",
+   "label": "بطاقة إنخراط جديدة",
+   "link_to": "Membership_Card",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ]
+}

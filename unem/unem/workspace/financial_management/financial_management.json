@@ -1,0 +1,122 @@
+{
+ "cards": [
+  {
+   "hidden": 0,
+   "label": "المداخيل",
+   "links": [
+    {
+     "dependencies": "",
+     "label": "تسجيل مدخول",
+     "name": "Income_Entry",
+     "onboard": 1,
+     "type": "doctype"
+    },
+    {
+     "dependencies": "",
+     "label": "تقرير المداخيل",
+     "name": "Income Report",
+     "onboard": 0,
+     "type": "report"
+    }
+   ]
+  },
+  {
+   "hidden": 0,
+   "label": "المصاريف",
+   "links": [
+    {
+     "dependencies": "",
+     "label": "تسجيل مصروف",
+     "name": "Expense_Entry",
+     "onboard": 1,
+     "type": "doctype"
+    },
+    {
+     "dependencies": "",
+     "label": "تقرير المصاريف",
+     "name": "Expense Report",
+     "onboard": 0,
+     "type": "report"
+    }
+   ]
+  },
+  {
+   "hidden": 0,
+   "label": "التقارير المالية",
+   "links": [
+    {
+     "dependencies": "",
+     "label": "الميزانية السنوية",
+     "name": "Annual Budget",
+     "onboard": 0,
+     "type": "report"
+    },
+    {
+     "dependencies": "",
+     "label": "تقرير التدفقات النقدية",
+     "name": "Cash Flow",
+     "onboard": 0,
+     "type": "report"
+    },
+    {
+     "dependencies": "",
+     "label": "لوحة المعلومات المالية",
+     "name": "Financial Dashboard",
+     "onboard": 0,
+     "type": "dashboard"
+    }
+   ]
+  }
+ ],
+ "category": "Modules",
+ "charts": [
+  {
+   "chart_name": "Income vs Expense",
+   "label": "المداخيل مقابل المصاريف"
+  }
+ ],
+ "creation": "2025-01-06 17:45:15.000000",
+ "developer_mode_only": 0,
+ "disable_user_customization": 0,
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "extends_another_page": 0,
+ "hide_custom": 0,
+ "icon": "accounting",
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "label": "الإدارة المالية",
+ "links": [],
+ "modified": "2025-01-06 17:45:15.000000",
+ "modified_by": "Administrator",
+ "module": "UNEM",
+ "name": "Financial Management",
+ "owner": "Administrator",
+ "pin_to_bottom": 0,
+ "pin_to_top": 0,
+ "shortcuts": [
+  {
+   "color": "Green",
+   "format": "{} جديد",
+   "label": "تسجيل مدخول جديد",
+   "link_to": "Income_Entry",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Red",
+   "format": "{} جديد",
+   "label": "تسجيل مصروف جديد",
+   "link_to": "Expense_Entry",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Blue",
+   "label": "لوحة المعلومات المالية",
+   "link_to": "Financial Dashboard",
+   "type": "Dashboard"
+  }
+ ]
+}
