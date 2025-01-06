@@ -1,0 +1,2 @@
+frappe>=14.0.0
+frappeframework~=14.0.0
