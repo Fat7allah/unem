@@ -38,23 +38,23 @@ app_license = "MIT"
 # ----------
 
 # application home page (will override Website Settings)
-home_page = "unem"
+home_page = "index"
 
 # website user home page (by Role)
 role_home_page = {
-    "Guest": "unem",
-    "System Manager": "unem",
-    "All": "unem"
+    "Guest": "index",
+    "System Manager": "index",
+    "All": "index"
 }
 
 # Routing
 website_route_rules = [
-    {"from_route": "/", "to_route": "unem"},
+    {"from_route": "/", "to_route": "index"},
 ]
 
 # Website Settings
 website_context = {
-    "home_page": "unem"
+    "home_page": "index"
 }
 
 # Installation
@@ -66,22 +66,19 @@ boot_session = "unem.startup.boot.boot_session"
 # Override Website Settings
 on_session_creation = "unem.startup.boot.on_session_creation"
 
-# Website user home page (by function)
-# get_website_user_home_page = "unem.utils.get_home_page"
-
-# Default is "frappe.www.index"
-# website_context = {
-#     "favicon": "/assets/unem/images/favicon.png",
-#     "home_page": "index"
-# }
-
 # Website Redirects
-# website_redirects = [
-#     {"source": "/", "target": "/index"}
-# ]
+website_redirects = [
+    {"source": "/", "target": "/index"}
+]
 
-# Override Frappe's default index
-# update_website_context = "unem.utils.update_website_context"
+# Default website template
+base_template = "templates/base.html"
+
+# Website Context
+website_context = {
+    "base_template_path": "templates/base.html",
+    "home_page": "index"
+}
 
 # Generators
 # ----------
