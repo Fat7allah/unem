@@ -8,28 +8,6 @@ frappe.ui.form.on('Mutual_Structure', {
     },
     
     validate: function(frm) {
-        // Validate member has active membership
-        if (frm.doc.member) {
-            frappe.call({
-                method: 'frappe.client.get_list',
-                args: {
-                    doctype: 'Membership_Card',
-                    filters: {
-                        'member': frm.doc.member,
-                        'card_status': 'المؤداة',
-                        'expiry_date': ['>', frappe.datetime.get_today()]
-                    },
-                    limit_page_length: 1
-                },
-                callback: function(r) {
-                    if (!r.message || r.message.length === 0) {
-                        frappe.msgprint(__("يجب أن يكون العضو لديه بطاقة عضوية سارية المفعول"));
-                        frappe.validated = false;
-                    }
-                }
-            });
-        }
-        
         // Validate role requirements
         if (frm.doc.position_type === "المكتب التنفيذي" && !frm.doc.role) {
             frappe.msgprint(__("يجب تحديد المنصب للأعضاء في المكتب التنفيذي"));
@@ -52,20 +30,10 @@ frappe.ui.form.on('Mutual_Structure', {
     },
     
     setup: function(frm) {
-        // Set query filters for member link field
+        // Set query for member link field
         frm.set_query('member', function() {
             return {
-                filters: {
-                    'name': ['in', function() {
-                        return frappe.db.get_list('Membership_Card', {
-                            filters: {
-                                'card_status': 'المؤداة',
-                                'expiry_date': ['>', frappe.datetime.get_today()]
-                            },
-                            fields: ['member']
-                        }).then(r => r.map(d => d.member));
-                    }]
-                }
+                query: 'unem.unem.doctype.member.member.get_active_members'
             };
         });
     }
