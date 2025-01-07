@@ -30,11 +30,3 @@ class UNEM_Structure(Document):
             })
             if not active_card:
                 frappe.throw("يجب أن يكون العضو لديه بطاقة عضوية سارية المفعول")
-                
-    def before_save(self):
-        """Update member's role in Member document"""
-        if self.member and self.role:
-            member = frappe.get_doc("Member", self.member)
-            if member.role != self.role:
-                member.role = self.role
-                member.save()
