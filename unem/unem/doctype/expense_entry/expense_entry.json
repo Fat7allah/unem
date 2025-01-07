@@ -9,7 +9,7 @@
  "engine": "InnoDB",
  "field_order": [
   "date",
-  "name",
+  "payee_name",
   "amount",
   "category",
   "column_break_1",
@@ -30,7 +30,7 @@
    "reqd": 1
   },
   {
-   "fieldname": "name",
+   "fieldname": "payee_name",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "الاسم",

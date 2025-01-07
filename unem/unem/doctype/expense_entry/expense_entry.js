@@ -17,17 +17,23 @@ frappe.ui.form.on('Expense_Entry', {
         }
     },
     
+    setup: function(frm) {
+        // Set query for academic year field to show only active years
+        frm.set_query('academic_year', function() {
+            return {
+                filters: {
+                    'is_active': 1
+                }
+            };
+        });
+    },
+    
     validate: function(frm) {
         // Validate amount
         if (frm.doc.amount <= 0) {
             frappe.msgprint(__("المبلغ يجب أن يكون أكبر من صفر"));
             frappe.validated = false;
-        }
-        
-        // Validate attachments for large amounts
-        if (frm.doc.amount > 1000 && !frm.doc.attachments) {
-            frappe.msgprint(__("المرفقات مطلوبة للمصاريف التي تتجاوز 1000 درهم"));
-            frappe.validated = false;
+            return;
         }
         
         // Validate date within academic year
@@ -53,26 +59,12 @@ frappe.ui.form.on('Expense_Entry', {
                 }
             });
         }
-    },
-    
-    setup: function(frm) {
-        // Set query filters for academic year
-        frm.set_query('academic_year', function() {
-            return {
-                filters: {
-                    'status': 'Active'
-                }
-            };
-        });
-    },
-    
-    amount: function(frm) {
-        // Show warning for large amounts
-        if (frm.doc.amount > 1000) {
-            frappe.show_alert({
-                message: __("تذكير: المرفقات مطلوبة للمصاريف التي تتجاوز 1000 درهم"),
-                indicator: 'orange'
-            }, 5);
+        
+        // Validate attachments for large amounts
+        if (frm.doc.amount > 1000 && !frm.doc.attachments) {
+            frappe.msgprint(__("المرفقات مطلوبة للمصاريف التي تتجاوز 1000 درهم"));
+            frappe.validated = false;
+            return;
         }
     }
 });
