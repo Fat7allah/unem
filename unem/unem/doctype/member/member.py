@@ -33,13 +33,13 @@ class Member(Document):
 def get_active_members(doctype, txt, searchfield, start, page_len, filters):
     """Get members with active membership cards"""
     return frappe.db.sql("""
-        SELECT DISTINCT m.name, m.full_name_ar
+        SELECT DISTINCT m.name, CONCAT(m.first_name, ' ', m.last_name) as full_name
         FROM `tabMember` m
         INNER JOIN `tabMembership_Card` mc ON mc.member = m.name
         WHERE mc.card_status = 'المؤداة'
         AND mc.expiry_date > CURDATE()
-        AND (m.name LIKE %(txt)s OR m.full_name_ar LIKE %(txt)s)
-        ORDER BY m.full_name_ar
+        AND (m.name LIKE %(txt)s OR m.first_name LIKE %(txt)s OR m.last_name LIKE %(txt)s)
+        ORDER BY m.first_name, m.last_name
         LIMIT %(start)s, %(page_len)s
     """, {
         'txt': f"%{txt}%",
