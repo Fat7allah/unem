@@ -2,13 +2,13 @@
  "cards": [
   {
    "hidden": 0,
-   "label": "Income Management",
+   "label": _("Income Management"),
    "links": [
     {
      "dependencies": "",
      "hidden": 0,
      "is_query_report": 0,
-     "label": "Income Entry",
+     "label": _("Income Entry"),
      "link_to": "Income_Entry",
      "link_type": "DocType",
      "onboard": 1,
@@ -18,13 +18,13 @@
   },
   {
    "hidden": 0,
-   "label": "Expense Management",
+   "label": _("Expense Management"),
    "links": [
     {
      "dependencies": "",
      "hidden": 0,
      "is_query_report": 0,
-     "label": "Expense Entry",
+     "label": _("Expense Entry"),
      "link_to": "Expense_Entry",
      "link_type": "DocType",
      "onboard": 1,
@@ -37,10 +37,10 @@
  "charts": [
   {
    "chart_name": "Income vs Expense",
-   "label": "Income vs Expense"
+   "label": _("Income vs Expense")
   }
  ],
- "content": "[{\"id\":\"header_finance\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Finance Management</b></span>\",\"col\":12}},{\"id\":\"income_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Income Entry\",\"col\":3}},{\"id\":\"expense_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Expense Entry\",\"col\":3}},{\"id\":\"spacer_1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"header_reports\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports & Analytics</b></span>\",\"col\":12}},{\"id\":\"card_income\",\"type\":\"card\",\"data\":{\"card_name\":\"Income Management\",\"col\":4}},{\"id\":\"card_expense\",\"type\":\"card\",\"data\":{\"card_name\":\"Expense Management\",\"col\":4}}]",
+ "content": "[{\"id\":\"header_finance\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>\" + _(\"Finance Management\") + \"</b></span>\",\"col\":12}},{\"id\":\"income_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\" + _(\"Income Entry\") + \",\"col\":3}},{\"id\":\"expense_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\" + _(\"Expense Entry\") + \",\"col\":3}},{\"id\":\"spacer_1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"header_reports\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>\" + _(\"Reports & Analytics\") + \"</b></span>\",\"col\":12}},{\"id\":\"card_income\",\"type\":\"card\",\"data\":{\"card_name\":\" + _(\"Income Management\") + \",\"col\":4}},{\"id\":\"card_expense\",\"type\":\"card\",\"data\":{\"card_name\":\" + _(\"Expense Management\") + \",\"col\":4}}]",
  "creation": "2025-01-06 19:15:40.000000",
  "docstatus": 0,
  "doctype": "Workspace",
@@ -48,12 +48,12 @@
  "icon": "accounting",
  "idx": 0,
  "is_hidden": 0,
- "label": "Financial Management",
+ "label": _("Financial Management"),
  "links": [
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Income Management",
+   "label": _("Income Management"),
    "link_count": 0,
    "onboard": 0,
    "type": "Card Break"
@@ -62,7 +62,7 @@
    "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Income Entry",
+   "label": _("Income Entry"),
    "link_to": "Income_Entry",
    "link_type": "DocType",
    "onboard": 1,
@@ -71,7 +71,7 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Expense Management",
+   "label": _("Expense Management"),
    "link_count": 0,
    "onboard": 0,
    "type": "Card Break"
@@ -80,7 +80,7 @@
    "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Expense Entry",
+   "label": _("Expense Entry"),
    "link_to": "Expense_Entry",
    "link_type": "DocType",
    "onboard": 1,
@@ -106,16 +106,16 @@
  "shortcuts": [
   {
    "color": "Green",
-   "label": "Income Entry",
+   "label": _("Income Entry"),
    "link_to": "Income_Entry",
    "type": "DocType"
   },
   {
    "color": "Red",
-   "label": "Expense Entry",
+   "label": _("Expense Entry"),
    "link_to": "Expense_Entry",
    "type": "DocType"
   }
  ],
- "title": "Financial Management"
+ "title": _("Financial Management")
 }
