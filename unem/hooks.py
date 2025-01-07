@@ -231,3 +231,24 @@ doctype_list_js = {
 # auth_hooks = [
 #	"unem.auth.validate"
 # ]
+
+# Translation
+# ----------------
+translation_fields = ["title", "label", "description", "content"]
+translated_search_fields = ["title", "label", "description", "content"]
+
+# Translations
+# -----------
+# Add translations for your app. Example:
+translations = [
+    {
+        "source_text": "Member Management",
+        "translated_text": "إدارة الأعضاء",
+        "language_code": "ar"
+    },
+    {
+        "source_text": "Financial Management",
+        "translated_text": "الإدارة المالية",
+        "language_code": "ar"
+    }
+]

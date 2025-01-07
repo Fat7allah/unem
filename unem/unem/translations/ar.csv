@@ -1,0 +1,28 @@
+Module: UNEM,الاتحاد الوطني لطلبة المغرب
+Workspace: Member Management,إدارة الأعضاء
+Workspace: Financial Management,الإدارة المالية
+
+# Member Management Workspace
+Member Management,إدارة الأعضاء
+Organization Structure,الهيكل التنظيمي
+Member,عضو
+Membership Card,بطاقة العضوية
+UNEM Structure,هيكل الاتحاد
+Mutual Structure,هيكل التعاضدية
+Members,الأعضاء
+Organization,التنظيم
+Member Growth,نمو العضوية
+
+# Financial Management Workspace
+Financial Management,الإدارة المالية
+Income Management,إدارة المداخيل
+Expense Management,إدارة المصاريف
+Income Entry,إدخال المداخيل
+Expense Entry,إدخال المصاريف
+Finance Management,الإدارة المالية
+Income vs Expense,المداخيل والمصاريف
+Reports & Analytics,التقارير والتحليلات
+
+# Common
+DocType: Member,Member,عضو
+DocType: Member,First Name,الاسم الشخصي
