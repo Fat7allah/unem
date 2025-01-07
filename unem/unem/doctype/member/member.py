@@ -28,19 +28,3 @@ class Member(Document):
             
             if not (8 <= len(self.phone) <= 15):
                 frappe.throw("رقم الهاتف غير صالح")
-                
-    def after_insert(self):
-        """Create default membership card after member creation"""
-        self.create_membership_card()
-        
-    def create_membership_card(self):
-        """Create a new membership card"""
-        if not frappe.db.exists("Membership_Card", {"member": self.name}):
-            card = frappe.get_doc({
-                "doctype": "Membership_Card",
-                "member": self.name,
-                "membership_date": frappe.utils.today(),
-                "expiry_date": frappe.utils.add_years(None, 1),
-                "card_status": "غير المؤداة"
-            })
-            card.insert(ignore_permissions=True)
