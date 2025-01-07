@@ -4,7 +4,7 @@
 import frappe
 from frappe.model.document import Document
 
-class UNEMStructure(Document):
+class UNEM_Structure(Document):
     def validate(self):
         self.validate_unique_position()
         self.validate_member_active()
