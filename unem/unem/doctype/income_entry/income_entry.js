@@ -33,6 +33,7 @@ frappe.ui.form.on('Income_Entry', {
         if (frm.doc.amount <= 0) {
             frappe.msgprint(__("المبلغ يجب أن يكون أكبر من صفر"));
             frappe.validated = false;
+            return;
         }
         
         // Validate date within academic year

@@ -9,7 +9,7 @@
  "engine": "InnoDB",
  "field_order": [
   "date",
-  "name",
+  "payer_name",
   "amount",
   "type",
   "column_break_1",
@@ -27,7 +27,7 @@
    "reqd": 1
   },
   {
-   "fieldname": "name",
+   "fieldname": "payer_name",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "الاسم",
@@ -46,7 +46,8 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "النوع",
-   "options": "بطاقة الإنخراط\nمداخيل أخرى"
+   "options": "بطاقة الإنخراط\nمداخيل أخرى",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_1",
