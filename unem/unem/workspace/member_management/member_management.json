@@ -2,13 +2,13 @@
  "cards": [
   {
    "hidden": 0,
-   "label": _("Member Management"),
+   "label": "إدارة الأعضاء",
    "links": [
     {
      "dependencies": "",
      "hidden": 0,
      "is_query_report": 0,
-     "label": _("Member"),
+     "label": "عضو",
      "link_to": "Member",
      "link_type": "DocType",
      "onboard": 1,
@@ -18,7 +18,7 @@
      "dependencies": "",
      "hidden": 0,
      "is_query_report": 0,
-     "label": _("Membership Card"),
+     "label": "بطاقة العضوية",
      "link_to": "Membership_Card",
      "link_type": "DocType",
      "onboard": 1,
@@ -28,13 +28,13 @@
   },
   {
    "hidden": 0,
-   "label": _("Organization Structure"),
+   "label": "الهيكل التنظيمي",
    "links": [
     {
      "dependencies": "",
      "hidden": 0,
      "is_query_report": 0,
-     "label": _("UNEM Structure"),
+     "label": "هيكل الاتحاد",
      "link_to": "UNEM_Structure",
      "link_type": "DocType",
      "onboard": 0,
@@ -44,7 +44,7 @@
      "dependencies": "",
      "hidden": 0,
      "is_query_report": 0,
-     "label": _("Mutual Structure"),
+     "label": "هيكل التعاضدية",
      "link_to": "Mutual_Structure",
      "link_type": "DocType",
      "onboard": 0,
@@ -57,10 +57,10 @@
  "charts": [
   {
    "chart_name": "Member Growth",
-   "label": _("Member Growth")
+   "label": "نمو العضوية"
   }
  ],
- "content": "[{\"id\":\"header_members\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>\" + _(\"Members\") + \"</b></span>\",\"col\":12}},{\"id\":\"member_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\" + _(\"Member\") + \",\"col\":3}},{\"id\":\"membership_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\" + _(\"Membership Card\") + \",\"col\":3}},{\"id\":\"unem_structure_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\" + _(\"UNEM Structure\") + \",\"col\":3}},{\"id\":\"mutual_structure_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\" + _(\"Mutual Structure\") + \",\"col\":3}},{\"id\":\"spacer_1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"header_org\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>\" + _(\"Organization\") + \"</b></span>\",\"col\":12}},{\"id\":\"card_members\",\"type\":\"card\",\"data\":{\"card_name\":\" + _(\"Member Management\") + \",\"col\":4}},{\"id\":\"card_org\",\"type\":\"card\",\"data\":{\"card_name\":\" + _(\"Organization Structure\") + \",\"col\":4}}]",
+ "content": "[{\"id\":\"header_members\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>الأعضاء</b></span>\",\"col\":12}},{\"id\":\"member_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"عضو\",\"col\":3}},{\"id\":\"membership_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"بطاقة العضوية\",\"col\":3}},{\"id\":\"unem_structure_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"هيكل الاتحاد\",\"col\":3}},{\"id\":\"mutual_structure_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"هيكل التعاضدية\",\"col\":3}},{\"id\":\"spacer_1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"header_org\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>التنظيم</b></span>\",\"col\":12}},{\"id\":\"card_members\",\"type\":\"card\",\"data\":{\"card_name\":\"إدارة الأعضاء\",\"col\":4}},{\"id\":\"card_org\",\"type\":\"card\",\"data\":{\"card_name\":\"الهيكل التنظيمي\",\"col\":4}}]",
  "creation": "2025-01-06 19:15:40.000000",
  "docstatus": 0,
  "doctype": "Workspace",
@@ -68,12 +68,12 @@
  "icon": "users",
  "idx": 0,
  "is_hidden": 0,
- "label": _("Member Management"),
+ "label": "إدارة الأعضاء",
  "links": [
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": _("Member Management"),
+   "label": "إدارة الأعضاء",
    "link_count": 0,
    "onboard": 0,
    "type": "Card Break"
@@ -82,7 +82,7 @@
    "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
-   "label": _("Member"),
+   "label": "عضو",
    "link_to": "Member",
    "link_type": "DocType",
    "onboard": 1,
@@ -92,7 +92,7 @@
    "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
-   "label": _("Membership Card"),
+   "label": "بطاقة العضوية",
    "link_to": "Membership_Card",
    "link_type": "DocType",
    "onboard": 1,
@@ -101,7 +101,7 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": _("Organization Structure"),
+   "label": "الهيكل التنظيمي",
    "link_count": 0,
    "onboard": 0,
    "type": "Card Break"
@@ -110,7 +110,7 @@
    "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
-   "label": _("UNEM Structure"),
+   "label": "هيكل الاتحاد",
    "link_to": "UNEM_Structure",
    "link_type": "DocType",
    "onboard": 0,
@@ -120,7 +120,7 @@
    "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
-   "label": _("Mutual Structure"),
+   "label": "هيكل التعاضدية",
    "link_to": "Mutual_Structure",
    "link_type": "DocType",
    "onboard": 0,
@@ -149,28 +149,28 @@
  "shortcuts": [
   {
    "color": "Grey",
-   "label": _("Member"),
+   "label": "عضو",
    "link_to": "Member",
    "type": "DocType"
   },
   {
    "color": "Grey",
-   "label": _("Membership Card"),
+   "label": "بطاقة العضوية",
    "link_to": "Membership_Card",
    "type": "DocType"
   },
   {
    "color": "Blue",
-   "label": _("UNEM Structure"),
+   "label": "هيكل الاتحاد",
    "link_to": "UNEM_Structure",
    "type": "DocType"
   },
   {
    "color": "Blue",
-   "label": _("Mutual Structure"),
+   "label": "هيكل التعاضدية",
    "link_to": "Mutual_Structure",
    "type": "DocType"
   }
  ],
- "title": _("Member Management")
+ "title": "إدارة الأعضاء"
 }
