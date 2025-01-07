@@ -4,7 +4,7 @@
 import frappe
 from frappe.model.document import Document
 
-class MutualStructure(Document):
+class Mutual_Structure(Document):
     def validate(self):
         self.validate_unique_position()
         self.validate_member_active()
@@ -39,11 +39,3 @@ class MutualStructure(Document):
             
         if self.position_type != "المكتب التنفيذي" and self.role:
             self.role = None  # Clear role if not in executive office
-            
-    def before_save(self):
-        """Update member's role in Member document if in executive office"""
-        if self.member and self.role and self.position_type == "المكتب التنفيذي":
-            member = frappe.get_doc("Member", self.member)
-            if member.role != self.role:
-                member.role = self.role
-                member.save()
