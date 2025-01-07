@@ -8,7 +8,6 @@ class Mutual_Structure(Document):
     def validate(self):
         self.validate_unique_position()
         self.validate_member_active()
-        self.validate_role_requirements()
         
     def validate_unique_position(self):
         """Ensure no duplicate positions in the same type"""
@@ -31,11 +30,3 @@ class Mutual_Structure(Document):
             })
             if not active_card:
                 frappe.throw("يجب أن يكون العضو لديه بطاقة عضوية سارية المفعول")
-                
-    def validate_role_requirements(self):
-        """Validate role requirements based on position type"""
-        if self.position_type == "المكتب التنفيذي" and not self.role:
-            frappe.throw("يجب تحديد المنصب للأعضاء في المكتب التنفيذي")
-            
-        if self.position_type != "المكتب التنفيذي" and self.role:
-            self.role = None  # Clear role if not in executive office
