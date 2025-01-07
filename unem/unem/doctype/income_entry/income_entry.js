@@ -17,6 +17,17 @@ frappe.ui.form.on('Income_Entry', {
         }
     },
     
+    setup: function(frm) {
+        // Set query for academic year field to show only active years
+        frm.set_query('academic_year', function() {
+            return {
+                filters: {
+                    'is_active': 1
+                }
+            };
+        });
+    },
+    
     validate: function(frm) {
         // Validate amount
         if (frm.doc.amount <= 0) {
@@ -49,19 +60,12 @@ frappe.ui.form.on('Income_Entry', {
         }
     },
     
-    setup: function(frm) {
-        // Set query filters for academic year
-        frm.set_query('academic_year', function() {
-            return {
-                filters: {
-                    'status': 'Active'
-                }
-            };
-        });
-    },
-    
     type: function(frm) {
-        // Clear reference number when type changes
-        frm.set_value('reference_number', '');
+        // Handle type change
+        if (frm.doc.type === 'بطاقة الإنخراط') {
+            frm.set_value('amount', 100); // Set default amount for membership card
+        } else {
+            frm.set_value('amount', ''); // Clear amount for other types
+        }
     }
 });
