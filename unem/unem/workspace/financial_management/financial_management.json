@@ -41,7 +41,7 @@
   }
  ],
  "content": "[{\"id\":\"header_finance\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>الإدارة المالية</b></span>\",\"col\":12}},{\"id\":\"income_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"إدخال المداخيل\",\"col\":3}},{\"id\":\"expense_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"إدخال المصاريف\",\"col\":3}},{\"id\":\"spacer_1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"header_reports\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>التقارير والتحليلات</b></span>\",\"col\":12}},{\"id\":\"card_income\",\"type\":\"card\",\"data\":{\"card_name\":\"إدارة المداخيل\",\"col\":4}},{\"id\":\"card_expense\",\"type\":\"card\",\"data\":{\"card_name\":\"إدارة المصاريف\",\"col\":4}}]",
- "creation": "2025-01-08 22:22:38.000000",
+ "creation": "2025-01-08 22:38:35.000000",
  "docstatus": 0,
  "doctype": "Workspace",
  "extends": "",
@@ -90,7 +90,7 @@
    "type": "Link"
   }
  ],
- "modified": "2025-01-08 22:22:38.000000",
+ "modified": "2025-01-08 22:38:35.000000",
  "modified_by": "Administrator",
  "module": "UNEM",
  "name": "financial-management",
