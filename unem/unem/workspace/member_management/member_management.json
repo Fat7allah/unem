@@ -70,15 +70,18 @@
    "label": "نمو العضوية"
   }
  ],
- "content": "[{\"id\":\"header_members\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>الأعضاء</b></span>\",\"col\":12}},{\"id\":\"member_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"عضو\",\"col\":3}},{\"id\":\"membership_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"بطاقة العضوية\",\"col\":3}},{\"id\":\"membership_management_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"تسيير بطاقة الإنخراط\",\"col\":3}},{\"id\":\"unem_structure_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"هيكل الاتحاد\",\"col\":3}},{\"id\":\"mutual_structure_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"هيكل التعاضدية\",\"col\":3}},{\"id\":\"spacer_1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"header_org\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>التنظيم</b></span>\",\"col\":12}},{\"id\":\"card_members\",\"type\":\"card\",\"data\":{\"card_name\":\"إدارة الأعضاء\",\"col\":4}},{\"id\":\"card_org\",\"type\":\"card\",\"data\":{\"card_name\":\"الهيكل التنظيمي\",\"col\":4}}]",
- "creation": "2025-01-08 21:27:58.000000",
+ "content": "[{\"id\":\"header_members\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>الأعضاء</b></span>\",\"col\":12}},{\"id\":\"member_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"عضو\",\"col\":3}},{\"id\":\"membership_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"بطاقة العضوية\",\"col\":3}},{\"id\":\"membership_management_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"تسيير بطاقة الإنخراط\",\"col\":3}},{\"id\":\"spacer_1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"header_org\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>التنظيم</b></span>\",\"col\":12}},{\"id\":\"card_members\",\"type\":\"card\",\"data\":{\"card_name\":\"إدارة الأعضاء\",\"col\":4}},{\"id\":\"card_org\",\"type\":\"card\",\"data\":{\"card_name\":\"الهيكل التنظيمي\",\"col\":4}}]",
+ "creation": "2025-01-08 21:32:23.000000",
  "docstatus": 0,
  "doctype": "Workspace",
+ "extends": "",
+ "extends_another_page": 0,
  "hide_custom": 0,
  "icon": "users",
  "idx": 0,
+ "is_default": 0,
  "is_hidden": 0,
- "label": "إدارة الأعضاء",
+ "label": "Member_Management",
  "links": [
   {
    "hidden": 0,
@@ -147,13 +150,14 @@
    "type": "Link"
   }
  ],
- "modified": "2025-01-08 21:27:58.000000",
+ "modified": "2025-01-08 21:32:23.000000",
  "modified_by": "Administrator",
  "module": "UNEM",
- "name": "Member Management",
+ "name": "Member_Management",
  "owner": "Administrator",
  "parent_page": "",
  "public": 1,
+ "quick_lists": [],
  "roles": [
   {
    "role": "UNEM Admin"
@@ -184,19 +188,7 @@
    "label": "تسيير بطاقة الإنخراط",
    "link_to": "Membership_Card_Management",
    "type": "DocType"
-  },
-  {
-   "color": "Blue",
-   "label": "هيكل الاتحاد",
-   "link_to": "UNEM_Structure",
-   "type": "DocType"
-  },
-  {
-   "color": "Blue",
-   "label": "هيكل التعاضدية",
-   "link_to": "Mutual_Structure",
-   "type": "DocType"
   }
  ],
- "title": "إدارة الأعضاء"
+ "title": "Member Management"
 }
