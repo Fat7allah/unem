@@ -1,0 +1,154 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:CARD-{####}",
+ "creation": "2025-01-08 21:16:47.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "card_number",
+  "region_section",
+  "region",
+  "column_break_4",
+  "receipt_number",
+  "amounts_section",
+  "region_share",
+  "university_share",
+  "column_break_9",
+  "payment",
+  "remaining_balance",
+  "notes_section",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "card_number",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "عدد البطاقة",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "region_section",
+   "fieldtype": "Section Break",
+   "label": "معلومات المنطقة"
+  },
+  {
+   "fieldname": "region",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "الاقليم",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "receipt_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "عدد الوصل",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amounts_section",
+   "fieldtype": "Section Break",
+   "label": "المبالغ"
+  },
+  {
+   "fieldname": "region_share",
+   "fieldtype": "Currency",
+   "label": "حصة الجهة",
+   "precision": 2,
+   "reqd": 1
+  },
+  {
+   "fieldname": "university_share",
+   "fieldtype": "Currency",
+   "label": "حصة الجامعة",
+   "precision": 2,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "payment",
+   "fieldtype": "Currency",
+   "label": "الأداء",
+   "precision": 2,
+   "reqd": 1
+  },
+  {
+   "fieldname": "remaining_balance",
+   "fieldtype": "Currency",
+   "label": "الباقي",
+   "precision": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "الملاحظات"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "ملاحظة"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-08 21:16:47.000000",
+ "modified_by": "Administrator",
+ "module": "UNEM",
+ "name": "Membership Card Management",
+ "name_case": "Title Case",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "UNEM Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "UNEM Member Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "card_number",
+ "track_changes": 1
+}
