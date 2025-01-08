@@ -41,7 +41,7 @@
   }
  ],
  "content": "[{\"id\":\"header_finance\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>الإدارة المالية</b></span>\",\"col\":12}},{\"id\":\"income_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"إدخال المداخيل\",\"col\":3}},{\"id\":\"expense_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"إدخال المصاريف\",\"col\":3}},{\"id\":\"spacer_1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"header_reports\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>التقارير والتحليلات</b></span>\",\"col\":12}},{\"id\":\"card_income\",\"type\":\"card\",\"data\":{\"card_name\":\"إدارة المداخيل\",\"col\":4}},{\"id\":\"card_expense\",\"type\":\"card\",\"data\":{\"card_name\":\"إدارة المصاريف\",\"col\":4}}]",
- "creation": "2025-01-08 21:54:54.000000",
+ "creation": "2025-01-08 22:06:56.000000",
  "docstatus": 0,
  "doctype": "Workspace",
  "extends": "",
@@ -51,7 +51,7 @@
  "idx": 0,
  "is_default": 0,
  "is_hidden": 0,
- "label": "الإدارة المالية",
+ "label": "Financial Management",
  "links": [
   {
    "hidden": 0,
@@ -90,10 +90,10 @@
    "type": "Link"
   }
  ],
- "modified": "2025-01-08 21:54:54.000000",
+ "modified": "2025-01-08 22:06:56.000000",
  "modified_by": "Administrator",
  "module": "UNEM",
- "name": "Financial Management",
+ "name": "financial-management",
  "owner": "Administrator",
  "parent_page": "",
  "public": 1,
@@ -121,5 +121,5 @@
    "type": "DocType"
   }
  ],
- "title": "الإدارة المالية"
+ "title": "Financial Management"
 }
