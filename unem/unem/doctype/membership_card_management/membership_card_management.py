@@ -1,7 +1,7 @@
 import frappe
 from frappe.model.document import Document
 
-class MembershipCardManagement(Document):
+class Membership_Card_Management(Document):
     def validate(self):
         """
         Calculate the remaining balance before saving:
