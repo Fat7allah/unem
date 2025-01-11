@@ -7,7 +7,7 @@ frappe.ui.form.on('Member', {
         $('body').attr('dir', 'rtl');
         
         // Add custom buttons
-        frm.add_custom_button(__('إصدار بطاقة العضوية'), function() {
+        frm.add_custom_button(__('إنشاء بطاقة الانخراط'), function() {
             frm.doc.create_membership_card();
             frm.save();
         }, __('إجراءات'));
@@ -19,21 +19,24 @@ frappe.ui.form.on('Member', {
     },
     
     validate: function(frm) {
-        // Custom client-side validations
-        if (frm.doc.email && !validate_email(frm.doc.email)) {
-            frappe.msgprint(__('عنوان البريد الإلكتروني غير صالح'));
-            frappe.validated = false;
+        if (!frm.doc.phone) return;
+        
+        // Remove any non-digit characters
+        let cleanPhone = frm.doc.phone.replace(/\D/g, '');
+        
+        // Validate phone length
+        if (cleanPhone.length < 8 || cleanPhone.length > 15) {
+            frappe.throw(__('رقم الهاتف غير صالح'));
         }
+        
+        frm.set_value('phone', cleanPhone);
     },
     
     profession: function(frm) {
-        // Handle teaching specialty visibility
-        const teaching_professions = ['التدريس الابتدائي', 'الإعدادي', 'التأهيلي'];
-        if (teaching_professions.includes(frm.doc.profession)) {
-            frm.set_df_property('teaching_specialty', 'hidden', 0);
+        const teachingProfessions = ['التدريس الابتدائي', 'التدريس الإعدادي', 'التدريس التأهيلي'];
+        if (teachingProfessions.includes(frm.doc.profession)) {
             frm.set_df_property('teaching_specialty', 'reqd', 1);
         } else {
-            frm.set_df_property('teaching_specialty', 'hidden', 1);
             frm.set_df_property('teaching_specialty', 'reqd', 0);
             frm.set_value('teaching_specialty', '');
         }
