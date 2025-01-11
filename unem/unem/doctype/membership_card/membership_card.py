@@ -9,12 +9,13 @@ class Membership_Card(Document):
     def validate(self):
         self.validate_dates()
         self.validate_card_number()
+        self.validate_academic_year()
         
     def validate_dates(self):
         """Validate membership and expiry dates"""
         if self.membership_date and self.expiry_date:
-            if getdate(self.expiry_date) <= getdate(self.membership_date):
-                frappe.throw("تاريخ الانتهاء يجب أن يكون بعد تاريخ الإنخراط")
+            if getdate(self.membership_date) > getdate(self.expiry_date):
+                frappe.throw("تاريخ الإنخراط يجب أن يكون قبل تاريخ الإنتهاء")
                 
     def validate_card_number(self):
         """Generate unique card number if not provided"""
@@ -26,6 +27,14 @@ class Membership_Card(Document):
             province_code = self.get_province_code(member.province)
             sequence = frappe.db.count("Membership_Card") + 1
             self.card_number = f"{year}-{province_code}-{sequence:04d}"
+            
+    def validate_academic_year(self):
+        if not self.academic_year:
+            frappe.throw("يجب تحديد السنة الدراسية")
+            
+        # Ensure academic year exists
+        if not frappe.db.exists("Academic Year", self.academic_year):
+            frappe.throw("السنة الدراسية غير موجودة")
             
     def get_province_code(self, province):
         """Get two-letter code for province"""
@@ -130,3 +139,16 @@ class Membership_Card(Document):
         """Set expiry date to one year from membership date if not set"""
         if self.membership_date and not self.expiry_date:
             self.expiry_date = add_years(self.membership_date, 1)
+            
+        # Set card number if not already set
+        if not self.card_number:
+            self.card_number = self.generate_card_number()
+            
+    def generate_card_number(self):
+        # Get member details
+        member = frappe.get_doc("Member", self.member)
+        # Generate card number based on member details
+        year = getdate().year
+        province_code = self.get_province_code(member.province)
+        sequence = frappe.db.count("Membership_Card") + 1
+        return f"{year}-{province_code}-{sequence:04d}"

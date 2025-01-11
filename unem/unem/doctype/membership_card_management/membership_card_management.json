@@ -1,71 +1,127 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:CARD-{####}",
- "creation": "2025-01-08 21:32:23.000000",
+ "autoname": "format:MCM-{####}",
+ "creation": "2024-01-11 23:37:00.000000",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "card_number",
-  "receipt_number",
   "region",
-  "region_share",
-  "university_share",
+  "province",
+  "academic_year",
+  "receipt_number",
+  "card_count",
+  "total_amount",
   "payment",
   "remaining_balance",
+  "office_share",
+  "region_share",
+  "province_share",
   "notes"
  ],
  "fields": [
   {
-   "fieldname": "card_number",
-   "fieldtype": "Int",
-   "in_list_view": 1,
-   "label": "عدد البطاقة",
+   "fieldname": "region",
+   "fieldtype": "Link",
+   "label": "الجهة",
+   "options": "Region",
    "reqd": 1,
-   "unique": 1
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "search_index": 1,
+   "bold": 1
+  },
+  {
+   "fieldname": "province",
+   "fieldtype": "Link",
+   "label": "الأقاليم",
+   "options": "Province",
+   "reqd": 0,
+   "mandatory_depends_on": "eval:doc.region",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "search_index": 1,
+   "bold": 1,
+   "description": "اختر الإقليم",
+   "fetch_if_empty": 0,
+   "ignore_user_permissions": 1
+  },
+  {
+   "fieldname": "academic_year",
+   "fieldtype": "Link",
+   "label": "الموسم الدراسي",
+   "options": "Academic Year",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "search_index": 1,
+   "bold": 1,
+   "default": "2023-2024"
   },
   {
    "fieldname": "receipt_number",
    "fieldtype": "Data",
-   "in_list_view": 1,
    "label": "عدد الوصل",
-   "reqd": 1
-  },
-  {
-   "fieldname": "region",
-   "fieldtype": "Select",
+   "reqd": 1,
    "in_list_view": 1,
-   "label": "الاقليم",
-   "options": "الدار البيضاء\nالرباط\nفاس\nطنجة\nمراكش\nأكادير\nوجدة\nالعيون\nالداخلة\nبني ملال\nالجديدة\nخريبكة\nآسفي\nتطوان\nالقنيطرة\nمكناس\nالناظور\nالحسيمة\nتازة\nورزازات",
-   "reqd": 1
+   "search_index": 1
   },
   {
-   "fieldname": "region_share",
-   "fieldtype": "Currency",
-   "label": "حصة الجهة",
-   "precision": 2,
-   "reqd": 1
+   "fieldname": "card_count",
+   "fieldtype": "Int",
+   "label": "عدد البطاقات",
+   "reqd": 1,
+   "in_list_view": 1,
+   "default": "0"
   },
   {
-   "fieldname": "university_share",
+   "fieldname": "total_amount",
    "fieldtype": "Currency",
-   "label": "حصة الجامعة",
-   "precision": 2,
-   "reqd": 1
+   "label": "المجموع",
+   "read_only": 1,
+   "bold": 1,
+   "description": "يحسب تلقائياً (عدد البطاقات × 100 درهم)",
+   "in_list_view": 1
   },
   {
    "fieldname": "payment",
    "fieldtype": "Currency",
    "label": "الأداء",
-   "precision": 2,
-   "reqd": 1
+   "reqd": 1,
+   "bold": 1,
+   "in_list_view": 1
   },
   {
    "fieldname": "remaining_balance",
    "fieldtype": "Currency",
    "label": "الباقي",
-   "precision": 2,
-   "read_only": 1
+   "read_only": 1,
+   "bold": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "office_share",
+   "fieldtype": "Currency",
+   "label": "حصة المكتب",
+   "read_only": 1,
+   "bold": 1,
+   "description": "50% من المجموع"
+  },
+  {
+   "fieldname": "region_share",
+   "fieldtype": "Currency",
+   "label": "حصة الجهة",
+   "read_only": 1,
+   "bold": 1,
+   "description": "20% من المجموع"
+  },
+  {
+   "fieldname": "province_share",
+   "fieldtype": "Currency",
+   "label": "حصة الإقليم",
+   "read_only": 1,
+   "bold": 1,
+   "description": "30% من المجموع"
   },
   {
    "fieldname": "notes",
@@ -75,10 +131,10 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-08 21:32:23.000000",
+ "modified": "2024-01-11 23:37:00.000000",
  "modified_by": "Administrator",
- "module": "UNEM",
- "name": "Membership_Card_Management",
+ "module": "Unem",
+ "name": "Membership Card Management",
  "name_case": "Title Case",
  "naming_rule": "Expression",
  "owner": "Administrator",
@@ -94,34 +150,10 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "UNEM Admin",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "UNEM Member Manager",
-   "share": 1,
-   "write": 1
   }
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "card_number",
  "track_changes": 1
 }
