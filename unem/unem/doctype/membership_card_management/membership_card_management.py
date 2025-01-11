@@ -52,19 +52,14 @@ class membership_card_management(Document):
             frappe.throw("المبلغ المدفوع لا يمكن أن يتجاوز المبلغ الإجمالي")
             
     def validate_academic_year(self):
+        """Validate academic year"""
         if not self.academic_year:
-            frappe.throw("يجب تحديد السنة الدراسية")
+            frappe.throw("يجب تحديد الموسم الدراسي")
             
         # Ensure academic year exists
         if not frappe.db.exists("Academic Year", self.academic_year):
-            frappe.throw("السنة الدراسية غير موجودة")
+            frappe.throw("الموسم الدراسي غير موجود")
             
-        # Get membership card
-        if self.membership_card:
-            card = frappe.get_doc("Membership Card", self.membership_card)
-            if card.academic_year != self.academic_year:
-                frappe.throw("السنة الدراسية يجب أن تتطابق مع السنة الدراسية في بطاقة الإنخراط")
-
     def before_save(self):
         """Final calculations before saving"""
         self.calculate_amounts()
