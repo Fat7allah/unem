@@ -32,9 +32,12 @@ class Member(Document):
                 
     def validate_province(self):
         """Validate that the selected province belongs to the selected region"""
-        if self.region and self.province:
-            province = frappe.get_value("Province", self.province, "region")
-            if province != self.region:
+        if self.region:
+            if not self.province:
+                frappe.throw("يجب تحديد الإقليم")
+                
+            province_doc = frappe.get_doc("Province", self.province)
+            if province_doc.region != self.region:
                 frappe.throw(f"الإقليم المحدد لا ينتمي إلى {self.region}")
 
     def before_save(self):
