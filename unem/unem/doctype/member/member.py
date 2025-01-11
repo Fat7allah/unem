@@ -161,19 +161,17 @@ def get_provinces(doctype, txt, searchfield, start, page_len, filters):
     """Get provinces based on selected region"""
     if not filters.get('region'):
         return []
-        
-    conditions = [
-        ['region', '=', filters.get('region')]
-    ]
-    
-    if txt:
-        conditions.append(['province_name', 'like', f'%{txt}%'])
-        
-    return frappe.get_all('Province',
-        filters=conditions,
-        fields=['name', 'province_name'],
-        start=start,
-        page_length=page_len,
-        order_by='province_name',
-        as_list=True
-    )
+
+    return frappe.db.sql("""
+        SELECT name, province_name
+        FROM `tabProvince`
+        WHERE region = %(region)s
+        AND (name LIKE %(txt)s OR province_name LIKE %(txt)s)
+        ORDER BY province_name ASC
+        LIMIT %(start)s, %(page_len)s
+    """, {
+        'region': filters.get('region'),
+        'txt': f"%{txt}%",
+        'start': start,
+        'page_len': page_len
+    })

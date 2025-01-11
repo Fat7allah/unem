@@ -97,17 +97,26 @@
    "fieldtype": "Link",
    "label": "الجهة",
    "options": "Region",
-   "reqd": 1
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "remember_last_selected_value": 1,
+   "search_index": 1,
+   "fetch_if_empty": 1
   },
   {
    "fieldname": "province",
-   "fieldtype": "Link",
+   "fieldtype": "Dynamic Link",
    "label": "الأقاليم",
    "options": "Province",
    "reqd": 1,
    "depends_on": "region",
-   "get_query": "unem.unem.doctype.member.member.get_provinces",
-   "ignore_user_permissions": 1
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "remember_last_selected_value": 1,
+   "search_index": 1,
+   "fetch_if_empty": 1,
+   "get_query": "unem.unem.doctype.member.member.get_provinces"
   },
   {
    "fieldname": "branch",
