@@ -94,19 +94,19 @@
   },
   {
    "fieldname": "region",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "الجهة",
-   "reqd": 1,
-   "options": "جهة طنجة تطوان الحسيمة\nجهة الشرق\nجهة فاس مكناس\nجهة الرباط سلا القنيطرة\nجهة بني ملال خنيفرة\nجهة الدار البيضاء سطات\nجهة مراكش آسفي\nجهة درعة تافيلالت\nجهة سوس ماسة\nجهة كلميم واد نون\nجهة العيون الساقية الحمراء\nجهة الداخلة وادي الذهب"
+   "options": "Region",
+   "reqd": 1
   },
   {
    "fieldname": "province",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "الأقاليم",
+   "options": "Province",
    "reqd": 1,
    "depends_on": "region",
-   "get_options": "unem.unem.doctype.member.member.get_province_options",
-   "fetch_from": "region"
+   "get_query": "unem.unem.doctype.member.member.get_provinces"
   },
   {
    "fieldname": "branch",
@@ -124,7 +124,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-11 17:08:21.000000",
+ "modified": "2025-01-11 17:17:21.000000",
  "modified_by": "Administrator",
  "module": "UNEM",
  "name": "Member",
