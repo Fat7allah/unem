@@ -25,7 +25,7 @@ frappe.ui.form.on('Member', {
         }
     },
     
-    validate: function(frm) {
+    before_save: function(frm) {
         // Ensure province is set if region is selected
         if (frm.doc.region && !frm.doc.province) {
             frappe.throw(__('يجب تحديد الإقليم'));
@@ -44,15 +44,21 @@ frappe.ui.form.on('Member', {
     },
     
     province: function(frm) {
-        if (frm.doc.province && frm.doc.region) {
-            frappe.db.get_value('Province', frm.doc.province, 'region')
-                .then(r => {
-                    if (r.message && r.message.region !== frm.doc.region) {
-                        frm.set_value('province', '');
-                        frappe.throw(__(`الإقليم المحدد لا ينتمي إلى ${frm.doc.region}`));
-                    }
-                });
+        if (!frm.doc.province) return;
+        
+        if (!frm.doc.region) {
+            frm.set_value('province', '');
+            frappe.throw(__('يجب تحديد الجهة أولاً'));
+            return;
         }
+        
+        frappe.db.get_value('Province', frm.doc.province, 'region')
+            .then(r => {
+                if (r.message && r.message.region !== frm.doc.region) {
+                    frm.set_value('province', '');
+                    frappe.throw(__(`الإقليم المحدد لا ينتمي إلى ${frm.doc.region}`));
+                }
+            });
     }
 });
 
