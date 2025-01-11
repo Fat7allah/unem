@@ -1,50 +1,62 @@
 [
  {
   "doctype": "Region",
+  "name": "جهة طنجة تطوان الحسيمة",
   "region_name": "جهة طنجة تطوان الحسيمة"
  },
  {
   "doctype": "Region",
+  "name": "جهة الشرق",
   "region_name": "جهة الشرق"
  },
  {
   "doctype": "Region",
+  "name": "جهة فاس مكناس",
   "region_name": "جهة فاس مكناس"
  },
  {
   "doctype": "Region",
+  "name": "جهة الرباط سلا القنيطرة",
   "region_name": "جهة الرباط سلا القنيطرة"
  },
  {
   "doctype": "Region",
+  "name": "جهة بني ملال خنيفرة",
   "region_name": "جهة بني ملال خنيفرة"
  },
  {
   "doctype": "Region",
+  "name": "جهة الدار البيضاء سطات",
   "region_name": "جهة الدار البيضاء سطات"
  },
  {
   "doctype": "Region",
+  "name": "جهة مراكش آسفي",
   "region_name": "جهة مراكش آسفي"
  },
  {
   "doctype": "Region",
+  "name": "جهة درعة تافيلالت",
   "region_name": "جهة درعة تافيلالت"
  },
  {
   "doctype": "Region",
+  "name": "جهة سوس ماسة",
   "region_name": "جهة سوس ماسة"
  },
  {
   "doctype": "Region",
+  "name": "جهة كلميم واد نون",
   "region_name": "جهة كلميم واد نون"
  },
  {
   "doctype": "Region",
+  "name": "جهة العيون الساقية الحمراء",
   "region_name": "جهة العيون الساقية الحمراء"
  },
  {
   "doctype": "Region",
+  "name": "جهة الداخلة وادي الذهب",
   "region_name": "جهة الداخلة وادي الذهب"
  }
 ]

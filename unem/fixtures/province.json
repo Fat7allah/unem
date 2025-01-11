@@ -1,361 +1,433 @@
 [
  {
   "doctype": "Province",
+  "name": "عمالة طنجة",
   "province_name": "عمالة طنجة",
   "region": "جهة طنجة تطوان الحسيمة"
  },
  {
   "doctype": "Province",
+  "name": "عمالة تطوان",
   "province_name": "عمالة تطوان",
   "region": "جهة طنجة تطوان الحسيمة"
  },
  {
   "doctype": "Province",
+  "name": "إقليم الفحص أنجرة",
   "province_name": "إقليم الفحص أنجرة",
   "region": "جهة طنجة تطوان الحسيمة"
  },
  {
   "doctype": "Province",
+  "name": "إقليم العرائش",
   "province_name": "إقليم العرائش",
   "region": "جهة طنجة تطوان الحسيمة"
  },
  {
   "doctype": "Province",
+  "name": "إقليم الحسيمة",
   "province_name": "إقليم الحسيمة",
   "region": "جهة طنجة تطوان الحسيمة"
  },
  {
   "doctype": "Province",
+  "name": "إقليم تازة",
   "province_name": "إقليم تازة",
   "region": "جهة طنجة تطوان الحسيمة"
  },
  {
   "doctype": "Province",
+  "name": "إقليم شفشاون",
   "province_name": "إقليم شفشاون",
   "region": "جهة طنجة تطوان الحسيمة"
  },
  {
   "doctype": "Province",
+  "name": "عمالة وجدة أنكاد",
   "province_name": "عمالة وجدة أنكاد",
   "region": "جهة الشرق"
  },
  {
   "doctype": "Province",
+  "name": "إقليم الناظور",
   "province_name": "إقليم الناظور",
   "region": "جهة الشرق"
  },
  {
   "doctype": "Province",
+  "name": "إقليم القنيطرة",
   "province_name": "إقليم القنيطرة",
   "region": "جهة الشرق"
  },
  {
   "doctype": "Province",
+  "name": "إقليم تاوريرت",
   "province_name": "إقليم تاوريرت",
   "region": "جهة الشرق"
  },
  {
   "doctype": "Province",
+  "name": "إقليم جرسيف",
   "province_name": "إقليم جرسيف",
   "region": "جهة الشرق"
  },
  {
   "doctype": "Province",
+  "name": "إقليم بركان",
   "province_name": "إقليم بركان",
   "region": "جهة الشرق"
  },
  {
   "doctype": "Province",
+  "name": "إقليم أوجدا أنكاد",
   "province_name": "إقليم أوجدا أنكاد",
   "region": "جهة الشرق"
  },
  {
   "doctype": "Province",
+  "name": "عمالة فاس",
   "province_name": "عمالة فاس",
   "region": "جهة فاس مكناس"
  },
  {
   "doctype": "Province",
+  "name": "عمالة مكناس",
   "province_name": "عمالة مكناس",
   "region": "جهة فاس مكناس"
  },
  {
   "doctype": "Province",
+  "name": "إقليم الحاجب",
   "province_name": "إقليم الحاجب",
   "region": "جهة فاس مكناس"
  },
  {
   "doctype": "Province",
+  "name": "إقليم إفران",
   "province_name": "إقليم إفران",
   "region": "جهة فاس مكناس"
  },
  {
   "doctype": "Province",
+  "name": "إقليم مولاي يعقوب",
   "province_name": "إقليم مولاي يعقوب",
   "region": "جهة فاس مكناس"
  },
  {
   "doctype": "Province",
+  "name": "إقليم صفرو",
   "province_name": "إقليم صفرو",
   "region": "جهة فاس مكناس"
  },
  {
   "doctype": "Province",
+  "name": "إقليم البولمان",
   "province_name": "إقليم البولمان",
   "region": "جهة فاس مكناس"
  },
  {
   "doctype": "Province",
+  "name": "إقليم تاونات",
   "province_name": "إقليم تاونات",
   "region": "جهة فاس مكناس"
  },
  {
   "doctype": "Province",
+  "name": "عمالة الرباط",
   "province_name": "عمالة الرباط",
   "region": "جهة الرباط سلا القنيطرة"
  },
  {
   "doctype": "Province",
+  "name": "عمالة سلا",
   "province_name": "عمالة سلا",
   "region": "جهة الرباط سلا القنيطرة"
  },
  {
   "doctype": "Province",
+  "name": "عمالة القنيطرة",
   "province_name": "عمالة القنيطرة",
   "region": "جهة الرباط سلا القنيطرة"
  },
  {
   "doctype": "Province",
+  "name": "إقليم الخميسات",
   "province_name": "إقليم الخميسات",
   "region": "جهة الرباط سلا القنيطرة"
  },
  {
   "doctype": "Province",
+  "name": "إقليم سيدي قاسم",
   "province_name": "إقليم سيدي قاسم",
   "region": "جهة الرباط سلا القنيطرة"
  },
  {
   "doctype": "Province",
+  "name": "إقليم سیدی سليمان",
   "province_name": "إقليم سیدی سليمان",
   "region": "جهة الرباط سلا القنيطرة"
  },
  {
   "doctype": "Province",
+  "name": "عمالة بني ملال",
   "province_name": "عمالة بني ملال",
   "region": "جهة بني ملال خنيفرة"
  },
  {
   "doctype": "Province",
+  "name": "إقليم خنيفرة",
   "province_name": "إقليم خنيفرة",
   "region": "جهة بني ملال خنيفرة"
  },
  {
   "doctype": "Province",
+  "name": "إقليم أزيلال",
   "province_name": "إقليم أزيلال",
   "region": "جهة بني ملال خنيفرة"
  },
  {
   "doctype": "Province",
+  "name": "إقليم الفقيه بن صالح",
   "province_name": "إقليم الفقيه بن صالح",
   "region": "جهة بني ملال خنيفرة"
  },
  {
   "doctype": "Province",
+  "name": "عمالة الدار البيضاء",
   "province_name": "عمالة الدار البيضاء",
   "region": "جهة الدار البيضاء سطات"
  },
  {
   "doctype": "Province",
+  "name": "إقليم المحمدية",
   "province_name": "إقليم المحمدية",
   "region": "جهة الدار البيضاء سطات"
  },
  {
   "doctype": "Province",
+  "name": "إقليم عين السبع الحي المحمدي",
   "province_name": "إقليم عين السبع الحي المحمدي",
   "region": "جهة الدار البيضاء سطات"
  },
  {
   "doctype": "Province",
+  "name": "إقليم البرنوصي",
   "province_name": "إقليم البرنوصي",
   "region": "جهة الدار البيضاء سطات"
  },
  {
   "doctype": "Province",
+  "name": "إقليم مولاي رشيد",
   "province_name": "إقليم مولاي رشيد",
   "region": "جهة الدار البيضاء سطات"
  },
  {
   "doctype": "Province",
+  "name": "إقليم بن مسيك سباتة",
   "province_name": "إقليم بن مسيك سباتة",
   "region": "جهة الدار البيضاء سطات"
  },
  {
   "doctype": "Province",
+  "name": "إقليم عين الشق",
   "province_name": "إقليم عين الشق",
   "region": "جهة الدار البيضاء سطات"
  },
  {
   "doctype": "Province",
+  "name": "إقليم الفداء",
   "province_name": "إقليم الفداء",
   "region": "جهة الدار البيضاء سطات"
  },
  {
   "doctype": "Province",
+  "name": "إقليم انفا",
   "province_name": "إقليم انفا",
   "region": "جهة الدار البيضاء سطات"
  },
  {
   "doctype": "Province",
+  "name": "إقليم الحي الحسني",
   "province_name": "إقليم الحي الحسني",
   "region": "جهة الدار البيضاء سطات"
  },
  {
   "doctype": "Province",
+  "name": "إقليم النواصر",
   "province_name": "إقليم النواصر",
   "region": "جهة الدار البيضاء سطات"
  },
  {
   "doctype": "Province",
+  "name": "إقليم مديونه",
   "province_name": "إقليم مديونه",
   "region": "جهة الدار البيضاء سطات"
  },
  {
   "doctype": "Province",
+  "name": "اقليم سطات",
   "province_name": "اقليم سطات",
   "region": "جهة الدار البيضاء سطات"
  },
  {
   "doctype": "Province",
+  "name": "إقليم الجديدة",
   "province_name": "إقليم الجديدة",
   "region": "جهة الدار البيضاء سطات"
  },
  {
   "doctype": "Province",
+  "name": "إقليم سيدي بنور",
   "province_name": "إقليم سيدي بنور",
   "region": "جهة الدار البيضاء سطات"
  },
  {
   "doctype": "Province",
+  "name": "إقليم برشيد",
   "province_name": "إقليم برشيد",
   "region": "جهة الدار البيضاء سطات"
  },
  {
   "doctype": "Province",
+  "name": "إقليم بنسليمان",
   "province_name": "إقليم بنسليمان",
   "region": "جهة الدار البيضاء سطات"
  },
  {
   "doctype": "Province",
+  "name": "عمالة مراكش",
   "province_name": "عمالة مراكش",
   "region": "جهة مراكش آسفي"
  },
  {
   "doctype": "Province",
+  "name": "عمالة آسفي",
   "province_name": "عمالة آسفي",
   "region": "جهة مراكش آسفي"
  },
  {
   "doctype": "Province",
+  "name": "إقليم الحوز",
   "province_name": "إقليم الحوز",
   "region": "جهة مراكش آسفي"
  },
  {
   "doctype": "Province",
+  "name": "إقليم شيشاوة",
   "province_name": "إقليم شيشاوة",
   "region": "جهة مراكش آسفي"
  },
  {
   "doctype": "Province",
+  "name": "إقليم الصويرة",
   "province_name": "إقليم الصويرة",
   "region": "جهة مراكش آسفي"
  },
  {
   "doctype": "Province",
+  "name": "إقليم قلعة السراغنة",
   "province_name": "إقليم قلعة السراغنة",
   "region": "جهة مراكش آسفي"
  },
  {
   "doctype": "Province",
+  "name": "إقليم ورزازات",
   "province_name": "إقليم ورزازات",
   "region": "جهة درعة تافيلالت"
  },
  {
   "doctype": "Province",
+  "name": "إقليم الراشيدية",
   "province_name": "إقليم الراشيدية",
   "region": "جهة درعة تافيلالت"
  },
  {
   "doctype": "Province",
+  "name": "إقليم ميدلت",
   "province_name": "إقليم ميدلت",
   "region": "جهة درعة تافيلالت"
  },
  {
   "doctype": "Province",
+  "name": "إقليم تينغير",
   "province_name": "إقليم تينغير",
   "region": "جهة درعة تافيلالت"
  },
  {
   "doctype": "Province",
+  "name": "عمالة أكادير إدا وتنان",
   "province_name": "عمالة أكادير إدا وتنان",
   "region": "جهة سوس ماسة"
  },
  {
   "doctype": "Province",
+  "name": "عمالة إنزكان آيت ملول",
   "province_name": "عمالة إنزكان آيت ملول",
   "region": "جهة سوس ماسة"
  },
  {
   "doctype": "Province",
+  "name": "إقليم تارودانت",
   "province_name": "إقليم تارودانت",
   "region": "جهة سوس ماسة"
  },
  {
   "doctype": "Province",
+  "name": "إقليم تيزنيت",
   "province_name": "إقليم تيزنيت",
   "region": "جهة سوس ماسة"
  },
  {
   "doctype": "Province",
+  "name": "إقليم سيدي إفني",
   "province_name": "إقليم سيدي إفني",
   "region": "جهة سوس ماسة"
  },
  {
   "doctype": "Province",
+  "name": "إقليم كلميم",
   "province_name": "إقليم كلميم",
   "region": "جهة كلميم واد نون"
  },
  {
   "doctype": "Province",
+  "name": "إقليم أسا الزاك",
   "province_name": "إقليم أسا الزاك",
   "region": "جهة كلميم واد نون"
  },
  {
   "doctype": "Province",
+  "name": "إقليم طاطا",
   "province_name": "إقليم طاطا",
   "region": "جهة كلميم واد نون"
  },
  {
   "doctype": "Province",
+  "name": "إقليم العيون",
   "province_name": "إقليم العيون",
   "region": "جهة كلميم واد نون"
  },
  {
   "doctype": "Province",
+  "name": "عمالة العيون",
   "province_name": "عمالة العيون",
   "region": "جهة العيون الساقية الحمراء"
  },
  {
   "doctype": "Province",
+  "name": "عمالة الساقية الحمراء",
   "province_name": "عمالة الساقية الحمراء",
   "region": "جهة العيون الساقية الحمراء"
  },
  {
   "doctype": "Province",
+  "name": "إقليم طرفاية",
   "province_name": "إقليم طرفاية",
   "region": "جهة العيون الساقية الحمراء"
  },
  {
   "doctype": "Province",
+  "name": "عمالة الداخلة",
   "province_name": "عمالة الداخلة",
   "region": "جهة الداخلة وادي الذهب"
  }
