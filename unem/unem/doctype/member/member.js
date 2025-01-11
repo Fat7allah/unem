@@ -18,27 +18,17 @@ frappe.ui.form.on('Member', {
         }
     },
     
-    validate: function(frm) {
-        if (!frm.doc.phone) return;
-        
-        // Remove any non-digit characters
-        let cleanPhone = frm.doc.phone.replace(/\D/g, '');
-        
-        // Validate phone length
-        if (cleanPhone.length < 8 || cleanPhone.length > 15) {
-            frappe.throw(__('رقم الهاتف غير صالح'));
+    onload: function(frm) {
+        // Set up province field on form load if region exists
+        if (frm.doc.region) {
+            setup_province_field(frm);
         }
-        
-        frm.set_value('phone', cleanPhone);
     },
     
-    profession: function(frm) {
-        const teachingProfessions = ['التدريس الابتدائي', 'التدريس الإعدادي', 'التدريس التأهيلي'];
-        if (teachingProfessions.includes(frm.doc.profession)) {
-            frm.set_df_property('teaching_specialty', 'reqd', 1);
-        } else {
-            frm.set_df_property('teaching_specialty', 'reqd', 0);
-            frm.set_value('teaching_specialty', '');
+    before_save: function(frm) {
+        // Ensure province is set if region is selected
+        if (frm.doc.region && !frm.doc.province) {
+            frappe.throw(__('يجب تحديد الإقليم'));
         }
     },
     
@@ -62,13 +52,6 @@ frappe.ui.form.on('Member', {
                         frappe.throw(__(`الإقليم المحدد لا ينتمي إلى ${frm.doc.region}`));
                     }
                 });
-        }
-    },
-    
-    onload: function(frm) {
-        // Set up province field on form load if region exists
-        if (frm.doc.region) {
-            setup_province_field(frm);
         }
     }
 });

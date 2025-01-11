@@ -35,7 +35,12 @@ class Member(Document):
         if self.region:
             if not self.province:
                 frappe.throw("يجب تحديد الإقليم")
+            
+            # Ensure province exists
+            if not frappe.db.exists("Province", self.province):
+                frappe.throw("الإقليم غير موجود")
                 
+            # Validate province belongs to region
             province_doc = frappe.get_doc("Province", self.province)
             if province_doc.region != self.region:
                 frappe.throw(f"الإقليم المحدد لا ينتمي إلى {self.region}")
@@ -44,6 +49,11 @@ class Member(Document):
         """Clear province if region changes"""
         if self.has_value_changed('region'):
             self.province = ''
+            
+    def before_validate(self):
+        """Ensure province is set before validation"""
+        if self.region and not self.province:
+            frappe.throw("يجب تحديد الإقليم")
 
     def onload(self):
         """Load province options based on selected region"""

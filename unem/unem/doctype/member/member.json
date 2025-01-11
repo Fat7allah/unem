@@ -118,7 +118,8 @@
    "search_index": 1,
    "fetch_if_empty": 0,
    "ignore_user_permissions": 1,
-   "translatable": 0,
+   "set_only_once": 0,
+   "allow_on_submit": 0,
    "get_query": "unem.unem.doctype.member.member.get_provinces"
   },
   {
