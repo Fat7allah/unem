@@ -159,7 +159,7 @@ def get_active_members(doctype, txt, searchfield, start, page_len, filters):
 @frappe.whitelist()
 def get_province_options(region=None):
     if not region:
-        return []
+        return "\n"
         
     provinces = {
         'جهة طنجة تطوان الحسيمة': [
@@ -260,7 +260,8 @@ def get_province_options(region=None):
         ]
     }
     
-    return provinces.get(region, [])
+    options = provinces.get(region, [])
+    return '\n'.join(options) if options else "\n"
 
 @frappe.whitelist()
 def get_provinces(doctype, txt, searchfield, start, page_len, filters):

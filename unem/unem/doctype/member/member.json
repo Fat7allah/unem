@@ -101,12 +101,12 @@
   },
   {
    "fieldname": "province",
-   "fieldtype": "Dynamic Link",
+   "fieldtype": "Select",
    "label": "الأقاليم",
    "reqd": 1,
    "depends_on": "region",
-   "get_query": "unem.unem.doctype.member.member.get_provinces",
-   "options": "region"
+   "get_options": "unem.unem.doctype.member.member.get_province_options",
+   "fetch_from": "region"
   },
   {
    "fieldname": "branch",
@@ -124,7 +124,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-11 17:03:43.000000",
+ "modified": "2025-01-11 17:08:21.000000",
  "modified_by": "Administrator",
  "module": "UNEM",
  "name": "Member",
