@@ -252,3 +252,15 @@ translations = [
         "language_code": "ar"
     }
 ]
+
+# Fixtures
+fixtures = [
+    {
+        "doctype": "Region",
+        "filters": [["name", "like", "%"]]
+    },
+    {
+        "doctype": "Province",
+        "filters": [["name", "like", "%"]]
+    }
+]
