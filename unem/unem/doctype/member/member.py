@@ -163,7 +163,7 @@ def get_provinces(doctype, txt, searchfield, start, page_len, filters):
         return []
 
     return frappe.db.sql("""
-        SELECT name, province_name
+        SELECT DISTINCT name, province_name
         FROM `tabProvince`
         WHERE region = %(region)s
         AND (name LIKE %(txt)s OR province_name LIKE %(txt)s)

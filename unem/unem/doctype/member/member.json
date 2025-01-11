@@ -106,7 +106,7 @@
   },
   {
    "fieldname": "province",
-   "fieldtype": "Dynamic Link",
+   "fieldtype": "Link",
    "label": "الأقاليم",
    "options": "Province",
    "reqd": 1,
@@ -115,8 +115,7 @@
    "in_standard_filter": 1,
    "remember_last_selected_value": 1,
    "search_index": 1,
-   "fetch_if_empty": 1,
-   "get_query": "unem.unem.doctype.member.member.get_provinces"
+   "fetch_if_empty": 1
   },
   {
    "fieldname": "branch",
