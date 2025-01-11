@@ -56,9 +56,6 @@ frappe.ui.form.on('Member', {
                 };
             });
             
-            // Make province field mandatory when region is selected
-            frm.toggle_reqd('province', true);
-            
             // Fetch provinces for the selected region
             frappe.call({
                 method: 'unem.unem.doctype.member.member.get_provinces',
@@ -74,6 +71,7 @@ frappe.ui.form.on('Member', {
                     if (!r.exc && r.message && r.message.length > 0) {
                         // Province options are available
                         frm.set_df_property('province', 'hidden', 0);
+                        frm.refresh_field('province');
                     } else {
                         frappe.msgprint(__('لا توجد أقاليم متاحة للجهة المحددة'));
                         frm.set_value('region', '');
@@ -81,8 +79,8 @@ frappe.ui.form.on('Member', {
                 }
             });
         } else {
-            // If no region is selected, hide and clear province
-            frm.toggle_reqd('province', false);
+            // If no region is selected, hide province
+            frm.set_df_property('province', 'hidden', 1);
             frm.set_value('province', '');
         }
     },
