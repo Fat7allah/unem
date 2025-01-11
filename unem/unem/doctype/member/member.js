@@ -12,9 +12,17 @@ frappe.ui.form.on('Member', {
             frm.save();
         }, __('إجراءات'));
         
-        // Clear province when form loads if no region is selected
-        if (!frm.doc.region) {
-            frm.set_value('province', '');
+        // Set up province field if region exists
+        if (frm.doc.region) {
+            frm.set_query('province', function() {
+                return {
+                    filters: {
+                        'region': frm.doc.region
+                    }
+                };
+            });
+            frm.set_df_property('province', 'hidden', 0);
+            frm.refresh_field('province');
         }
     },
     
@@ -95,6 +103,21 @@ frappe.ui.form.on('Member', {
                         frappe.throw(__(`الإقليم المحدد لا ينتمي إلى ${frm.doc.region}`));
                     }
                 });
+        }
+    },
+
+    onload: function(frm) {
+        // Set up province field on form load if region exists
+        if (frm.doc.region) {
+            frm.set_query('province', function() {
+                return {
+                    filters: {
+                        'region': frm.doc.region
+                    }
+                };
+            });
+            frm.set_df_property('province', 'hidden', 0);
+            frm.refresh_field('province');
         }
     }
 });
