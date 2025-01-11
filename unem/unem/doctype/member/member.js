@@ -25,25 +25,25 @@ frappe.ui.form.on('Member', {
         }
     },
     
-    before_save: function(frm) {
+    validate: function(frm) {
         // Ensure province is set if region is selected
         if (frm.doc.region && !frm.doc.province) {
             frappe.throw(__('يجب تحديد الإقليم'));
+            return false;
         }
+        return true;
     },
     
     region: function(frm) {
+        // Clear province when region changes
+        frm.set_value('province', '');
+        
         if (frm.doc.region) {
             setup_province_field(frm);
-        } else {
-            // If no region is selected, hide province
-            frm.set_df_property('province', 'hidden', 1);
-            frm.set_value('province', '');
         }
     },
     
     province: function(frm) {
-        // Validate that selected province belongs to selected region
         if (frm.doc.province && frm.doc.region) {
             frappe.db.get_value('Province', frm.doc.province, 'region')
                 .then(r => {
@@ -58,7 +58,6 @@ frappe.ui.form.on('Member', {
 
 // Helper function to set up province field
 function setup_province_field(frm) {
-    // Set up filters for province field
     frm.set_query('province', function() {
         return {
             filters: {
@@ -67,34 +66,26 @@ function setup_province_field(frm) {
         };
     });
     
-    // Make province field visible
-    frm.set_df_property('province', 'hidden', 0);
-    
-    // If this is a new form or province is empty, fetch provinces
-    if (!frm.doc.province) {
-        frappe.call({
-            method: 'unem.unem.doctype.member.member.get_provinces',
-            args: {
-                doctype: 'Province',
-                txt: '',
-                searchfield: 'name',
-                start: 0,
-                page_len: 50,
-                filters: JSON.stringify({ 'region': frm.doc.region })
-            },
-            callback: function(r) {
-                if (!r.exc && r.message && r.message.length > 0) {
-                    frm.refresh_field('province');
-                } else {
-                    frappe.msgprint(__('لا توجد أقاليم متاحة للجهة المحددة'));
-                    frm.set_value('region', '');
-                }
+    // Fetch provinces for the selected region
+    frappe.call({
+        method: 'unem.unem.doctype.member.member.get_provinces',
+        args: {
+            doctype: 'Province',
+            txt: '',
+            searchfield: 'name',
+            start: 0,
+            page_len: 50,
+            filters: JSON.stringify({ 'region': frm.doc.region })
+        },
+        callback: function(r) {
+            if (!r.exc && r.message && r.message.length > 0) {
+                frm.refresh_field('province');
+            } else {
+                frappe.msgprint(__('لا توجد أقاليم متاحة للجهة المحددة'));
+                frm.set_value('region', '');
             }
-        });
-    } else {
-        // If province already exists, just refresh the field
-        frm.refresh_field('province');
-    }
+        }
+    });
 }
 
 // Helper function to validate email

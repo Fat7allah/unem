@@ -40,16 +40,34 @@ class Member(Document):
             if not frappe.db.exists("Province", self.province):
                 frappe.throw("الإقليم غير موجود")
                 
-            # Validate province belongs to region
+            # Get province document
             province_doc = frappe.get_doc("Province", self.province)
             if province_doc.region != self.region:
                 frappe.throw(f"الإقليم المحدد لا ينتمي إلى {self.region}")
 
     def before_save(self):
-        """Clear province if region changes"""
+        """Handle province before saving"""
         if self.has_value_changed('region'):
             self.province = ''
+        
+        # Ensure province is set if region is selected
+        if self.region and not self.province:
+            frappe.throw("يجب تحديد الإقليم")
             
+        # Double-check province exists and belongs to region
+        if self.province:
+            province_doc = frappe.get_doc("Province", self.province)
+            if province_doc.region != self.region:
+                self.province = ''
+                frappe.throw(f"الإقليم المحدد لا ينتمي إلى {self.region}")
+
+    def on_update(self):
+        """Handle after save operations"""
+        # Ensure province is saved in the database
+        if self.province:
+            frappe.db.set_value('Member', self.name, 'province', self.province, update_modified=False)
+            frappe.db.commit()
+
     def before_validate(self):
         """Ensure province is set before validation"""
         if self.region and not self.province:
@@ -193,19 +211,17 @@ def get_provinces(doctype, txt, searchfield, start, page_len, filters=None):
     if not region:
         return []
         
-    return frappe.db.sql("""
-        SELECT name, province_name
-        FROM `tabProvince`
-        WHERE region = %(region)s
-        AND (
-            name LIKE %(txt)s OR 
-            province_name LIKE %(txt)s
-        )
-        ORDER BY province_name ASC
-        LIMIT %(start)s, %(page_len)s
-    """, {
-        'region': region,
-        'txt': f"%{txt}%",
-        'start': int(start),
-        'page_len': int(page_len)
-    }, as_list=1)
+    # Get provinces from database
+    provinces = frappe.get_all('Province',
+        filters={'region': region},
+        or_filters={
+            'name': ['like', f'%{txt}%'],
+            'province_name': ['like', f'%{txt}%']
+        },
+        fields=['name', 'province_name'],
+        start=int(start),
+        page_length=int(page_len),
+        order_by='province_name asc'
+    )
+    
+    return [[p.name, p.province_name] for p in provinces]
