@@ -96,14 +96,14 @@
    "fieldname": "region",
    "fieldtype": "Link",
    "label": "الجهة",
-   "options": "Region",
+   "options": "New Region",
    "reqd": 1
   },
   {
    "fieldname": "province",
    "fieldtype": "Link",
    "label": "الأقاليم",
-   "options": "Province",
+   "options": "New Province",
    "reqd": 1,
    "depends_on": "region",
    "get_query": "unem.unem.doctype.member.member.get_provinces"

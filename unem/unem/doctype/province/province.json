@@ -1,22 +1,30 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:province_name",
+ "autoname": "field:name1",
  "creation": "2025-01-11 17:17:21.000000",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "province_name",
+  "name1",
+  "province_name_ar",
   "region"
  ],
  "fields": [
   {
-   "fieldname": "province_name",
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Province Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "province_name_ar",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "الإقليم",
-   "reqd": 1,
-   "unique": 1
+   "reqd": 1
   },
   {
    "fieldname": "region",
@@ -28,7 +36,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-11 17:17:21.000000",
+ "modified": "2025-01-11 17:23:22.000000",
  "modified_by": "Administrator",
  "module": "UNEM",
  "name": "Province",
