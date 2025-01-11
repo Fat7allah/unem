@@ -1,4 +1,4 @@
-frappe.ui.form.on('Membership_Card_Management', {
+frappe.ui.form.on('membership_card_management', {
     refresh: function(frm) {
         // Set RTL for Arabic
         $('body').attr('dir', 'rtl');

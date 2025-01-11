@@ -2,7 +2,7 @@ import frappe
 from frappe.model.document import Document
 from frappe.utils import flt
 
-class Membership_Card_Management(Document):
+class membership_card_management(Document):
     def validate(self):
         self.validate_province()
         self.calculate_amounts()

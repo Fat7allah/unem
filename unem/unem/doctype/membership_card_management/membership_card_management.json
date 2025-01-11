@@ -134,7 +134,7 @@
  "modified": "2024-01-11 23:37:00.000000",
  "modified_by": "Administrator",
  "module": "Unem",
- "name": "Membership Card Management",
+ "name": "membership_card_management",
  "name_case": "Title Case",
  "naming_rule": "Expression",
  "owner": "Administrator",
