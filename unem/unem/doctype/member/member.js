@@ -68,7 +68,7 @@ frappe.ui.form.on('Member', {
                     searchfield: 'name',
                     start: 0,
                     page_len: 50,
-                    filters: { 'region': frm.doc.region }
+                    filters: JSON.stringify({ 'region': frm.doc.region })
                 },
                 callback: function(r) {
                     if (!r.exc && r.message && r.message.length > 0) {

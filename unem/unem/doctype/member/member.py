@@ -170,9 +170,13 @@ def get_active_members(doctype, txt, searchfield, start, page_len, filters):
     })
 
 @frappe.whitelist()
-def get_provinces(doctype, txt, searchfield, start, page_len, filters):
+def get_provinces(doctype, txt, searchfield, start, page_len, filters=None):
     """Get provinces based on selected region"""
-    region = filters.get('region')
+    if isinstance(filters, str):
+        import json
+        filters = json.loads(filters)
+        
+    region = filters.get('region') if isinstance(filters, dict) else None
     if not region:
         return []
         
@@ -189,6 +193,6 @@ def get_provinces(doctype, txt, searchfield, start, page_len, filters):
     """, {
         'region': region,
         'txt': f"%{txt}%",
-        'start': start,
-        'page_len': page_len
+        'start': int(start),
+        'page_len': int(page_len)
     }, as_list=1)
