@@ -16,6 +16,7 @@
    "in_list_view": 1,
    "label": "الإقليم",
    "reqd": 1,
+   "search_index": 1,
    "unique": 1
   },
   {
@@ -24,7 +25,8 @@
    "in_list_view": 1,
    "label": "الجهة",
    "options": "Region",
-   "reqd": 1
+   "reqd": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -50,7 +52,9 @@
    "write": 1
   }
  ],
+ "search_fields": "province_name,region",
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "province_name"
 }

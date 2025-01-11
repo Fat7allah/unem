@@ -15,6 +15,7 @@
    "in_list_view": 1,
    "label": "الجهة",
    "reqd": 1,
+   "search_index": 1,
    "unique": 1
   }
  ],
@@ -41,7 +42,9 @@
    "write": 1
   }
  ],
+ "search_fields": "region_name",
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "region_name"
 }
