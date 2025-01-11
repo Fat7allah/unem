@@ -162,13 +162,18 @@ def get_provinces(doctype, txt, searchfield, start, page_len, filters):
     if not filters.get('region'):
         return []
         
+    conditions = [
+        ['region', '=', filters.get('region')]
+    ]
+    
+    if txt:
+        conditions.append(['province_name', 'like', f'%{txt}%'])
+        
     return frappe.get_all('Province',
-        filters={
-            'region': filters.get('region'),
-            'province_name': ['like', f'%{txt}%'] if txt else ['!=', '']
-        },
-        fields=['province_name as name'],
+        filters=conditions,
+        fields=['name', 'province_name'],
         start=start,
         page_length=page_len,
+        order_by='province_name',
         as_list=True
     )

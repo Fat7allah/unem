@@ -106,7 +106,8 @@
    "options": "Province",
    "reqd": 1,
    "depends_on": "region",
-   "get_query": "unem.unem.doctype.member.member.get_provinces"
+   "get_query": "unem.unem.doctype.member.member.get_provinces",
+   "ignore_user_permissions": 1
   },
   {
    "fieldname": "branch",
