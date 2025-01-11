@@ -8,6 +8,7 @@ class Member(Document):
     def validate(self):
         self.validate_email()
         self.validate_phone()
+        self.validate_province()
         
     def validate_email(self):
         if self.email:
@@ -28,6 +29,18 @@ class Member(Document):
             
             if not (8 <= len(self.phone) <= 15):
                 frappe.throw("رقم الهاتف غير صالح")
+                
+    def validate_province(self):
+        """Validate that the selected province belongs to the selected region"""
+        if self.region and self.province:
+            province = frappe.get_value("Province", self.province, "region")
+            if province != self.region:
+                frappe.throw(f"الإقليم المحدد لا ينتمي إلى {self.region}")
+
+    def before_save(self):
+        """Clear province if region changes"""
+        if self.has_value_changed('region'):
+            self.province = ''
 
     def onload(self):
         """Load province options based on selected region"""
@@ -159,19 +172,23 @@ def get_active_members(doctype, txt, searchfield, start, page_len, filters):
 @frappe.whitelist()
 def get_provinces(doctype, txt, searchfield, start, page_len, filters):
     """Get provinces based on selected region"""
-    if not filters.get('region'):
+    region = filters.get('region')
+    if not region:
         return []
-
+        
     return frappe.db.sql("""
-        SELECT DISTINCT name, province_name
+        SELECT name, province_name
         FROM `tabProvince`
         WHERE region = %(region)s
-        AND (name LIKE %(txt)s OR province_name LIKE %(txt)s)
+        AND (
+            name LIKE %(txt)s OR 
+            province_name LIKE %(txt)s
+        )
         ORDER BY province_name ASC
         LIMIT %(start)s, %(page_len)s
     """, {
-        'region': filters.get('region'),
+        'region': region,
         'txt': f"%{txt}%",
         'start': start,
         'page_len': page_len
-    })
+    }, as_list=1)
