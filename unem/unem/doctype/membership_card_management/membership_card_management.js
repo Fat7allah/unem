@@ -2,9 +2,17 @@ frappe.ui.form.on('membership_card_management', {
     refresh: function(frm) {
         // Set RTL for Arabic
         $('body').attr('dir', 'rtl');
+        
+        // Set currency to MAD for all currency fields
+        frm.set_currency_labels(['total_amount', 'payment', 'remaining_balance', 
+            'office_share', 'region_share', 'province_share'], 'MAD');
     },
     
     onload: function(frm) {
+        // Set currency to MAD for all currency fields
+        frm.set_currency_labels(['total_amount', 'payment', 'remaining_balance', 
+            'office_share', 'region_share', 'province_share'], 'MAD');
+            
         // Set up province field if region exists
         if (frm.doc.region) {
             setup_province_field(frm);
@@ -77,4 +85,8 @@ function calculate_amounts(frm) {
     if (frm.doc.payment) {
         frm.set_value('remaining_balance', frm.doc.payment - total_amount);
     }
+    
+    // Set currency to MAD for all currency fields
+    frm.set_currency_labels(['total_amount', 'payment', 'remaining_balance', 
+        'office_share', 'region_share', 'province_share'], 'MAD');
 }
