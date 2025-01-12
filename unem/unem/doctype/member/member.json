@@ -100,9 +100,8 @@
    "reqd": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "remember_last_selected_value": 1,
    "search_index": 1,
-   "fetch_if_empty": 1
+   "bold": 1
   },
   {
    "fieldname": "province",
@@ -116,7 +115,6 @@
    "search_index": 1,
    "bold": 1,
    "description": "اختر الإقليم",
-   "fetch_from": "",
    "fetch_if_empty": 0,
    "ignore_user_permissions": 1,
    "in_global_search": 1,

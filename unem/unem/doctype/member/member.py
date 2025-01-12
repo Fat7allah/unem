@@ -46,12 +46,11 @@ class Member(Document):
         province_doc = frappe.get_doc("Province", self.province)
         if province_doc.region != self.region:
             frappe.throw(f"الإقليم المحدد لا ينتمي إلى {self.region}")
-
+            
     def before_save(self):
         """Handle province before saving"""
         if self.has_value_changed('region'):
             self.province = ''
-            return
             
         # Skip validation for new records (will be handled in validate)
         if self.is_new():
@@ -59,20 +58,13 @@ class Member(Document):
             
         # Only validate province if region is set and province is changed
         if self.region and self.has_value_changed('province'):
-            if not self.province:
-                frappe.throw("يجب تحديد الإقليم")
-                
-            # Double-check province exists and belongs to region
-            province_doc = frappe.get_doc("Province", self.province)
-            if province_doc.region != self.region:
-                self.province = ''
-                frappe.throw(f"الإقليم المحدد لا ينتمي إلى {self.region}")
-
+            self.validate_province()
+            
     def on_update(self):
         """Handle after save operations"""
         # Ensure province is saved in the database
         if self.province:
-            frappe.db.set_value('Member', self.name, 'province', self.province, update_modified=False)
+            frappe.db.set_value('Member', self.name, 'province', self.province)
             frappe.db.commit()
 
     def before_validate(self):
@@ -232,3 +224,33 @@ def get_provinces(doctype, txt, searchfield, start, page_len, filters=None):
     )
     
     return [[p.name, p.province_name] for p in provinces]
+
+@frappe.whitelist()
+def get_provinces(region=None):
+    """Get list of provinces for the selected region"""
+    if not region:
+        return []
+        
+    provinces = frappe.get_all('Province',
+        filters={'region': region},
+        fields=['name'],
+        order_by='name asc'
+    )
+    
+    return [p.name for p in provinces]
+
+@frappe.whitelist()
+def validate_province(region=None, province=None):
+    """Validate that a province belongs to a region"""
+    if not region or not province:
+        return False
+        
+    # Get province document
+    try:
+        province_doc = frappe.get_doc("Province", province)
+        if province_doc.region != region:
+            frappe.throw(f"الإقليم المحدد لا ينتمي إلى {region}")
+        return True
+    except frappe.DoesNotExistError:
+        frappe.throw("الإقليم غير موجود")
+        return False

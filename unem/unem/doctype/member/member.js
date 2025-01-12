@@ -25,15 +25,6 @@ frappe.ui.form.on('Member', {
         }
     },
     
-    before_save: function(frm) {
-        // Ensure province is set if region is selected
-        if (frm.doc.region && !frm.doc.province) {
-            frappe.throw(__('يجب تحديد الإقليم'));
-            return false;
-        }
-        return true;
-    },
-    
     region: function(frm) {
         // Clear province when region changes
         frm.set_value('province', '');
@@ -71,30 +62,4 @@ function setup_province_field(frm) {
             }
         };
     });
-    
-    // Fetch provinces for the selected region
-    frappe.call({
-        method: 'unem.unem.doctype.member.member.get_provinces',
-        args: {
-            doctype: 'Province',
-            txt: '',
-            searchfield: 'name',
-            start: 0,
-            page_len: 50,
-            filters: JSON.stringify({ 'region': frm.doc.region })
-        },
-        callback: function(r) {
-            if (!r.exc && r.message && r.message.length > 0) {
-                frm.refresh_field('province');
-            } else {
-                frappe.msgprint(__('لا توجد أقاليم متاحة للجهة المحددة'));
-                frm.set_value('region', '');
-            }
-        }
-    });
-}
-
-// Helper function to validate email
-function validate_email(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
