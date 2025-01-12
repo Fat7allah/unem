@@ -6,7 +6,6 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "currency",
   "region",
   "province",
   "academic_year",
@@ -21,14 +20,6 @@
   "notes"
  ],
  "fields": [
-  {
-   "fieldname": "currency",
-   "fieldtype": "Link",
-   "label": "Currency",
-   "options": "Currency",
-   "hidden": 1,
-   "default": "MAD"
-  },
   {
    "fieldname": "region",
    "fieldtype": "Link",
@@ -84,58 +75,58 @@
   },
   {
    "fieldname": "total_amount",
-   "fieldtype": "Currency",
+   "fieldtype": "Float",
    "label": "المجموع",
    "read_only": 1,
    "bold": 1,
    "description": "يحسب تلقائياً (عدد البطاقات × 100 درهم)",
    "in_list_view": 1,
-   "options": "currency"
+   "precision": 2
   },
   {
    "fieldname": "payment",
-   "fieldtype": "Currency",
+   "fieldtype": "Float",
    "label": "الأداء",
    "reqd": 1,
    "bold": 1,
    "in_list_view": 1,
-   "options": "currency"
+   "precision": 2
   },
   {
    "fieldname": "remaining_balance",
-   "fieldtype": "Currency",
+   "fieldtype": "Float",
    "label": "الباقي",
    "read_only": 1,
    "bold": 1,
    "in_list_view": 1,
-   "options": "currency"
+   "precision": 2
   },
   {
    "fieldname": "office_share",
-   "fieldtype": "Currency",
+   "fieldtype": "Float",
    "label": "حصة المكتب",
    "read_only": 1,
    "bold": 1,
    "description": "50% من المجموع",
-   "options": "currency"
+   "precision": 2
   },
   {
    "fieldname": "region_share",
-   "fieldtype": "Currency",
+   "fieldtype": "Float",
    "label": "حصة الجهة",
    "read_only": 1,
    "bold": 1,
    "description": "20% من المجموع",
-   "options": "currency"
+   "precision": 2
   },
   {
    "fieldname": "province_share",
-   "fieldtype": "Currency",
+   "fieldtype": "Float",
    "label": "حصة الإقليم",
    "read_only": 1,
    "bold": 1,
    "description": "30% من المجموع",
-   "options": "currency"
+   "precision": 2
   },
   {
    "fieldname": "notes",
