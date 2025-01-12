@@ -80,7 +80,8 @@
    "read_only": 1,
    "bold": 1,
    "description": "يحسب تلقائياً (عدد البطاقات × 100 درهم)",
-   "in_list_view": 1
+   "in_list_view": 1,
+   "options": "MAD"
   },
   {
    "fieldname": "payment",
@@ -88,7 +89,8 @@
    "label": "الأداء",
    "reqd": 1,
    "bold": 1,
-   "in_list_view": 1
+   "in_list_view": 1,
+   "options": "MAD"
   },
   {
    "fieldname": "remaining_balance",
@@ -96,7 +98,8 @@
    "label": "الباقي",
    "read_only": 1,
    "bold": 1,
-   "in_list_view": 1
+   "in_list_view": 1,
+   "options": "MAD"
   },
   {
    "fieldname": "office_share",
@@ -104,7 +107,8 @@
    "label": "حصة المكتب",
    "read_only": 1,
    "bold": 1,
-   "description": "50% من المجموع"
+   "description": "50% من المجموع",
+   "options": "MAD"
   },
   {
    "fieldname": "region_share",
@@ -112,7 +116,8 @@
    "label": "حصة الجهة",
    "read_only": 1,
    "bold": 1,
-   "description": "20% من المجموع"
+   "description": "20% من المجموع",
+   "options": "MAD"
   },
   {
    "fieldname": "province_share",
@@ -120,7 +125,8 @@
    "label": "حصة الإقليم",
    "read_only": 1,
    "bold": 1,
-   "description": "30% من المجموع"
+   "description": "30% من المجموع",
+   "options": "MAD"
   },
   {
    "fieldname": "notes",
