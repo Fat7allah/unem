@@ -6,12 +6,6 @@ frappe.ui.form.on('Member', {
         // Set RTL for Arabic
         $('body').attr('dir', 'rtl');
         
-        // Add custom buttons
-        frm.add_custom_button(__('إنشاء بطاقة الانخراط'), function() {
-            frm.doc.create_membership_card();
-            frm.save();
-        }, __('إجراءات'));
-        
         // Set up province field if region exists
         if (frm.doc.region) {
             setup_province_field(frm);

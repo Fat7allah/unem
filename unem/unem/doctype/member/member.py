@@ -32,41 +32,24 @@ class Member(Document):
                 
     def validate_province(self):
         """Validate that the selected province belongs to the selected region"""
-        if not self.region:
-            return
+        if self.region:
+            if not self.province:
+                frappe.throw("يجب تحديد الإقليم")
             
-        if not self.province:
-            frappe.throw("يجب تحديد الإقليم")
-        
-        # Ensure province exists
-        if not frappe.db.exists("Province", self.province):
-            frappe.throw("الإقليم غير موجود")
-            
-        # Get province document
-        province_doc = frappe.get_doc("Province", self.province)
-        if province_doc.region != self.region:
-            frappe.throw(f"الإقليم المحدد لا ينتمي إلى {self.region}")
-            
+            # Ensure province exists
+            if not frappe.db.exists("Province", self.province):
+                frappe.throw("الإقليم غير موجود")
+                
+            # Get province document
+            province_doc = frappe.get_doc("Province", self.province)
+            if province_doc.region != self.region:
+                frappe.throw(f"الإقليم المحدد لا ينتمي إلى {self.region}")
+                
     def before_save(self):
         """Handle province before saving"""
         if self.has_value_changed('region'):
             self.province = ''
             
-        # Skip validation for new records (will be handled in validate)
-        if self.is_new():
-            return
-            
-        # Only validate province if region is set and province is changed
-        if self.region and self.has_value_changed('province'):
-            self.validate_province()
-            
-    def on_update(self):
-        """Handle after save operations"""
-        # Ensure province is saved in the database
-        if self.province:
-            frappe.db.set_value('Member', self.name, 'province', self.province)
-            frappe.db.commit()
-
     def before_validate(self):
         """Ensure province is set before validation"""
         if self.region and not self.province:
