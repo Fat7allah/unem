@@ -6,6 +6,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "currency",
   "region",
   "province",
   "academic_year",
@@ -20,6 +21,14 @@
   "notes"
  ],
  "fields": [
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "hidden": 1,
+   "default": "MAD"
+  },
   {
    "fieldname": "region",
    "fieldtype": "Link",
@@ -81,8 +90,7 @@
    "bold": 1,
    "description": "يحسب تلقائياً (عدد البطاقات × 100 درهم)",
    "in_list_view": 1,
-   "options": "Company:company:default_currency",
-   "default_currency": "MAD"
+   "options": "currency"
   },
   {
    "fieldname": "payment",
@@ -91,8 +99,7 @@
    "reqd": 1,
    "bold": 1,
    "in_list_view": 1,
-   "options": "Company:company:default_currency",
-   "default_currency": "MAD"
+   "options": "currency"
   },
   {
    "fieldname": "remaining_balance",
@@ -101,8 +108,7 @@
    "read_only": 1,
    "bold": 1,
    "in_list_view": 1,
-   "options": "Company:company:default_currency",
-   "default_currency": "MAD"
+   "options": "currency"
   },
   {
    "fieldname": "office_share",
@@ -111,8 +117,7 @@
    "read_only": 1,
    "bold": 1,
    "description": "50% من المجموع",
-   "options": "Company:company:default_currency",
-   "default_currency": "MAD"
+   "options": "currency"
   },
   {
    "fieldname": "region_share",
@@ -121,8 +126,7 @@
    "read_only": 1,
    "bold": 1,
    "description": "20% من المجموع",
-   "options": "Company:company:default_currency",
-   "default_currency": "MAD"
+   "options": "currency"
   },
   {
    "fieldname": "province_share",
@@ -131,8 +135,7 @@
    "read_only": 1,
    "bold": 1,
    "description": "30% من المجموع",
-   "options": "Company:company:default_currency",
-   "default_currency": "MAD"
+   "options": "currency"
   },
   {
    "fieldname": "notes",
