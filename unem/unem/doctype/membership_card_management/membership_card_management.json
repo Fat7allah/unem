@@ -81,7 +81,8 @@
    "bold": 1,
    "description": "يحسب تلقائياً (عدد البطاقات × 100 درهم)",
    "in_list_view": 1,
-   "options": "MAD"
+   "options": "MAD",
+   "currency": "MAD"
   },
   {
    "fieldname": "payment",
@@ -90,7 +91,8 @@
    "reqd": 1,
    "bold": 1,
    "in_list_view": 1,
-   "options": "MAD"
+   "options": "MAD",
+   "currency": "MAD"
   },
   {
    "fieldname": "remaining_balance",
@@ -99,7 +101,8 @@
    "read_only": 1,
    "bold": 1,
    "in_list_view": 1,
-   "options": "MAD"
+   "options": "MAD",
+   "currency": "MAD"
   },
   {
    "fieldname": "office_share",
@@ -108,7 +111,8 @@
    "read_only": 1,
    "bold": 1,
    "description": "50% من المجموع",
-   "options": "MAD"
+   "options": "MAD",
+   "currency": "MAD"
   },
   {
    "fieldname": "region_share",
@@ -117,7 +121,8 @@
    "read_only": 1,
    "bold": 1,
    "description": "20% من المجموع",
-   "options": "MAD"
+   "options": "MAD",
+   "currency": "MAD"
   },
   {
    "fieldname": "province_share",
@@ -126,7 +131,8 @@
    "read_only": 1,
    "bold": 1,
    "description": "30% من المجموع",
-   "options": "MAD"
+   "options": "MAD",
+   "currency": "MAD"
   },
   {
    "fieldname": "notes",
