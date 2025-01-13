@@ -85,6 +85,18 @@ class UNEMMember(Document):
         if self.has_value_changed('region'):
             self.province = ''
             
+        # Store the province value to ensure it's saved
+        if self.province:
+            # Get the current values from DB if this is an existing document
+            if not self.is_new():
+                current = frappe.get_doc("UNEM Member", self.name)
+                frappe.msgprint(f"DEBUG - Current DB values: region={current.region}, province={current.province}")
+            
+            # Set the province value explicitly
+            frappe.db.set_value("UNEM Member", self.name, "province", self.province, update_modified=False)
+            frappe.db.commit()
+            frappe.msgprint(f"DEBUG - Explicitly set province to: {self.province}")
+            
     def on_update(self):
         """
         Handle after save operations.
@@ -95,9 +107,15 @@ class UNEMMember(Document):
         saved_doc = frappe.get_doc("UNEM Member", self.name)
         frappe.msgprint(f"DEBUG - Saved in DB: region={saved_doc.region}, province={saved_doc.province}")
         
-        # If we have a region but no province, show a message
-        if saved_doc.region and not saved_doc.province:
-            frappe.msgprint("تحذير: يجب تحديد الإقليم", indicator='yellow')
+        # If province is still missing but we have it in memory, try one more time
+        if saved_doc.region and not saved_doc.province and self.province:
+            frappe.msgprint("DEBUG - Province still missing, trying one more time")
+            frappe.db.set_value("UNEM Member", self.name, "province", self.province, update_modified=False)
+            frappe.db.commit()
+            
+            # Verify the final save
+            final_doc = frappe.get_doc("UNEM Member", self.name)
+            frappe.msgprint(f"DEBUG - Final DB values: region={final_doc.region}, province={final_doc.province}")
             
     def after_insert(self):
         """
@@ -109,6 +127,12 @@ class UNEMMember(Document):
         saved_doc = frappe.get_doc("UNEM Member", self.name)
         frappe.msgprint(f"DEBUG - Saved in DB: region={saved_doc.region}, province={saved_doc.province}")
         
-        # If we have a region but no province, show a message
-        if saved_doc.region and not saved_doc.province:
-            frappe.msgprint("تحذير: يجب تحديد الإقليم", indicator='yellow')
+        # If province is missing but we have it, set it now
+        if saved_doc.region and not saved_doc.province and self.province:
+            frappe.msgprint("DEBUG - Setting province after insert")
+            frappe.db.set_value("UNEM Member", self.name, "province", self.province, update_modified=False)
+            frappe.db.commit()
+            
+            # Verify the save
+            final_doc = frappe.get_doc("UNEM Member", self.name)
+            frappe.msgprint(f"DEBUG - Final DB values: region={final_doc.region}, province={final_doc.province}")
