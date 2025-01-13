@@ -11,6 +11,7 @@ class UNEMMember(Document):
         Validate member data before saving.
         Ensures email, phone, and province data are valid.
         """
+        frappe.logger().debug(f"Validating UNEM Member - Current values: region={self.region}, province={self.province}")
         self.validate_email()
         self.validate_phone()
         self.validate_province()
@@ -53,6 +54,8 @@ class UNEMMember(Document):
         Validate that selected province belongs to selected region.
         Throws error if province is missing or doesn't belong to region.
         """
+        frappe.logger().debug(f"Validating province - Current values: region={self.region}, province={self.province}")
+        
         if not self.region:
             return
             
@@ -65,6 +68,8 @@ class UNEMMember(Document):
             
         # Get province document and validate region
         province_doc = frappe.get_doc("Province", self.province)
+        frappe.logger().debug(f"Province document loaded: {province_doc.name}, region={province_doc.region}")
+        
         if province_doc.region != self.region:
             frappe.throw(f"الإقليم المحدد لا ينتمي إلى {self.region}")
                 
@@ -73,5 +78,19 @@ class UNEMMember(Document):
         Handle data changes before saving.
         Clears province when region changes.
         """
+        frappe.logger().debug(f"Before save - Current values: region={self.region}, province={self.province}")
         if self.has_value_changed('region'):
+            frappe.logger().debug("Region changed, clearing province")
             self.province = ''
+            
+    def on_update(self):
+        """
+        Log after saving.
+        """
+        frappe.logger().debug(f"After save - Final values: region={self.region}, province={self.province}")
+        
+    def after_insert(self):
+        """
+        Log after insert.
+        """
+        frappe.logger().debug(f"After insert - Final values: region={self.region}, province={self.province}")
