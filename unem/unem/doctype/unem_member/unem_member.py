@@ -86,27 +86,38 @@ class UNEMMember(Document):
                 
     def db_insert(self, *args, **kwargs):
         """
-        Override db_insert to ensure province is saved
+        Override db_insert to ensure province is saved correctly
         """
-        frappe.msgprint(f"DEBUG - DB Insert: region={self.region}, province={self.province}")
+        frappe.msgprint(f"DEBUG - Before Insert: region={self.region}, province={self.province}")
         
-        # Get all fields that should be saved
-        d = self.get_valid_dict()
+        # Ensure we have the province value from validation
+        if hasattr(self.flags, 'temp_province'):
+            self.province = self.flags.temp_province
+            
+        return super(UNEMMember, self).db_insert(*args, **kwargs)
         
-        # Ensure province is included if we have it
-        if self.province:
+    def load_from_db(self):
+        """
+        Override load_from_db to ensure province is loaded correctly
+        """
+        super(UNEMMember, self).load_from_db()
+        
+        # Restore province from database if available
+        if self._doc_before_save and 'province' in self._doc_before_save:
+            self.province = self._doc_before_save['province']
+            
+    def as_dict(self, *args, **kwargs):
+        """
+        Override as_dict to ensure province is included in the document dictionary
+        """
+        d = super(UNEMMember, self).as_dict(*args, **kwargs)
+        
+        # Ensure province is included in the dictionary
+        if hasattr(self, 'province'):
             d['province'] = self.province
             
-        frappe.msgprint(f"DEBUG - Fields to save: {d}")
-        
-        # Call the original db_insert with our modified data
-        super(UNEMMember, self).db_insert(*args, **kwargs)
-        
-        # Force save province if needed
-        if self.province:
-            frappe.db.set_value("UNEM Member", self.name, "province", self.province, update_modified=False)
-            frappe.db.commit()
-            
+        return d
+
     def before_insert(self):
         """
         Handle data before first insert.
