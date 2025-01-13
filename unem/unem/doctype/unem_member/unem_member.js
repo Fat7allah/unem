@@ -29,6 +29,15 @@ frappe.ui.form.on('UNEM Member', {
         }
     },
     
+    validate: function(frm) {
+        // Ensure province is selected if region is set
+        if (frm.doc.region && !frm.doc.province) {
+            frappe.throw(__('يجب تحديد الإقليم'));
+            return false;
+        }
+        return true;
+    },
+    
     province: function(frm) {
         if (!frm.doc.province) return;
         
