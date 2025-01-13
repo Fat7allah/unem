@@ -9,14 +9,14 @@ frappe.ui.form.on('UNEM Member', {
         
         // Initialize province field filtering if region exists
         if (frm.doc.region) {
-            setupProvinceField(frm);
+            setup_province_field(frm);
         }
     },
     
     onload: function(frm) {
         // Initialize province field filtering on form load
         if (frm.doc.region) {
-            setupProvinceField(frm);
+            setup_province_field(frm);
         }
     },
     
@@ -25,20 +25,31 @@ frappe.ui.form.on('UNEM Member', {
         frm.set_value('province', '');
         
         if (frm.doc.region) {
-            setupProvinceField(frm);
+            setup_province_field(frm);
         }
     },
     
     province: function(frm) {
-        validateProvince(frm);
+        if (!frm.doc.province) return;
+        
+        if (!frm.doc.region) {
+            frm.set_value('province', '');
+            frappe.throw(__('يجب تحديد الجهة أولاً'));
+            return;
+        }
+        
+        frappe.db.get_value('Province', frm.doc.province, 'region')
+            .then(r => {
+                if (r.message && r.message.region !== frm.doc.region) {
+                    frm.set_value('province', '');
+                    frappe.throw(__(`الإقليم المحدد لا ينتمي إلى ${frm.doc.region}`));
+                }
+            });
     }
 });
 
-/**
- * Sets up province field filtering based on selected region.
- * @param {Object} frm - The form object
- */
-function setupProvinceField(frm) {
+// Helper function to set up province field
+function setup_province_field(frm) {
     frm.set_query('province', function() {
         return {
             filters: {
@@ -46,29 +57,4 @@ function setupProvinceField(frm) {
             }
         };
     });
-}
-
-/**
- * Validates that selected province belongs to selected region.
- * Clears province and shows error if validation fails.
- * @param {Object} frm - The form object
- */
-function validateProvince(frm) {
-    if (!frm.doc.province) return;
-    
-    // Ensure region is selected before province
-    if (!frm.doc.region) {
-        frm.set_value('province', '');
-        frappe.throw(__('يجب تحديد الجهة أولاً'));
-        return;
-    }
-    
-    // Validate province belongs to selected region
-    frappe.db.get_value('Province', frm.doc.province, 'region')
-        .then(r => {
-            if (r.message && r.message.region !== frm.doc.region) {
-                frm.set_value('province', '');
-                frappe.throw(__(`الإقليم المحدد لا ينتمي إلى ${frm.doc.region}`));
-            }
-        });
 }
