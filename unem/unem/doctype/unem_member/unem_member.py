@@ -75,3 +75,42 @@ class UNEMMember(Document):
         """
         if self.has_value_changed('region'):
             self.province = ''
+
+@frappe.whitelist()
+def get_provinces(doctype, txt, searchfield, start, page_len, filters=None):
+    """
+    Get filtered list of provinces based on region.
+    
+    Args:
+        doctype: DocType being queried
+        txt: Search text
+        searchfield: Field to search in
+        start: Start index for pagination
+        page_len: Number of results per page
+        filters: Additional filters (must include region)
+    
+    Returns:
+        List of provinces matching search criteria
+    """
+    if isinstance(filters, str):
+        import json
+        filters = json.loads(filters)
+        
+    region = filters.get('region') if isinstance(filters, dict) else None
+    if not region:
+        return []
+        
+    # Get provinces from database
+    provinces = frappe.get_all('Province',
+        filters={'region': region},
+        or_filters={
+            'name': ['like', f'%{txt}%'],
+            'province_name': ['like', f'%{txt}%']
+        },
+        fields=['name', 'province_name'],
+        start=int(start),
+        page_length=int(page_len),
+        order_by='province_name asc'
+    )
+    
+    return [[p.name, p.province_name] for p in provinces]
