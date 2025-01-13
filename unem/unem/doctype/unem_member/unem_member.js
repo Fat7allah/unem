@@ -1,8 +1,8 @@
 /**
- * Client-side form controller for UNEM Member DocType.
+ * Client-side form controller for UNEMMember DocType.
  * Handles province field validation and filtering based on selected region.
  */
-frappe.ui.form.on('UNEM Member', {
+frappe.ui.form.on('UNEMMember', {
     refresh: function(frm) {
         // Set RTL for Arabic interface
         $('body').attr('dir', 'rtl');
@@ -52,6 +52,7 @@ frappe.ui.form.on('UNEM Member', {
 function setup_province_field(frm) {
     frm.set_query('province', function() {
         return {
+            query: 'unem.unem.doctype.unem_member.unem_member.get_provinces',
             filters: {
                 'region': frm.doc.region
             }
