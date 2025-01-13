@@ -6,6 +6,10 @@ from frappe.model.document import Document
 from frappe.utils import validate_email_address
 
 class UNEMMember(Document):
+    def __init__(self, *args, **kwargs):
+        super(UNEMMember, self).__init__(*args, **kwargs)
+        self.flags.temp_province = None
+        
     def validate(self):
         """
         Validate member data before saving.
@@ -13,17 +17,15 @@ class UNEMMember(Document):
         """
         frappe.msgprint(f"DEBUG - Validate: region={self.region}, province={self.province}")
         
-        # Store the original province value
-        self._original_province = self.province
+        # Store the province value
+        if self.province:
+            self.flags.temp_province = self.province
+            frappe.msgprint(f"DEBUG - Stored province in flags: {self.flags.temp_province}")
         
         self.validate_email()
         self.validate_phone()
         self.validate_province()
         
-        # Ensure province is properly set in the document
-        if self.region and self._original_province:
-            self.province = self._original_province
-            
         # Double check province is still set
         frappe.msgprint(f"DEBUG - After Validation: region={self.region}, province={self.province}")
         
@@ -88,9 +90,10 @@ class UNEMMember(Document):
         """
         frappe.msgprint(f"DEBUG - Before Insert: region={self.region}, province={self.province}")
         
-        # Ensure province is set before insert
-        if self.region and self._original_province:
-            self.db_set('province', self._original_province, update_modified=False)
+        # Restore province from flags if needed
+        if self.region and self.flags.temp_province:
+            frappe.msgprint(f"DEBUG - Restoring province from flags: {self.flags.temp_province}")
+            self.province = self.flags.temp_province
             
     def before_save(self):
         """
@@ -101,10 +104,12 @@ class UNEMMember(Document):
         # Only clear province if region has changed
         if self.has_value_changed('region'):
             self.province = ''
+            self.flags.temp_province = None
             
-        # Ensure province is set
-        if self.region and self._original_province:
-            self.db_set('province', self._original_province, update_modified=False)
+        # Restore province from flags if needed
+        if self.region and self.flags.temp_province:
+            frappe.msgprint(f"DEBUG - Restoring province from flags: {self.flags.temp_province}")
+            self.province = self.flags.temp_province
             
     def on_update(self):
         """
@@ -116,14 +121,11 @@ class UNEMMember(Document):
         saved_doc = frappe.get_doc("UNEM Member", self.name)
         frappe.msgprint(f"DEBUG - Saved in DB: region={saved_doc.region}, province={saved_doc.province}")
         
-        # If province is still missing, set it one more time
-        if saved_doc.region and not saved_doc.province and self._original_province:
-            self.db_set('province', self._original_province, update_modified=False)
+        # If province is still missing but we have it in flags, set it
+        if saved_doc.region and not saved_doc.province and self.flags.temp_province:
+            frappe.msgprint(f"DEBUG - Setting province from flags: {self.flags.temp_province}")
+            frappe.db.set_value("UNEM Member", self.name, "province", self.flags.temp_province)
             frappe.db.commit()
-            
-            # Verify the final save
-            final_doc = frappe.get_doc("UNEM Member", self.name)
-            frappe.msgprint(f"DEBUG - Final DB values: region={final_doc.region}, province={final_doc.province}")
             
     def after_insert(self):
         """
@@ -135,11 +137,8 @@ class UNEMMember(Document):
         saved_doc = frappe.get_doc("UNEM Member", self.name)
         frappe.msgprint(f"DEBUG - Saved in DB: region={saved_doc.region}, province={saved_doc.province}")
         
-        # Set province one final time if needed
-        if saved_doc.region and not saved_doc.province and self._original_province:
-            self.db_set('province', self._original_province, update_modified=False)
+        # If province is missing but we have it in flags, set it
+        if saved_doc.region and not saved_doc.province and self.flags.temp_province:
+            frappe.msgprint(f"DEBUG - Setting province from flags: {self.flags.temp_province}")
+            frappe.db.set_value("UNEM Member", self.name, "province", self.flags.temp_province)
             frappe.db.commit()
-            
-            # Verify the save
-            final_doc = frappe.get_doc("UNEM Member", self.name)
-            frappe.msgprint(f"DEBUG - Final DB values: region={final_doc.region}, province={final_doc.province}")
