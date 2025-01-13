@@ -13,10 +13,17 @@ class UNEMMember(Document):
         """
         frappe.msgprint(f"DEBUG - Validate: region={self.region}, province={self.province}")
         
+        # Store the original province value
+        self._original_province = self.province
+        
         self.validate_email()
         self.validate_phone()
         self.validate_province()
         
+        # Ensure province is properly set in the document
+        if self.region and self._original_province:
+            self.province = self._original_province
+            
         # Double check province is still set
         frappe.msgprint(f"DEBUG - After Validation: region={self.region}, province={self.province}")
         
@@ -75,6 +82,16 @@ class UNEMMember(Document):
             if province_doc.region != self.region:
                 frappe.throw(f"الإقليم المحدد لا ينتمي إلى {self.region}")
                 
+    def before_insert(self):
+        """
+        Handle data before first insert.
+        """
+        frappe.msgprint(f"DEBUG - Before Insert: region={self.region}, province={self.province}")
+        
+        # Ensure province is set before insert
+        if self.region and self._original_province:
+            self.db_set('province', self._original_province, update_modified=False)
+            
     def before_save(self):
         """
         Handle data changes before saving.
@@ -85,17 +102,9 @@ class UNEMMember(Document):
         if self.has_value_changed('region'):
             self.province = ''
             
-        # Store the province value to ensure it's saved
-        if self.province:
-            # Get the current values from DB if this is an existing document
-            if not self.is_new():
-                current = frappe.get_doc("UNEM Member", self.name)
-                frappe.msgprint(f"DEBUG - Current DB values: region={current.region}, province={current.province}")
-            
-            # Set the province value explicitly
-            frappe.db.set_value("UNEM Member", self.name, "province", self.province, update_modified=False)
-            frappe.db.commit()
-            frappe.msgprint(f"DEBUG - Explicitly set province to: {self.province}")
+        # Ensure province is set
+        if self.region and self._original_province:
+            self.db_set('province', self._original_province, update_modified=False)
             
     def on_update(self):
         """
@@ -107,10 +116,9 @@ class UNEMMember(Document):
         saved_doc = frappe.get_doc("UNEM Member", self.name)
         frappe.msgprint(f"DEBUG - Saved in DB: region={saved_doc.region}, province={saved_doc.province}")
         
-        # If province is still missing but we have it in memory, try one more time
-        if saved_doc.region and not saved_doc.province and self.province:
-            frappe.msgprint("DEBUG - Province still missing, trying one more time")
-            frappe.db.set_value("UNEM Member", self.name, "province", self.province, update_modified=False)
+        # If province is still missing, set it one more time
+        if saved_doc.region and not saved_doc.province and self._original_province:
+            self.db_set('province', self._original_province, update_modified=False)
             frappe.db.commit()
             
             # Verify the final save
@@ -127,10 +135,9 @@ class UNEMMember(Document):
         saved_doc = frappe.get_doc("UNEM Member", self.name)
         frappe.msgprint(f"DEBUG - Saved in DB: region={saved_doc.region}, province={saved_doc.province}")
         
-        # If province is missing but we have it, set it now
-        if saved_doc.region and not saved_doc.province and self.province:
-            frappe.msgprint("DEBUG - Setting province after insert")
-            frappe.db.set_value("UNEM Member", self.name, "province", self.province, update_modified=False)
+        # Set province one final time if needed
+        if saved_doc.region and not saved_doc.province and self._original_province:
+            self.db_set('province', self._original_province, update_modified=False)
             frappe.db.commit()
             
             # Verify the save
