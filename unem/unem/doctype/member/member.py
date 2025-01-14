@@ -6,15 +6,29 @@ from frappe.model.document import Document
 from frappe.utils import validate_email_address
 
 class Member(Document):
+    def __init__(self, *args, **kwargs):
+        super(Member, self).__init__(*args, **kwargs)
+        self.flags.temp_province = None
+        
     def validate(self):
         """
         Validate member data before saving.
         Ensures email, phone, and province data are valid.
         """
+        frappe.msgprint(f"DEBUG - Validate: region={self.region}, province={self.province}")
+        
+        # Store the province value
+        if self.province:
+            self.flags.temp_province = self.province
+            frappe.msgprint(f"DEBUG - Stored province in flags: {self.flags.temp_province}")
+        
         self.validate_email()
         self.validate_phone()
         self.validate_province()
         
+        # Double check province is still set
+        frappe.msgprint(f"DEBUG - After Validation: region={self.region}, province={self.province}")
+
     def validate_email(self):
         """
         Validate email format and uniqueness.
@@ -53,6 +67,8 @@ class Member(Document):
         Validate that selected province belongs to selected region.
         Throws error if province is missing or doesn't belong to region.
         """
+        frappe.msgprint(f"DEBUG - Validate Province: region={self.region}, province={self.province}")
+        
         if not self.region:
             return
             
@@ -67,15 +83,74 @@ class Member(Document):
         province_doc = frappe.get_doc("Province", self.province)
         if province_doc.region != self.region:
             frappe.throw(f"الإقليم المحدد لا ينتمي إلى {self.region}")
-                
+
     def before_save(self):
         """
         Handle data changes before saving.
-        Clears province when region changes.
         """
-        if self.has_value_changed('region'):
-            self.province = ''
+        frappe.msgprint(f"DEBUG - Before Save: region={self.region}, province={self.province}")
+        
+        # Ensure province is set from flags if available
+        if not self.province and self.flags.temp_province:
+            self.province = self.flags.temp_province
             
+    def before_insert(self):
+        """
+        Handle data before first insert.
+        """
+        frappe.msgprint(f"DEBUG - Before Insert: region={self.region}, province={self.province}")
+        
+        # Ensure province is set from flags if available
+        if not self.province and self.flags.temp_province:
+            self.province = self.flags.temp_province
+            
+    def on_update(self):
+        """
+        Handle after save operations.
+        """
+        frappe.msgprint(f"DEBUG - On Update: region={self.region}, province={self.province}")
+        
+        # If province is missing but we have it in flags, set it directly
+        if self.region and not self.province and self.flags.temp_province:
+            frappe.msgprint(f"DEBUG - Setting province from flags: {self.flags.temp_province}")
+            frappe.db.set_value("Member", self.name, "province", self.flags.temp_province, update_modified=False)
+            frappe.db.commit()
+            
+    def after_insert(self):
+        """
+        Handle after insert operations.
+        """
+        frappe.msgprint(f"DEBUG - After Insert: region={self.region}, province={self.province}")
+        
+        # If province is missing but we have it in flags, set it directly
+        if self.region and not self.province and self.flags.temp_province:
+            frappe.msgprint(f"DEBUG - Setting province from flags: {self.flags.temp_province}")
+            frappe.db.set_value("Member", self.name, "province", self.flags.temp_province, update_modified=False)
+            frappe.db.commit()
+
+    def load_from_db(self):
+        """
+        Override load_from_db to ensure province is loaded correctly
+        """
+        super(Member, self).load_from_db()
+        
+        # Only try to restore province if _doc_before_save exists
+        if hasattr(self, '_doc_before_save') and self._doc_before_save:
+            if 'province' in self._doc_before_save:
+                self.province = self._doc_before_save['province']
+            
+    def as_dict(self, *args, **kwargs):
+        """
+        Override as_dict to ensure province is included in the document dictionary
+        """
+        d = super(Member, self).as_dict(*args, **kwargs)
+        
+        # Ensure province is included in the dictionary
+        if hasattr(self, 'province'):
+            d['province'] = self.province
+            
+        return d
+
 @frappe.whitelist()
 def get_provinces(doctype, txt, searchfield, start, page_len, filters=None):
     """
