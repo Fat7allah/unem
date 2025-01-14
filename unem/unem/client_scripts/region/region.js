@@ -1,4 +1,10 @@
 frappe.ui.form.on('Region', {
+    before_load: function(frm) {
+        // Override the workspace route for this doctype
+        if (!frappe.workspaces) frappe.workspaces = {};
+        if (!frappe.workspaces.doctypes) frappe.workspaces.doctypes = {};
+        frappe.workspaces.doctypes[frm.doctype] = 'member-management';
+    },
     onload: function(frm) {
         unem.utils.fix_breadcrumb();
     },
