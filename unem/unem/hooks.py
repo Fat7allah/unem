@@ -39,15 +39,30 @@ doctype_js = {
     "Province": "client_scripts/province/province.js"
 }
 
-# DocType workspace routing
-override_doctype_dashboards = {
-    "Member": "member-management",
-    "Membership_Card": "member-management",
-    "Membership_Card_Management": "member-management",
-    "UNEM_Structure": "member-management",
-    "Mutual_Structure": "member-management",
-    "Region": "member-management",
-    "Province": "member-management"
+# Extend website
+extends_website = True
+
+extend_website_page = {
+    "Workspace": {
+        "Member": "member-management",
+        "Membership_Card": "member-management",
+        "Membership_Card_Management": "member-management",
+        "UNEM_Structure": "member-management",
+        "Mutual_Structure": "member-management",
+        "Region": "member-management",
+        "Province": "member-management"
+    }
+}
+
+# Override doctype list js
+doctype_list_js = {
+    "Member": "public/js/member_list.js",
+    "Membership_Card": "public/js/membership_card_list.js",
+    "Membership_Card_Management": "public/js/membership_card_management_list.js",
+    "UNEM_Structure": "public/js/unem_structure_list.js",
+    "Mutual_Structure": "public/js/mutual_structure_list.js",
+    "Region": "public/js/region_list.js",
+    "Province": "public/js/province_list.js"
 }
 
 # Module configurations
@@ -76,7 +91,6 @@ workspace_doctypes = {
     ]
 }
 
-# doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 
