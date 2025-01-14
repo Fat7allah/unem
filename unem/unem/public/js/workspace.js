@@ -1,11 +1,7 @@
 frappe.provide('frappe.workspaces');
 
-// Override the original get_breadcrumbs method
-const original_get_breadcrumbs = frappe.breadcrumbs.get_breadcrumbs;
-frappe.breadcrumbs.get_breadcrumbs = function() {
-    let breadcrumbs = original_get_breadcrumbs();
-    
-    // Check if we're in a doctype under member management
+$(document).on('app_ready', function() {
+    // List of doctypes that should be in the member management workspace
     const member_management_doctypes = [
         'Member',
         'Membership_Card',
@@ -15,21 +11,32 @@ frappe.breadcrumbs.get_breadcrumbs = function() {
         'Region',
         'Province'
     ];
-    
-    const route = frappe.get_route();
-    if (route[0] === 'Form' && member_management_doctypes.includes(route[1])) {
-        // Replace any financial-management with member-management in breadcrumbs
-        breadcrumbs = breadcrumbs.map(crumb => {
-            if (crumb.label === 'financial-management') {
-                return {
-                    ...crumb,
-                    label: 'member-management',
-                    route: '/app/member-management'
-                };
-            }
-            return crumb;
-        });
-    }
-    
-    return breadcrumbs;
-};
+
+    // Override the workspace route for these doctypes
+    member_management_doctypes.forEach(doctype => {
+        frappe.router.doctype_layout[doctype] = 'member-management';
+    });
+
+    // Override the get_breadcrumbs method
+    const original_get_breadcrumbs = frappe.breadcrumbs.get_breadcrumbs;
+    frappe.breadcrumbs.get_breadcrumbs = function() {
+        let breadcrumbs = original_get_breadcrumbs();
+        const route = frappe.get_route();
+        
+        if (route[0] === 'Form' && member_management_doctypes.includes(route[1])) {
+            // Find the workspace breadcrumb and update it
+            breadcrumbs = breadcrumbs.map(crumb => {
+                if (crumb.label === 'financial-management') {
+                    return {
+                        ...crumb,
+                        label: 'member-management',
+                        route: '/app/member-management'
+                    };
+                }
+                return crumb;
+            });
+        }
+        
+        return breadcrumbs;
+    };
+});
