@@ -1,6 +1,6 @@
 frappe.ui.form.on('Region', {
-    onload: function(frm) {
-        // Set workspace for breadcrumb
-        frappe.breadcrumbs.set_workspace('member-management');
+    refresh: function(frm) {
+        frm.doc.module = 'member-management';
+        frm.meta.module = 'member-management';
     }
 });

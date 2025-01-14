@@ -79,17 +79,25 @@ module_doctypes = {
 }
 
 # Workspace configurations
+default_workspace = "member-management"
+
 workspace_doctypes = {
-    "member-management": [
-        "Member",
-        "Membership_Card",
-        "Membership_Card_Management",
-        "UNEM_Structure",
-        "Mutual_Structure",
-        "Region",
-        "Province"
-    ]
+    "Member": "member-management",
+    "Membership_Card": "member-management",
+    "Membership_Card_Management": "member-management",
+    "UNEM_Structure": "member-management",
+    "Mutual_Structure": "member-management",
+    "Region": "member-management",
+    "Province": "member-management"
 }
+
+# Fixtures
+fixtures = [
+    {
+        "dt": "Workspace",
+        "filters": [["name", "in", ["member-management"]]]
+    }
+]
 
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
