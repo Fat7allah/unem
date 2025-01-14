@@ -2,7 +2,7 @@ frappe.provide('frappe.workspaces');
 frappe.provide('frappe.workspaces.doctypes');
 
 $(document).on('app_ready', function() {
-    // List of doctypes that should be in the member management workspace
+    // List of doctypes that should be in the member-management workspace
     const member_management_doctypes = [
         'Member',
         'Membership_Card',
@@ -13,7 +13,7 @@ $(document).on('app_ready', function() {
         'Province'
     ];
 
-    // Set up workspace routes for all member management doctypes
+    // Set up workspace routes for all member-management doctypes
     member_management_doctypes.forEach(doctype => {
         frappe.workspaces.doctypes[doctype] = 'member-management';
     });

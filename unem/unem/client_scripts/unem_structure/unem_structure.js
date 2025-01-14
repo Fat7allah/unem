@@ -18,5 +18,8 @@ frappe.ui.form.on('UNEM_Structure', {
         if (!frappe.workspaces) frappe.workspaces = {};
         if (!frappe.workspaces.doctypes) frappe.workspaces.doctypes = {};
         frappe.workspaces.doctypes[frm.doctype] = 'member-management';
+        
+        // Also set the module to ensure correct breadcrumb
+        frm.doc.module = 'member-management';
     }
 });
