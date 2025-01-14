@@ -10,7 +10,8 @@
  "field_order": [
   "member",
   "position_type",
-  "role"
+  "role",
+  "workspace"
  ],
  "fields": [
   {
@@ -35,13 +36,20 @@
    "in_list_view": 1,
    "label": "المنصب",
    "options": "الكاتب الوطني\nنائب الكاتب الوطني\nالكاتب العام\nنائب الكاتب العام\nأمين المال\nنائب أمين المال\nمستشار\nمكلف بمهمة"
+  },
+  {
+   "fieldname": "workspace",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Workspace",
+   "options": "Workspace"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-14 12:16:08.000000",
+ "modified": "2025-01-14 21:05:09.000000",
  "modified_by": "Administrator",
- "module": "UNEM",
+ "module": "member-management",
  "name": "UNEM_Structure",
  "name_case": "Title Case",
  "naming_rule": "Expression",

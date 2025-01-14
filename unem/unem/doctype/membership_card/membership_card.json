@@ -62,13 +62,19 @@
    "fieldtype": "Select",
    "label": "حالة البطاقة",
    "options": "المؤداة\nغير المؤداة"
+  },
+  {
+   "fieldname": "workspace",
+   "fieldtype": "Link",
+   "label": "Workspace",
+   "options": "Workspace"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-14 12:16:08.000000",
+ "modified": "2025-01-14 21:05:09.000000",
  "modified_by": "Administrator",
- "module": "UNEM",
+ "module": "member-management",
  "name": "Membership_Card",
  "name_case": "Title Case",
  "naming_rule": "Expression",

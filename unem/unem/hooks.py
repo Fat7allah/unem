@@ -30,14 +30,41 @@ app_include_js = ["/assets/unem/js/workspace.js", "/assets/unem/js/breadcrumb_fi
 
 # include js in doctype views
 doctype_js = {
-    "Member": "client_scripts/member/member.js",
-    "Membership_Card": "client_scripts/membership_card/membership_card.js",
-    "Membership_Card_Management": "client_scripts/membership_card_management/membership_card_management.js",
-    "UNEM_Structure": "client_scripts/unem_structure/unem_structure.js",
-    "Mutual_Structure": "client_scripts/mutual_structure/mutual_structure.js",
-    "Region": "client_scripts/region/region.js",
-    "Province": "client_scripts/province/province.js"
+    "Member": "public/js/member.js",
+    "Membership_Card": "public/js/membership_card.js",
+    "Membership_Card_Management": "public/js/membership_card_management.js",
+    "UNEM_Structure": "public/js/unem_structure.js",
+    "Mutual_Structure": "public/js/mutual_structure.js",
+    "Region": "public/js/region.js",
+    "Province": "public/js/province.js"
 }
+
+# Module configurations
+module_doctypes = {
+    "member-management": [
+        "Member",
+        "Membership_Card",
+        "Membership_Card_Management",
+        "UNEM_Structure",
+        "Mutual_Structure",
+        "Region",
+        "Province"
+    ]
+}
+
+# Workspace configurations
+workspace_doctypes = {
+    "member-management": [
+        "Member",
+        "Membership_Card",
+        "Membership_Card_Management",
+        "UNEM_Structure",
+        "Mutual_Structure",
+        "Region",
+        "Province"
+    ]
+}
+
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}

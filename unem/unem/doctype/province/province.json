@@ -7,7 +7,8 @@
  "engine": "InnoDB",
  "field_order": [
   "province_name",
-  "region"
+  "region",
+  "workspace"
  ],
  "fields": [
   {
@@ -27,13 +28,22 @@
    "options": "Region",
    "reqd": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "workspace",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Workspace",
+   "options": "Workspace",
+   "reqd": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-11 17:23:22.000000",
+ "modified": "2025-01-14 21:05:09.000000",
  "modified_by": "Administrator",
- "module": "UNEM",
+ "module": "member-management",
  "name": "Province",
  "name_case": "Title Case",
  "naming_rule": "By fieldname",
@@ -52,7 +62,7 @@
    "write": 1
   }
  ],
- "search_fields": "province_name,region",
+ "search_fields": "province_name,region,workspace",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
