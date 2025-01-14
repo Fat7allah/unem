@@ -7,8 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "province_name",
-  "region",
-  "workspace"
+  "region"
  ],
  "fields": [
   {
@@ -26,15 +25,6 @@
    "in_list_view": 1,
    "label": "الجهة",
    "options": "Region",
-   "reqd": 1,
-   "search_index": 1
-  },
-  {
-   "fieldname": "workspace",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Workspace",
-   "options": "Workspace",
    "reqd": 1,
    "search_index": 1
   }
@@ -62,7 +52,7 @@
    "write": 1
   }
  ],
- "search_fields": "province_name,region,workspace",
+ "search_fields": "province_name,region",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],

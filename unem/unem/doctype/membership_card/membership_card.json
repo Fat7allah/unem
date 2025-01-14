@@ -62,19 +62,6 @@
    "fieldtype": "Select",
    "label": "حالة البطاقة",
    "options": "المؤداة\nغير المؤداة"
-  },
-  {
-   "fieldname": "workspace",
-   "fieldtype": "Link",
-   "label": "Workspace",
-   "options": "Workspace",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "search_index": 1,
-   "bold": 1,
-   "description": "حدد Workspace",
-   "in_global_search": 1,
-   "in_preview": 1
   }
  ],
  "index_web_pages_for_search": 1,

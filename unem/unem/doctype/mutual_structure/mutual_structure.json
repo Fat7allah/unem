@@ -9,8 +9,7 @@
  "engine": "InnoDB",
  "field_order": [
   "member",
-  "position_type",
-  "role"
+  "position_type"
  ],
  "fields": [
   {
@@ -97,9 +96,5 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "track_changes": 1,
- "workspace": {
-  "page": "List",
-  "view": "List"
- }
+ "track_changes": 1
 }

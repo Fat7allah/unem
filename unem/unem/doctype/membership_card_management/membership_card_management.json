@@ -18,8 +18,7 @@
   "office_share",
   "region_share",
   "province_share",
-  "notes",
-  "workspace"
+  "notes"
  ],
  "fields": [
   {
@@ -142,12 +141,6 @@
    "fieldname": "notes",
    "fieldtype": "Small Text",
    "label": "ملاحظة"
-  },
-  {
-   "fieldname": "workspace",
-   "fieldtype": "Workspace",
-   "label": "Workspace",
-   "updated": 1
   }
  ],
  "index_web_pages_for_search": 1,

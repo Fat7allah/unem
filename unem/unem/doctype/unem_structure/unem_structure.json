@@ -10,8 +10,7 @@
  "field_order": [
   "member",
   "position_type",
-  "role",
-  "workspace"
+  "role"
  ],
  "fields": [
   {
@@ -36,13 +35,6 @@
    "in_list_view": 1,
    "label": "المنصب",
    "options": "الكاتب الوطني\nنائب الكاتب الوطني\nالكاتب العام\nنائب الكاتب العام\nأمين المال\nنائب أمين المال\nمستشار\nمكلف بمهمة"
-  },
-  {
-   "fieldname": "workspace",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Workspace",
-   "options": "Workspace"
   }
  ],
  "index_web_pages_for_search": 1,

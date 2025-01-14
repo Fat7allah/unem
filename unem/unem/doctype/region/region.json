@@ -6,8 +6,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "region_name",
-  "workspace"
+  "region_name"
  ],
  "fields": [
   {
@@ -18,15 +17,6 @@
    "reqd": 1,
    "search_index": 1,
    "unique": 1
-  },
-  {
-   "fieldname": "workspace",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Workspace",
-   "reqd": 1,
-   "search_index": 1,
-   "target": "Workspace"
   }
  ],
  "index_web_pages_for_search": 1,
