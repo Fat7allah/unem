@@ -28,7 +28,7 @@ class UNEMMember(Document):
         
         # Double check province is still set
         frappe.msgprint(f"DEBUG - After Validation: region={self.region}, province={self.province}")
-        
+
     def validate_email(self):
         """
         Validate email format and uniqueness.
@@ -84,66 +84,24 @@ class UNEMMember(Document):
             if province_doc.region != self.region:
                 frappe.throw(f"الإقليم المحدد لا ينتمي إلى {self.region}")
                 
-    def db_insert(self, *args, **kwargs):
-        """
-        Override db_insert to ensure province is saved correctly
-        """
-        frappe.msgprint(f"DEBUG - Before Insert: region={self.region}, province={self.province}")
-        
-        # Ensure we have the province value from validation
-        if hasattr(self.flags, 'temp_province'):
-            self.province = self.flags.temp_province
-            
-        return super(UNEMMember, self).db_insert(*args, **kwargs)
-        
-    def load_from_db(self):
-        """
-        Override load_from_db to ensure province is loaded correctly
-        """
-        super(UNEMMember, self).load_from_db()
-        
-        # Only try to restore province if _doc_before_save exists
-        if hasattr(self, '_doc_before_save') and self._doc_before_save:
-            if 'province' in self._doc_before_save:
-                self.province = self._doc_before_save['province']
-            
-    def as_dict(self, *args, **kwargs):
-        """
-        Override as_dict to ensure province is included in the document dictionary
-        """
-        d = super(UNEMMember, self).as_dict(*args, **kwargs)
-        
-        # Ensure province is included in the dictionary
-        if hasattr(self, 'province'):
-            d['province'] = self.province
-            
-        return d
-
-    def before_insert(self):
-        """
-        Handle data before first insert.
-        """
-        frappe.msgprint(f"DEBUG - Before Insert: region={self.region}, province={self.province}")
-        
-        # Restore province from flags if needed
-        if self.region and self.flags.temp_province:
-            frappe.msgprint(f"DEBUG - Restoring province from flags: {self.flags.temp_province}")
-            self.province = self.flags.temp_province
-            
     def before_save(self):
         """
         Handle data changes before saving.
         """
         frappe.msgprint(f"DEBUG - Before Save: region={self.region}, province={self.province}")
         
-        # Only clear province if region has changed
-        if self.has_value_changed('region'):
-            self.province = ''
-            self.flags.temp_province = None
+        # Ensure province is set from flags if available
+        if not self.province and self.flags.temp_province:
+            self.province = self.flags.temp_province
             
-        # Restore province from flags if needed
-        if self.region and self.flags.temp_province:
-            frappe.msgprint(f"DEBUG - Restoring province from flags: {self.flags.temp_province}")
+    def before_insert(self):
+        """
+        Handle data before first insert.
+        """
+        frappe.msgprint(f"DEBUG - Before Insert: region={self.region}, province={self.province}")
+        
+        # Ensure province is set from flags if available
+        if not self.province and self.flags.temp_province:
             self.province = self.flags.temp_province
             
     def on_update(self):
@@ -169,3 +127,26 @@ class UNEMMember(Document):
             frappe.msgprint(f"DEBUG - Setting province from flags: {self.flags.temp_province}")
             frappe.db.set_value("UNEM Member", self.name, "province", self.flags.temp_province, update_modified=False)
             frappe.db.commit()
+
+    def load_from_db(self):
+        """
+        Override load_from_db to ensure province is loaded correctly
+        """
+        super(UNEMMember, self).load_from_db()
+        
+        # Only try to restore province if _doc_before_save exists
+        if hasattr(self, '_doc_before_save') and self._doc_before_save:
+            if 'province' in self._doc_before_save:
+                self.province = self._doc_before_save['province']
+            
+    def as_dict(self, *args, **kwargs):
+        """
+        Override as_dict to ensure province is included in the document dictionary
+        """
+        d = super(UNEMMember, self).as_dict(*args, **kwargs)
+        
+        # Ensure province is included in the dictionary
+        if hasattr(self, 'province'):
+            d['province'] = self.province
+            
+        return d
