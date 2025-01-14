@@ -30,13 +30,24 @@ app_include_js = ["/assets/unem/js/workspace.js", "/assets/unem/js/breadcrumb_fi
 
 # include js in doctype views
 doctype_js = {
-    "Member": "public/js/member.js",
-    "Membership_Card": "public/js/membership_card.js",
-    "Membership_Card_Management": "public/js/membership_card_management.js",
-    "UNEM_Structure": "public/js/unem_structure.js",
-    "Mutual_Structure": "public/js/mutual_structure.js",
-    "Region": "public/js/region.js",
-    "Province": "public/js/province.js"
+    "Member": "client_scripts/member/member.js",
+    "Membership_Card": "client_scripts/membership_card/membership_card.js",
+    "Membership_Card_Management": "client_scripts/membership_card_management/membership_card_management.js",
+    "UNEM_Structure": "client_scripts/unem_structure/unem_structure.js",
+    "Mutual_Structure": "client_scripts/mutual_structure/mutual_structure.js",
+    "Region": "client_scripts/region/region.js",
+    "Province": "client_scripts/province/province.js"
+}
+
+# DocType workspace routing
+override_doctype_dashboards = {
+    "Member": "member-management",
+    "Membership_Card": "member-management",
+    "Membership_Card_Management": "member-management",
+    "UNEM_Structure": "member-management",
+    "Mutual_Structure": "member-management",
+    "Region": "member-management",
+    "Province": "member-management"
 }
 
 # Module configurations
