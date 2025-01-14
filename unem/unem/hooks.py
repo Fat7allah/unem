@@ -12,7 +12,7 @@ app_license = "MIT"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/unem/css/unem.css"
-app_include_js = ["/assets/unem/js/workspace.js"]
+app_include_js = ["/assets/unem/js/workspace.js", "/assets/unem/js/breadcrumb_fix.js"]
 
 # include js, css files in header of web template
 # web_include_css = "/assets/unem/css/unem.css"
@@ -29,7 +29,15 @@ app_include_js = ["/assets/unem/js/workspace.js"]
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {
+    "Member": "client_scripts/member/member.js",
+    "Membership_Card": "client_scripts/membership_card/membership_card.js",
+    "Membership_Card_Management": "client_scripts/membership_card_management/membership_card_management.js",
+    "UNEM_Structure": "client_scripts/unem_structure/unem_structure.js",
+    "Mutual_Structure": "client_scripts/mutual_structure/mutual_structure.js",
+    "Region": "client_scripts/region/region.js",
+    "Province": "client_scripts/province/province.js"
+}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
