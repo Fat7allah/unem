@@ -1,0 +1,102 @@
+[
+ {
+  "doctype": "Teaching Specialty",
+  "specialty_name": "عربي",
+  "profession": "التدريس الابتدائي"
+ },
+ {
+  "doctype": "Teaching Specialty",
+  "specialty_name": "فرنسي",
+  "profession": "التدريس الابتدائي"
+ },
+ {
+  "doctype": "Teaching Specialty",
+  "specialty_name": "عربية",
+  "profession": "التدريس الإعدادي"
+ },
+ {
+  "doctype": "Teaching Specialty",
+  "specialty_name": "اجتماعيات",
+  "profession": "التدريس الإعدادي"
+ },
+ {
+  "doctype": "Teaching Specialty",
+  "specialty_name": "فرنسية",
+  "profession": "التدريس الإعدادي"
+ },
+ {
+  "doctype": "Teaching Specialty",
+  "specialty_name": "رياضيات",
+  "profession": "التدريس الإعدادي"
+ },
+ {
+  "doctype": "Teaching Specialty",
+  "specialty_name": "أنشطة علمية",
+  "profession": "التدريس الإعدادي"
+ },
+ {
+  "doctype": "Teaching Specialty",
+  "specialty_name": "التربية الاسلامية",
+  "profession": "التدريس الإعدادي"
+ },
+ {
+  "doctype": "Teaching Specialty",
+  "specialty_name": "التربية الفنية",
+  "profession": "التدريس الإعدادي"
+ },
+ {
+  "doctype": "Teaching Specialty",
+  "specialty_name": "الرياضيات",
+  "profession": "التدريس التأهيلي"
+ },
+ {
+  "doctype": "Teaching Specialty",
+  "specialty_name": "الفيزياء الكيمياء",
+  "profession": "التدريس التأهيلي"
+ },
+ {
+  "doctype": "Teaching Specialty",
+  "specialty_name": "علوم الارض",
+  "profession": "التدريس التأهيلي"
+ },
+ {
+  "doctype": "Teaching Specialty",
+  "specialty_name": "الاعلاميات",
+  "profession": "التدريس التأهيلي"
+ },
+ {
+  "doctype": "Teaching Specialty",
+  "specialty_name": "العربية",
+  "profession": "التدريس التأهيلي"
+ },
+ {
+  "doctype": "Teaching Specialty",
+  "specialty_name": "الفرنسية",
+  "profession": "التدريس التأهيلي"
+ },
+ {
+  "doctype": "Teaching Specialty",
+  "specialty_name": "الإنجليزية",
+  "profession": "التدريس التأهيلي"
+ },
+ {
+  "doctype": "Teaching Specialty",
+  "specialty_name": "الاجتماعيات والجغرافيا",
+  "profession": "التدريس التأهيلي"
+ },
+ {
+  "doctype": "Teaching Specialty",
+  "specialty_name": "التربية الاسلامية",
+  "profession": "التدريس التأهيلي"
+ },
+ {
+  "doctype": "Teaching Specialty",
+  "specialty_name": "الفلسفة",
+  "profession": "التدريس التأهيلي"
+ },
+ {
+  "doctype": "Teaching Specialty",
+  "specialty_name": "الاقتصاد",
+  "profession": "التدريس التأهيلي"
+ }
+]

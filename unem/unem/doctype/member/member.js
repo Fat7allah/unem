@@ -37,15 +37,29 @@ frappe.ui.form.on('Member', {
     },
     
     profession: function(frm) {
+        // Set up teaching_specialty filtering based on profession
+        frm.set_query('teaching_specialty', function() {
+            return {
+                filters: {
+                    'profession': frm.doc.profession
+                }
+            };
+        });
+        
+        // Clear teaching_specialty if profession changes
+        if (frm.doc.teaching_specialty) {
+            frm.set_value('teaching_specialty', '');
+        }
+        
+        // Refresh the field to ensure dependencies are re-evaluated
+        frm.refresh_field('teaching_specialty');
+        
         // Debug teaching_specialty visibility
         console.log('Profession changed:', {
             profession: frm.doc.profession,
             isTeaching: ['التدريس الابتدائي', 'التدريس الإعدادي', 'التدريس التأهيلي'].includes(frm.doc.profession),
             teachingSpecialty: frm.doc.teaching_specialty
         });
-        
-        // Refresh the form to ensure dependencies are re-evaluated
-        frm.refresh_field('teaching_specialty');
     }
 });
 
