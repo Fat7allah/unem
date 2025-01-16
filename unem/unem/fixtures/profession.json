@@ -1,130 +1,322 @@
 [
  {
   "doctype": "Profession",
-  "profession_name": "التدريس الابتدائي"
+  "profession_name": "التدريس الابتدائي",
+  "name": "التدريس الابتدائي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 1
  },
  {
   "doctype": "Profession",
-  "profession_name": "التدريس الإعدادي"
+  "profession_name": "التدريس الإعدادي",
+  "name": "التدريس الإعدادي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 2
  },
  {
   "doctype": "Profession",
-  "profession_name": "التدريس التأهيلي"
+  "profession_name": "التدريس التأهيلي",
+  "name": "التدريس التأهيلي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 3
  },
  {
   "doctype": "Profession",
-  "profession_name": "متصرف تربوي"
+  "profession_name": "متصرف تربوي",
+  "name": "متصرف تربوي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 4
  },
  {
   "doctype": "Profession",
-  "profession_name": "متصرف وزارة التربية الوطنية"
+  "profession_name": "متصرف وزارة التربية الوطنية",
+  "name": "متصرف وزارة التربية الوطنية",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 5
  },
  {
   "doctype": "Profession",
-  "profession_name": "متصرف الأطر المشتركة"
+  "profession_name": "متصرف الأطر المشتركة",
+  "name": "متصرف الأطر المشتركة",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 6
  },
  {
   "doctype": "Profession",
-  "profession_name": "مختص الإدارة و الاقتصاد"
+  "profession_name": "مختص الإدارة و الاقتصاد",
+  "name": "مختص الإدارة و الاقتصاد",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 7
  },
  {
   "doctype": "Profession",
-  "profession_name": "مختص تربوي"
+  "profession_name": "مختص تربوي",
+  "name": "مختص تربوي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 8
  },
  {
   "doctype": "Profession",
-  "profession_name": "مختص اجتماعي"
+  "profession_name": "مختص اجتماعي",
+  "name": "مختص اجتماعي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 9
  },
  {
   "doctype": "Profession",
-  "profession_name": "مستشار في التوجيه"
+  "profession_name": "مستشار في التوجيه",
+  "name": "مستشار في التوجيه",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 10
  },
  {
   "doctype": "Profession",
-  "profession_name": "مستشار في التخطيط"
+  "profession_name": "مستشار في التخطيط",
+  "name": "مستشار في التخطيط",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 11
  },
  {
   "doctype": "Profession",
-  "profession_name": "مفتش ابتدائي"
+  "profession_name": "مفتش ابتدائي",
+  "name": "مفتش ابتدائي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 12
  },
  {
   "doctype": "Profession",
-  "profession_name": "مفتش ثانوي"
+  "profession_name": "مفتش ثانوي",
+  "name": "مفتش ثانوي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 13
  },
  {
   "doctype": "Profession",
-  "profession_name": "مفتش في التوجيه"
+  "profession_name": "مفتش في التوجيه",
+  "name": "مفتش في التوجيه",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 14
  },
  {
   "doctype": "Profession",
-  "profession_name": "مفتش في التخطيط"
+  "profession_name": "مفتش في التخطيط",
+  "name": "مفتش في التخطيط",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 15
  },
  {
   "doctype": "Profession",
-  "profession_name": "مفتش المصالح المالية و المادية"
+  "profession_name": "مفتش المصالح المالية و المادية",
+  "name": "مفتش المصالح المالية و المادية",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 16
  },
  {
   "doctype": "Profession",
-  "profession_name": "ممون"
+  "profession_name": "ممون",
+  "name": "ممون",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 17
  },
  {
   "doctype": "Profession",
-  "profession_name": "مساعد تربوي"
+  "profession_name": "مساعد تربوي",
+  "name": "مساعد تربوي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 18
  },
  {
   "doctype": "Profession",
-  "profession_name": "تقني"
+  "profession_name": "تقني",
+  "name": "تقني",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 19
  },
  {
   "doctype": "Profession",
-  "profession_name": "طبيب"
+  "profession_name": "طبيب",
+  "name": "طبيب",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 20
  },
  {
   "doctype": "Profession",
-  "profession_name": "مبرز"
+  "profession_name": "مبرز",
+  "name": "مبرز",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 21
  },
  {
   "doctype": "Profession",
-  "profession_name": "محرر"
+  "profession_name": "محرر",
+  "name": "محرر",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 22
  },
  {
   "doctype": "Profession",
-  "profession_name": "مدير"
+  "profession_name": "مدير",
+  "name": "مدير",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 23
  },
  {
   "doctype": "Profession",
-  "profession_name": "ناظر"
+  "profession_name": "ناظر",
+  "name": "ناظر",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 24
  },
  {
   "doctype": "Profession",
-  "profession_name": "حارس عام"
+  "profession_name": "حارس عام",
+  "name": "حارس عام",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 25
  },
  {
   "doctype": "Profession",
-  "profession_name": "متفرغ"
+  "profession_name": "متفرغ",
+  "name": "متفرغ",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 26
  },
  {
   "doctype": "Profession",
-  "profession_name": "متصرف"
+  "profession_name": "متصرف",
+  "name": "متصرف",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 27
  },
  {
   "doctype": "Profession",
-  "profession_name": "إطار تربوي"
+  "profession_name": "إطار تربوي",
+  "name": "إطار تربوي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 28
  },
  {
   "doctype": "Profession",
-  "profession_name": "إطار إجتماعي"
+  "profession_name": "إطار إجتماعي",
+  "name": "إطار إجتماعي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 29
  },
  {
   "doctype": "Profession",
-  "profession_name": "إطار التعليم العالي"
+  "profession_name": "إطار التعليم العالي",
+  "name": "إطار التعليم العالي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 30
  },
  {
   "doctype": "Profession",
-  "profession_name": "إطار الإدارة والاقتصاد"
+  "profession_name": "إطار الإدارة والاقتصاد",
+  "name": "إطار الإدارة والاقتصاد",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 31
  },
  {
   "doctype": "Profession",
-  "profession_name": "مهندس"
+  "profession_name": "مهندس",
+  "name": "مهندس",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 32
  }
 ]

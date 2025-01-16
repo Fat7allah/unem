@@ -2,101 +2,221 @@
  {
   "doctype": "Teaching Specialty",
   "specialty_name": "عربي",
-  "profession": "التدريس الابتدائي"
+  "name": "عربي-التدريس الابتدائي",
+  "profession": "التدريس الابتدائي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 1
  },
  {
   "doctype": "Teaching Specialty",
   "specialty_name": "فرنسي",
-  "profession": "التدريس الابتدائي"
+  "name": "فرنسي-التدريس الابتدائي",
+  "profession": "التدريس الابتدائي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 2
  },
  {
   "doctype": "Teaching Specialty",
   "specialty_name": "عربية",
-  "profession": "التدريس الإعدادي"
+  "name": "عربية-التدريس الإعدادي",
+  "profession": "التدريس الإعدادي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 3
  },
  {
   "doctype": "Teaching Specialty",
   "specialty_name": "اجتماعيات",
-  "profession": "التدريس الإعدادي"
+  "name": "اجتماعيات-التدريس الإعدادي",
+  "profession": "التدريس الإعدادي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 4
  },
  {
   "doctype": "Teaching Specialty",
   "specialty_name": "فرنسية",
-  "profession": "التدريس الإعدادي"
+  "name": "فرنسية-التدريس الإعدادي",
+  "profession": "التدريس الإعدادي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 5
  },
  {
   "doctype": "Teaching Specialty",
   "specialty_name": "رياضيات",
-  "profession": "التدريس الإعدادي"
+  "name": "رياضيات-التدريس الإعدادي",
+  "profession": "التدريس الإعدادي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 6
  },
  {
   "doctype": "Teaching Specialty",
   "specialty_name": "أنشطة علمية",
-  "profession": "التدريس الإعدادي"
+  "name": "أنشطة علمية-التدريس الإعدادي",
+  "profession": "التدريس الإعدادي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 7
  },
  {
   "doctype": "Teaching Specialty",
   "specialty_name": "التربية الاسلامية",
-  "profession": "التدريس الإعدادي"
+  "name": "التربية الاسلامية-التدريس الإعدادي",
+  "profession": "التدريس الإعدادي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 8
  },
  {
   "doctype": "Teaching Specialty",
   "specialty_name": "التربية الفنية",
-  "profession": "التدريس الإعدادي"
+  "name": "التربية الفنية-التدريس الإعدادي",
+  "profession": "التدريس الإعدادي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 9
  },
  {
   "doctype": "Teaching Specialty",
   "specialty_name": "الرياضيات",
-  "profession": "التدريس التأهيلي"
+  "name": "الرياضيات-التدريس التأهيلي",
+  "profession": "التدريس التأهيلي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 10
  },
  {
   "doctype": "Teaching Specialty",
   "specialty_name": "الفيزياء الكيمياء",
-  "profession": "التدريس التأهيلي"
+  "name": "الفيزياء الكيمياء-التدريس التأهيلي",
+  "profession": "التدريس التأهيلي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 11
  },
  {
   "doctype": "Teaching Specialty",
   "specialty_name": "علوم الارض",
-  "profession": "التدريس التأهيلي"
+  "name": "علوم الارض-التدريس التأهيلي",
+  "profession": "التدريس التأهيلي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 12
  },
  {
   "doctype": "Teaching Specialty",
   "specialty_name": "الاعلاميات",
-  "profession": "التدريس التأهيلي"
+  "name": "الاعلاميات-التدريس التأهيلي",
+  "profession": "التدريس التأهيلي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 13
  },
  {
   "doctype": "Teaching Specialty",
   "specialty_name": "العربية",
-  "profession": "التدريس التأهيلي"
+  "name": "العربية-التدريس التأهيلي",
+  "profession": "التدريس التأهيلي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 14
  },
  {
   "doctype": "Teaching Specialty",
   "specialty_name": "الفرنسية",
-  "profession": "التدريس التأهيلي"
+  "name": "الفرنسية-التدريس التأهيلي",
+  "profession": "التدريس التأهيلي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 15
  },
  {
   "doctype": "Teaching Specialty",
   "specialty_name": "الإنجليزية",
-  "profession": "التدريس التأهيلي"
+  "name": "الإنجليزية-التدريس التأهيلي",
+  "profession": "التدريس التأهيلي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 16
  },
  {
   "doctype": "Teaching Specialty",
   "specialty_name": "الاجتماعيات والجغرافيا",
-  "profession": "التدريس التأهيلي"
+  "name": "الاجتماعيات والجغرافيا-التدريس التأهيلي",
+  "profession": "التدريس التأهيلي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 17
  },
  {
   "doctype": "Teaching Specialty",
   "specialty_name": "التربية الاسلامية",
-  "profession": "التدريس التأهيلي"
+  "name": "التربية الاسلامية-التدريس التأهيلي",
+  "profession": "التدريس التأهيلي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 18
  },
  {
   "doctype": "Teaching Specialty",
   "specialty_name": "الفلسفة",
-  "profession": "التدريس التأهيلي"
+  "name": "الفلسفة-التدريس التأهيلي",
+  "profession": "التدريس التأهيلي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 19
  },
  {
   "doctype": "Teaching Specialty",
   "specialty_name": "الاقتصاد",
-  "profession": "التدريس التأهيلي"
+  "name": "الاقتصاد-التدريس التأهيلي",
+  "profession": "التدريس التأهيلي",
+  "owner": "Administrator",
+  "creation": "2025-01-16 09:47:23.000000",
+  "modified": "2025-01-16 09:47:23.000000",
+  "modified_by": "Administrator",
+  "idx": 20
  }
 ]
