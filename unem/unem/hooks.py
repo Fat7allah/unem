@@ -91,6 +91,9 @@ workspace_doctypes = {
     "Province": "member-management"
 }
 
+# Installation
+after_install = "unem.setup.landing_page.after_install"
+
 # Fixtures
 fixtures = [
     {
@@ -140,9 +143,6 @@ website_route_rules = [
 website_context = {
     "home_page": "index"
 }
-
-# Installation
-after_install = "unem.setup.landing_page.after_install"
 
 # Boot Info
 boot_session = "unem.startup.boot.boot_session"
