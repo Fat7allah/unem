@@ -15,7 +15,7 @@ frappe.ui.form.on('Member', {
             setupProvinceField(frm);
         }
         if (frm.doc.profession) {
-            setupTeachingSpecialtyField(frm);
+            setupSpecialtyField(frm);
         }
     },
     
@@ -25,7 +25,7 @@ frappe.ui.form.on('Member', {
             setupProvinceField(frm);
         }
         if (frm.doc.profession) {
-            setupTeachingSpecialtyField(frm);
+            setupSpecialtyField(frm);
         }
     },
     
@@ -43,16 +43,16 @@ frappe.ui.form.on('Member', {
     },
     
     profession: function(frm) {
-        // Reset and reinitialize teaching_specialty when profession changes
-        frm.set_value('teaching_specialty', '');
+        // Reset specialty when profession changes
+        frm.set_value('specialty', '');
         
         if (frm.doc.profession) {
-            setupTeachingSpecialtyField(frm);
+            setupSpecialtyField(frm);
         }
     },
     
-    teaching_specialty: function(frm) {
-        validateTeachingSpecialty(frm);
+    specialty: function(frm) {
+        validateSpecialty(frm);
     }
 });
 
@@ -71,17 +71,19 @@ function setupProvinceField(frm) {
 }
 
 /**
- * Sets up teaching_specialty field filtering based on selected profession.
+ * Sets up specialty field filtering based on selected profession.
  * @param {Object} frm - The form object
  */
-function setupTeachingSpecialtyField(frm) {
-    frm.set_query('teaching_specialty', function() {
-        return {
-            filters: {
-                'profession': frm.doc.profession
-            }
-        };
-    });
+function setupSpecialtyField(frm) {
+    if (['التدريس الابتدائي', 'التدريس الإعدادي', 'التدريس التأهيلي'].includes(frm.doc.profession)) {
+        frm.set_query('specialty', function() {
+            return {
+                filters: {
+                    'profession': frm.doc.profession
+                }
+            };
+        });
+    }
 }
 
 /**
@@ -90,46 +92,30 @@ function setupTeachingSpecialtyField(frm) {
  * @param {Object} frm - The form object
  */
 function validateProvince(frm) {
-    if (!frm.doc.province) return;
-    
-    // Ensure region is selected before province
-    if (!frm.doc.region) {
-        frm.set_value('province', '');
-        frappe.throw(__('يجب تحديد الجهة أولاً'));
-        return;
+    if (frm.doc.province && frm.doc.region) {
+        frappe.db.get_value('Province', frm.doc.province, 'region')
+            .then(r => {
+                if (r.message && r.message.region !== frm.doc.region) {
+                    frm.set_value('province', '');
+                    frappe.throw(__('Selected province does not belong to the selected region'));
+                }
+            });
     }
-    
-    // Validate province belongs to selected region
-    frappe.db.get_value('Province', frm.doc.province, 'region')
-        .then(r => {
-            if (r.message && r.message.region !== frm.doc.region) {
-                frm.set_value('province', '');
-                frappe.throw(__(`الإقليم المحدد لا ينتمي إلى ${frm.doc.region}`));
-            }
-        });
 }
 
 /**
- * Validates that selected teaching specialty belongs to selected profession.
- * Clears teaching_specialty and shows error if validation fails.
+ * Validates that selected specialty belongs to selected profession.
+ * Clears specialty and shows error if validation fails.
  * @param {Object} frm - The form object
  */
-function validateTeachingSpecialty(frm) {
-    if (!frm.doc.teaching_specialty) return;
-    
-    // Ensure profession is selected before teaching_specialty
-    if (!frm.doc.profession) {
-        frm.set_value('teaching_specialty', '');
-        frappe.throw(__('يجب تحديد المهنة أولاً'));
-        return;
+function validateSpecialty(frm) {
+    if (frm.doc.specialty && frm.doc.profession) {
+        frappe.db.get_value('Specialty', frm.doc.specialty, 'profession')
+            .then(r => {
+                if (r.message && r.message.profession !== frm.doc.profession) {
+                    frm.set_value('specialty', '');
+                    frappe.throw(__('Selected specialty does not belong to the selected profession'));
+                }
+            });
     }
-    
-    // Validate teaching_specialty belongs to selected profession
-    frappe.db.get_value('Teaching Specialty', frm.doc.teaching_specialty, 'profession')
-        .then(r => {
-            if (r.message && r.message.profession !== frm.doc.profession) {
-                frm.set_value('teaching_specialty', '');
-                frappe.throw(__(`التخصص المحدد لا ينتمي إلى ${frm.doc.profession}`));
-            }
-        });
 }

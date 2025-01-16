@@ -13,6 +13,8 @@
   "academic_year",
   "phone",
   "email",
+  "profession",
+  "specialty",
   "education_level",
   "region",
   "province",
@@ -69,6 +71,25 @@
    "options": "Email"
   },
   {
+   "fieldname": "profession",
+   "fieldtype": "Link",
+   "label": "المهنة",
+   "options": "Profession",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "depends_on": "eval:['التدريس الابتدائي', 'التدريس الإعدادي', 'التدريس التأهيلي'].includes(doc.profession)",
+   "fieldname": "specialty",
+   "fieldtype": "Link",
+   "label": "التخصص",
+   "options": "Specialty",
+   "mandatory_depends_on": "eval:['التدريس الابتدائي', 'التدريس الإعدادي', 'التدريس التأهيلي'].includes(doc.profession)",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
    "fieldname": "education_level",
    "fieldtype": "Select",
    "label": "المستوى الدراسي",
@@ -118,7 +139,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-14 21:09:27.000000",
+ "modified": "2025-01-16 19:50:23.000000",
  "modified_by": "Administrator",
  "module": "UNEM",
  "name": "Member",

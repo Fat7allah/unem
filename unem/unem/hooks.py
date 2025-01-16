@@ -107,6 +107,14 @@ fixtures = [
     {
         "doctype": "Province",
         "filters": [["name", "like", "%"]]
+    },
+    {
+        "doctype": "Profession",
+        "filters": [["name", "like", "%"]]
+    },
+    {
+        "doctype": "Specialty",
+        "filters": [["name", "like", "%"]]
     }
 ]
 
