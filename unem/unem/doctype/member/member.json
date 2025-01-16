@@ -13,8 +13,6 @@
   "academic_year",
   "phone",
   "email",
-  "profession",
-  "teaching_specialty",
   "education_level",
   "region",
   "province",
@@ -69,25 +67,6 @@
    "fieldtype": "Data",
    "label": "البريد الإلكتروني",
    "options": "Email"
-  },
-  {
-   "fieldname": "profession",
-   "fieldtype": "Link",
-   "label": "المهنة",
-   "options": "Profession",
-   "reqd": 1,
-   "in_list_view": 1,
-   "in_standard_filter": 1
-  },
-  {
-   "depends_on": "eval:['التدريس الابتدائي', 'التدريس الإعدادي', 'التدريس التأهيلي'].includes(doc.profession)",
-   "fieldname": "teaching_specialty",
-   "fieldtype": "Link",
-   "label": "التخصص",
-   "options": "Teaching Specialty",
-   "mandatory_depends_on": "eval:['التدريس الابتدائي', 'التدريس الإعدادي', 'التدريس التأهيلي'].includes(doc.profession)",
-   "in_list_view": 1,
-   "in_standard_filter": 1
   },
   {
    "fieldname": "education_level",
