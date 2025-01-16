@@ -34,6 +34,18 @@ frappe.ui.form.on('Member', {
     
     province: function(frm) {
         validateProvince(frm);
+    },
+    
+    profession: function(frm) {
+        // Debug teaching_specialty visibility
+        console.log('Profession changed:', {
+            profession: frm.doc.profession,
+            isTeaching: ['التدريس الابتدائي', 'التدريس الإعدادي', 'التدريس التأهيلي'].includes(frm.doc.profession),
+            teachingSpecialty: frm.doc.teaching_specialty
+        });
+        
+        // Refresh the form to ensure dependencies are re-evaluated
+        frm.refresh_field('teaching_specialty');
     }
 });
 
