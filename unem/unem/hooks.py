@@ -94,8 +94,24 @@ workspace_doctypes = {
 # Fixtures
 fixtures = [
     {
-        "dt": "Workspace",
+        "doctype": "Workspace",
         "filters": [["name", "in", ["member-management"]]]
+    },
+    {
+        "doctype": "Region",
+        "filters": [["name", "like", "%"]]
+    },
+    {
+        "doctype": "Province",
+        "filters": [["name", "like", "%"]]
+    },
+    {
+        "doctype": "Profession",
+        "filters": [["name", "like", "%"]]
+    },
+    {
+        "doctype": "Teaching Specialty",
+        "filters": [["name", "like", "%"]]
     }
 ]
 

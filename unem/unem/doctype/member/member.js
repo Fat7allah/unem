@@ -3,23 +3,29 @@
 
 /**
  * Client-side form controller for Member DocType.
- * Handles province field validation and filtering based on selected region.
+ * Handles field validation and filtering.
  */
 frappe.ui.form.on('Member', {
     refresh: function(frm) {
         // Set RTL for Arabic interface
         $('body').attr('dir', 'rtl');
         
-        // Initialize province field filtering if region exists
+        // Initialize fields filtering
         if (frm.doc.region) {
             setupProvinceField(frm);
+        }
+        if (frm.doc.profession) {
+            setupTeachingSpecialtyField(frm);
         }
     },
     
     onload: function(frm) {
-        // Initialize province field filtering on form load
+        // Initialize fields filtering on form load
         if (frm.doc.region) {
             setupProvinceField(frm);
+        }
+        if (frm.doc.profession) {
+            setupTeachingSpecialtyField(frm);
         }
     },
     
@@ -37,29 +43,16 @@ frappe.ui.form.on('Member', {
     },
     
     profession: function(frm) {
-        // Set up teaching_specialty filtering based on profession
-        frm.set_query('teaching_specialty', function() {
-            return {
-                filters: {
-                    'profession': frm.doc.profession
-                }
-            };
-        });
+        // Reset and reinitialize teaching_specialty when profession changes
+        frm.set_value('teaching_specialty', '');
         
-        // Clear teaching_specialty if profession changes
-        if (frm.doc.teaching_specialty) {
-            frm.set_value('teaching_specialty', '');
+        if (frm.doc.profession) {
+            setupTeachingSpecialtyField(frm);
         }
-        
-        // Refresh the field to ensure dependencies are re-evaluated
-        frm.refresh_field('teaching_specialty');
-        
-        // Debug teaching_specialty visibility
-        console.log('Profession changed:', {
-            profession: frm.doc.profession,
-            isTeaching: ['التدريس الابتدائي', 'التدريس الإعدادي', 'التدريس التأهيلي'].includes(frm.doc.profession),
-            teachingSpecialty: frm.doc.teaching_specialty
-        });
+    },
+    
+    teaching_specialty: function(frm) {
+        validateTeachingSpecialty(frm);
     }
 });
 
@@ -72,6 +65,20 @@ function setupProvinceField(frm) {
         return {
             filters: {
                 'region': frm.doc.region
+            }
+        };
+    });
+}
+
+/**
+ * Sets up teaching_specialty field filtering based on selected profession.
+ * @param {Object} frm - The form object
+ */
+function setupTeachingSpecialtyField(frm) {
+    frm.set_query('teaching_specialty', function() {
+        return {
+            filters: {
+                'profession': frm.doc.profession
             }
         };
     });
@@ -98,6 +105,31 @@ function validateProvince(frm) {
             if (r.message && r.message.region !== frm.doc.region) {
                 frm.set_value('province', '');
                 frappe.throw(__(`الإقليم المحدد لا ينتمي إلى ${frm.doc.region}`));
+            }
+        });
+}
+
+/**
+ * Validates that selected teaching specialty belongs to selected profession.
+ * Clears teaching_specialty and shows error if validation fails.
+ * @param {Object} frm - The form object
+ */
+function validateTeachingSpecialty(frm) {
+    if (!frm.doc.teaching_specialty) return;
+    
+    // Ensure profession is selected before teaching_specialty
+    if (!frm.doc.profession) {
+        frm.set_value('teaching_specialty', '');
+        frappe.throw(__('يجب تحديد المهنة أولاً'));
+        return;
+    }
+    
+    // Validate teaching_specialty belongs to selected profession
+    frappe.db.get_value('Teaching Specialty', frm.doc.teaching_specialty, 'profession')
+        .then(r => {
+            if (r.message && r.message.profession !== frm.doc.profession) {
+                frm.set_value('teaching_specialty', '');
+                frappe.throw(__(`التخصص المحدد لا ينتمي إلى ${frm.doc.profession}`));
             }
         });
 }
