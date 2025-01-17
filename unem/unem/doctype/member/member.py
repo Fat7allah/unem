@@ -28,7 +28,10 @@ class Member(Document):
         
         # Double check province is still set
         frappe.msgprint(f"DEBUG - After Validation: region={self.region}, province={self.province}")
-
+        
+        # Set title as First Name Last Name
+        self.title = f"{self.first_name} {self.last_name}"
+        
     def validate_email(self):
         """
         Validate email format and uniqueness.
@@ -154,9 +157,6 @@ class Member(Document):
     def autoname(self):
         """Set name as MEM-#### and title as First Name Last Name"""
         self.name = frappe.model.naming.make_autoname("MEM-.####")
-        
-    def format_name(self):
-        """Format the member's name as a combination of first and last name"""
         self.title = f"{self.first_name} {self.last_name}"
 
 @frappe.whitelist()
