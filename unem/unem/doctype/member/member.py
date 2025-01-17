@@ -151,6 +151,14 @@ class Member(Document):
             
         return d
 
+    def autoname(self):
+        """Set name as MEM-#### and title as First Name Last Name"""
+        self.name = frappe.model.naming.make_autoname("MEM-.####")
+        
+    def format_name(self):
+        """Format the member's name as a combination of first and last name"""
+        self.title = f"{self.first_name} {self.last_name}"
+
 @frappe.whitelist()
 def get_provinces(doctype, txt, searchfield, start, page_len, filters=None):
     """

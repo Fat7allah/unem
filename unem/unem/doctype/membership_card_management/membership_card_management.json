@@ -10,8 +10,8 @@
   "region",
   "province",
   "academic_year",
-  "receipt_number",
   "card_count",
+  "receipt_number",
   "total_amount",
   "payment",
   "remaining_balance",
@@ -67,20 +67,20 @@
    "bold": 1
   },
   {
-   "fieldname": "receipt_number",
-   "fieldtype": "Data",
-   "label": "عدد الوصل",
-   "reqd": 1,
-   "in_list_view": 1,
-   "search_index": 1
-  },
-  {
    "fieldname": "card_count",
    "fieldtype": "Int",
    "label": "عدد البطاقات",
    "reqd": 1,
    "in_list_view": 1,
    "default": "0"
+  },
+  {
+   "fieldname": "receipt_number",
+   "fieldtype": "Data",
+   "label": "عدد الوصل",
+   "reqd": 1,
+   "in_list_view": 1,
+   "search_index": 1
   },
   {
    "fieldname": "total_amount",
