@@ -25,11 +25,13 @@ class Member(Document):
         self.validate_email()
         self.validate_phone()
         self.validate_province()
+        self.set_title()
         
         # Double check province is still set
         frappe.msgprint(f"DEBUG - After Validation: region={self.region}, province={self.province}")
         
-        # Set title as First Name Last Name
+    def set_title(self):
+        """Set title as First Name Last Name"""
         self.title = f"{self.first_name} {self.last_name}"
         
     def validate_email(self):

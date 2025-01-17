@@ -9,9 +9,6 @@
  "engine": "InnoDB",
  "field_order": [
   "member",
-  "member_name",
-  "member_first_name",
-  "member_last_name",
   "position_type",
   "role"
  ],
@@ -24,31 +21,8 @@
    "reqd": 1,
    "fetch_from": "member.first_name,member.last_name",
    "in_list_view": 1,
-   "in_standard_filter": 1
-  },
-  {
-   "fieldname": "member_name",
-   "fieldtype": "Data",
-   "label": "إسم العضو",
-   "fetch_from": "member.title",
-   "in_list_view": 1,
-   "read_only": 1
-  },
-  {
-   "fieldname": "member_first_name",
-   "fieldtype": "Data",
-   "label": "الإسم الشخصي",
-   "fetch_from": "member.first_name",
-   "in_list_view": 1,
-   "read_only": 1
-  },
-  {
-   "fieldname": "member_last_name",
-   "fieldtype": "Data",
-   "label": "الإسم العائلي",
-   "fetch_from": "member.last_name",
-   "in_list_view": 1,
-   "read_only": 1
+   "in_standard_filter": 1,
+   "link_display_field": "title"
   },
   {
    "fieldname": "position_type",
